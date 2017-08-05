@@ -1,0 +1,10 @@
+# Xcode
+xcuserdata
+*.xcuserstate
+
+# Carthage
+Carthage
+Carthage Cache
+
+# Other
+.DS_Store
