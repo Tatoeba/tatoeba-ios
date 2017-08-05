@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB29928B1F3640AB00B88C22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB29928A1F3640AB00B88C22 /* AppDelegate.swift */; };
-		EB29928D1F3640AB00B88C22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB29928C1F3640AB00B88C22 /* ViewController.swift */; };
-		EB2992901F3640AB00B88C22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB29928E1F3640AB00B88C22 /* Main.storyboard */; };
 		EB2992921F3640AB00B88C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB2992911F3640AB00B88C22 /* Assets.xcassets */; };
-		EB2992951F3640AB00B88C22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2992931F3640AB00B88C22 /* LaunchScreen.storyboard */; };
 		EB2992A01F3640AB00B88C22 /* TatoebaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB29929F1F3640AB00B88C22 /* TatoebaTests.swift */; };
 		EB2992AB1F3640AB00B88C22 /* TatoebaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2992AA1F3640AB00B88C22 /* TatoebaUITests.swift */; };
+		EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */; };
+		EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */; };
+		EBDB5C5C1F36825C00BAAEF1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C591F36825C00BAAEF1 /* Info.plist */; };
+		EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */; };
+		EBDB5C5E1F36825C00BAAEF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5B1F36825C00BAAEF1 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +36,18 @@
 
 /* Begin PBXFileReference section */
 		EB2992871F3640AB00B88C22 /* Tatoeba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tatoeba.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB29928A1F3640AB00B88C22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB29928C1F3640AB00B88C22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EB29928F1F3640AB00B88C22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB2992911F3640AB00B88C22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EB2992941F3640AB00B88C22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EB2992961F3640AB00B88C22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB29929B1F3640AB00B88C22 /* TatoebaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TatoebaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB29929F1F3640AB00B88C22 /* TatoebaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TatoebaTests.swift; sourceTree = "<group>"; };
 		EB2992A11F3640AB00B88C22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB2992A61F3640AB00B88C22 /* TatoebaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TatoebaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2992AA1F3640AB00B88C22 /* TatoebaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TatoebaUITests.swift; sourceTree = "<group>"; };
 		EB2992AC1F3640AB00B88C22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
+		EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
+		EBDB5C591F36825C00BAAEF1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
+		EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Application/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EBDB5C5B1F36825C00BAAEF1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Application/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +98,9 @@
 		EB2992891F3640AB00B88C22 /* Tatoeba */ = {
 			isa = PBXGroup;
 			children = (
-				EB29928A1F3640AB00B88C22 /* AppDelegate.swift */,
-				EB29928C1F3640AB00B88C22 /* ViewController.swift */,
-				EB29928E1F3640AB00B88C22 /* Main.storyboard */,
+				EBDB5C541F36820C00BAAEF1 /* View Controllers */,
+				EBDB5C511F3681C800BAAEF1 /* Application */,
 				EB2992911F3640AB00B88C22 /* Assets.xcassets */,
-				EB2992931F3640AB00B88C22 /* LaunchScreen.storyboard */,
-				EB2992961F3640AB00B88C22 /* Info.plist */,
 			);
 			path = Tatoeba;
 			sourceTree = "<group>";
@@ -123,6 +121,25 @@
 				EB2992AC1F3640AB00B88C22 /* Info.plist */,
 			);
 			path = TatoebaUITests;
+			sourceTree = "<group>";
+		};
+		EBDB5C511F3681C800BAAEF1 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */,
+				EBDB5C591F36825C00BAAEF1 /* Info.plist */,
+				EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */,
+				EBDB5C5B1F36825C00BAAEF1 /* Main.storyboard */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		EBDB5C541F36820C00BAAEF1 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,9 +250,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB2992951F3640AB00B88C22 /* LaunchScreen.storyboard in Resources */,
+				EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */,
+				EBDB5C5C1F36825C00BAAEF1 /* Info.plist in Resources */,
 				EB2992921F3640AB00B88C22 /* Assets.xcassets in Resources */,
-				EB2992901F3640AB00B88C22 /* Main.storyboard in Resources */,
+				EBDB5C5E1F36825C00BAAEF1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,8 +278,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB29928D1F3640AB00B88C22 /* ViewController.swift in Sources */,
-				EB29928B1F3640AB00B88C22 /* AppDelegate.swift in Sources */,
+				EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */,
+				EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,25 +313,6 @@
 			targetProxy = EB2992A71F3640AB00B88C22 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		EB29928E1F3640AB00B88C22 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EB29928F1F3640AB00B88C22 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EB2992931F3640AB00B88C22 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EB2992941F3640AB00B88C22 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EB2992AD1F3640AB00B88C22 /* Debug */ = {
@@ -416,7 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 59PUM5CV3T;
-				INFOPLIST_FILE = Tatoeba/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Tatoeba/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.tatoeba.Tatoeba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -429,7 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 59PUM5CV3T;
-				INFOPLIST_FILE = Tatoeba/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Tatoeba/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.tatoeba.Tatoeba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
