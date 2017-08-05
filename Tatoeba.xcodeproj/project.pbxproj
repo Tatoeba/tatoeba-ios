@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					EB2992861F3640AB00B88C22 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 59PUM5CV3T;
 						ProvisioningStyle = Automatic;
 					};
 					EB29929A1F3640AB00B88C22 = {
@@ -414,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 59PUM5CV3T;
 				INFOPLIST_FILE = Tatoeba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.tatoeba.Tatoeba;
@@ -426,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 59PUM5CV3T;
 				INFOPLIST_FILE = Tatoeba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.tatoeba.Tatoeba;
@@ -507,6 +510,7 @@
 				EB2992B11F3640AB00B88C22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB2992B21F3640AB00B88C22 /* Build configuration list for PBXNativeTarget "TatoebaTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +519,7 @@
 				EB2992B41F3640AB00B88C22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB2992B51F3640AB00B88C22 /* Build configuration list for PBXNativeTarget "TatoebaUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +528,7 @@
 				EB2992B71F3640AB00B88C22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
