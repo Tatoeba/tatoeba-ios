@@ -21,7 +21,7 @@ struct Contribution {
     let sentenceId: Int
     
     /// The language of the sentence linked to this contribution.
-    let sentenceLanguage: String
+    let sentenceLanguage: Language
     
     /// The new sentence text.
     let text: String

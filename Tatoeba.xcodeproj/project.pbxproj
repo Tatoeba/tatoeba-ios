@@ -23,6 +23,7 @@
 		EB462D441F378D6A00CFE427 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D431F378D6A00CFE427 /* SettingCell.swift */; };
 		EB462D461F379B4400CFE427 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */; };
 		EBB5E9BC1F37A89100D03E55 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9BB1F37A89100D03E55 /* ImageManager.swift */; };
+		EBB5E9BE1F37B07600D03E55 /* FlagImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9BD1F37B07600D03E55 /* FlagImageRequest.swift */; };
 		EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */; };
 		EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */; };
 		EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */; };
@@ -71,6 +72,7 @@
 		EB462D431F378D6A00CFE427 /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "Common/Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		EBB5E9BB1F37A89100D03E55 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManager.swift; path = Common/Managers/ImageManager.swift; sourceTree = "<group>"; };
+		EBB5E9BD1F37B07600D03E55 /* FlagImageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagImageRequest.swift; sourceTree = "<group>"; };
 		EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
 		EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
 		EBDB5C591F36825C00BAAEF1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				EB462D391F37861000CFE427 /* ContributionsRequest.swift */,
 				EB462D3A1F37861000CFE427 /* ImageRequest.swift */,
 				EB462D3B1F37861000CFE427 /* ProfileImageRequest.swift */,
+				EBB5E9BD1F37B07600D03E55 /* FlagImageRequest.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBDB5C651F36903400BAAEF1 /* ContributionCell.swift in Sources */,
+				EBB5E9BE1F37B07600D03E55 /* FlagImageRequest.swift in Sources */,
 				EB462D461F379B4400CFE427 /* UIColor+Extensions.swift in Sources */,
 				EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */,
 				EB462D371F37860900CFE427 /* Date+Extensions.swift in Sources */,
