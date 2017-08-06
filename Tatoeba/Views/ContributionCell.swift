@@ -21,23 +21,13 @@ class ContributionCell: UITableViewCell {
     
     var contribution: Contribution? = nil {
         didSet {
-            guard let contribution = contribution, let imageURL = URL(string: "http://localhost:8080/img/profiles_128/\(contribution.user.imagePath)") else {
+            guard let contribution = contribution else {
                 return
             }
             
-            let session = URLSession(configuration: .default)
-            
-            let task = session.dataTask(with: imageURL) { data, response, error in
-                guard let data = data, let image = UIImage(data: data) else {
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.profileImageView.image = image
-                }
+            ProfileImageRequest(user: contribution.user).start { image in
+                self.profileImageView.image = image
             }
-            
-            task.resume()
             
             let title: String
             

@@ -8,16 +8,22 @@
 
 import SwiftyJSON
 
-class ContributionsRequest: TatoebaRequest {
+final class ContributionsRequest: TatoebaRequest {
     
+    typealias ResponseData = JSON
     typealias Value = [Contribution]
     
     var endpoint: String {
         return "/contributions"
     }
     
+    var responseType: TatoebaResponseType {
+        return .json
+    }
+    
     func handleRequest(_ json: JSON?, _ completion: @escaping ([Contribution]?) -> Void) {
         guard let contributionData = json?.array else {
+            completion(nil)
             return
         }
         

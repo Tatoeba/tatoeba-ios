@@ -30,10 +30,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
             
             self.contributions = contributions.filter({ $0.type == "sentence" })
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
         }
     }
     
