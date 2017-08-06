@@ -10,9 +10,12 @@
 		EB2992921F3640AB00B88C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB2992911F3640AB00B88C22 /* Assets.xcassets */; };
 		EB2992A01F3640AB00B88C22 /* TatoebaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB29929F1F3640AB00B88C22 /* TatoebaTests.swift */; };
 		EB2992AB1F3640AB00B88C22 /* TatoebaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2992AA1F3640AB00B88C22 /* TatoebaUITests.swift */; };
+		EB462D0C1F36DF3F00CFE427 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB462D0B1F36DF3F00CFE427 /* Alamofire.framework */; };
+		EB462D0E1F36DF4900CFE427 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB462D0D1F36DF4900CFE427 /* SwiftyJSON.framework */; };
+		EB462D131F36E06600CFE427 /* TatoebaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D121F36E06600CFE427 /* TatoebaRequest.swift */; };
+		EB462D151F36E5DF00CFE427 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D141F36E5DF00CFE427 /* User.swift */; };
 		EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */; };
 		EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */; };
-		EBDB5C5C1F36825C00BAAEF1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C591F36825C00BAAEF1 /* Info.plist */; };
 		EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */; };
 		EBDB5C5E1F36825C00BAAEF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5B1F36825C00BAAEF1 /* Main.storyboard */; };
 		EBDB5C651F36903400BAAEF1 /* ContributionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C631F36903400BAAEF1 /* ContributionCell.swift */; };
@@ -46,6 +49,10 @@
 		EB2992A61F3640AB00B88C22 /* TatoebaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TatoebaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2992AA1F3640AB00B88C22 /* TatoebaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TatoebaUITests.swift; sourceTree = "<group>"; };
 		EB2992AC1F3640AB00B88C22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB462D0B1F36DF3F00CFE427 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		EB462D0D1F36DF4900CFE427 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		EB462D121F36E06600CFE427 /* TatoebaRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaRequest.swift; path = Common/TatoebaRequest.swift; sourceTree = "<group>"; };
+		EB462D141F36E5DF00CFE427 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
 		EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
 		EBDB5C591F36825C00BAAEF1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
@@ -61,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB462D0E1F36DF4900CFE427 /* SwiftyJSON.framework in Frameworks */,
+				EB462D0C1F36DF3F00CFE427 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +97,7 @@
 				EB29929E1F3640AB00B88C22 /* TatoebaTests */,
 				EB2992A91F3640AB00B88C22 /* TatoebaUITests */,
 				EB2992881F3640AB00B88C22 /* Products */,
+				EB462D0A1F36DF3F00CFE427 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +114,7 @@
 		EB2992891F3640AB00B88C22 /* Tatoeba */ = {
 			isa = PBXGroup;
 			children = (
+				EB462D111F36E06000CFE427 /* Common */,
 				EBDB5C691F3692D100BAAEF1 /* Models */,
 				EBDB5C541F36820C00BAAEF1 /* View Controllers */,
 				EBDB5C601F36900000BAAEF1 /* Views */,
@@ -129,6 +140,23 @@
 				EB2992AC1F3640AB00B88C22 /* Info.plist */,
 			);
 			path = TatoebaUITests;
+			sourceTree = "<group>";
+		};
+		EB462D0A1F36DF3F00CFE427 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB462D0D1F36DF4900CFE427 /* SwiftyJSON.framework */,
+				EB462D0B1F36DF3F00CFE427 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB462D111F36E06000CFE427 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EB462D121F36E06600CFE427 /* TatoebaRequest.swift */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		EBDB5C511F3681C800BAAEF1 /* Application */ = {
@@ -163,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				EBDB5C6A1F3692D800BAAEF1 /* Contribution.swift */,
+				EB462D141F36E5DF00CFE427 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -177,6 +206,7 @@
 				EB2992831F3640AB00B88C22 /* Sources */,
 				EB2992841F3640AB00B88C22 /* Frameworks */,
 				EB2992851F3640AB00B88C22 /* Resources */,
+				EB462D091F36DC8F00CFE427 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -276,7 +306,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */,
-				EBDB5C5C1F36825C00BAAEF1 /* Info.plist in Resources */,
 				EB2992921F3640AB00B88C22 /* Assets.xcassets in Resources */,
 				EBDB5C5E1F36825C00BAAEF1 /* Main.storyboard in Resources */,
 			);
@@ -298,6 +327,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EB462D091F36DC8F00CFE427 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EB2992831F3640AB00B88C22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -307,7 +356,9 @@
 				EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */,
 				EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */,
 				EBDB5C661F36903400BAAEF1 /* SeparatorCell.swift in Sources */,
+				EB462D131F36E06600CFE427 /* TatoebaRequest.swift in Sources */,
 				EBDB5C6B1F3692D800BAAEF1 /* Contribution.swift in Sources */,
+				EB462D151F36E5DF00CFE427 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +494,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 59PUM5CV3T;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Tatoeba/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.tatoeba.Tatoeba;
@@ -456,6 +511,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 59PUM5CV3T;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Tatoeba/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.tatoeba.Tatoeba;
