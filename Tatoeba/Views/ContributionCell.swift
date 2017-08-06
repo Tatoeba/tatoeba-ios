@@ -14,7 +14,7 @@ class ContributionCell: UITableViewCell {
     
     static let identifier = "ContributionCell"
     static let horizontalSpacing: CGFloat = 32
-    static let verticalSpacing: CGFloat = 105
+    static let verticalSpacing: CGFloat = 103
     
     // MARK: - Properties
     
