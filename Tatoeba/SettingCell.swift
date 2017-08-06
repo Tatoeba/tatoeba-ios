@@ -55,12 +55,24 @@ class SettingCell: UITableViewCell {
         }
     }
     
-    // MARK: - Public Methods
+    // MARK: - View Life Cycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         iconBackground.layer.cornerRadius = 4
         iconBackground.layer.masksToBounds = true
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        iconBackground.backgroundColor = item?.color
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        iconBackground.backgroundColor = item?.color
     }
 }
