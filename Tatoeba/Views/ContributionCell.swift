@@ -23,7 +23,7 @@ class ContributionCell: UITableViewCell {
             
             let session = URLSession(configuration: .default)
             
-            let task = session.dataTask(with: imageURL) { (data, response, error) in
+            let task = session.dataTask(with: imageURL) { data, response, error in
                 guard let data = data, let image = UIImage(data: data) else {
                     return
                 }
@@ -53,30 +53,22 @@ class ContributionCell: UITableViewCell {
             let dateTemplate: String
             let timeTemplate: String
             
-            if Calendar.current.component(.year, from: contribution.timestamp) == Calendar.current.component(.year, from: Date()) {
+            if contribution.timestamp.year == Date().year {
                 // Weekday, month, day
                 dateTemplate = "EEEE MMMM d"
                 
-                // Hour, minute, am/pm
+                // Hour, minute, am/pm (if applicable)
                 timeTemplate = "h mm j"
             } else {
                 // Month, day, year
                 dateTemplate = "MMMM d yyyy"
                 
-                // Hour, minute, am/pm
+                // Hour, minute, am/pm (if applicable)
                 timeTemplate = "h mm j"
             }
             
-            let dateFormat = DateFormatter.dateFormat(fromTemplate: dateTemplate, options: 0, locale: Locale.current)
-            let timeFormat = DateFormatter.dateFormat(fromTemplate: timeTemplate, options: 0, locale: Locale.current)
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = dateFormat
-            let dateString = dateFormatter.string(from: contribution.timestamp)
-            
-            let timeFormatter = DateFormatter()
-            timeFormatter.dateFormat = timeFormat
-            let timeString = timeFormatter.string(from: contribution.timestamp)
+            let dateString = contribution.timestamp.string(from: dateTemplate)
+            let timeString = contribution.timestamp.string(from: timeTemplate)
             
             dateLabel.text = "\(dateString) at \(timeString)"
             contentLabel.text = contribution.text

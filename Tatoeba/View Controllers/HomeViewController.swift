@@ -50,20 +50,22 @@ extension HomeViewController: UITableViewDataSource {
         switch indexPath.row % 2 {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContributionCell") as? ContributionCell else {
-                return UITableViewCell()
+                break
             }
             
             cell.contribution = contributions[indexPath.row / 2]
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SeparatorCell") as? SeparatorCell else {
-                return UITableViewCell()
+                break
             }
             
             return cell
         default:
-            return UITableViewCell()
+            break
         }
+        
+        return UITableViewCell()
     }
 }
 
@@ -72,8 +74,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row % 2 {
         case 0:
-            let boundingRect = ("Hello world" as NSString).boundingRect(with: CGSize(width: view.frame.size.width - 32, height: .greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil)
-            return boundingRect.size.height + 96
+            return contributions[indexPath.row / 2].text.height(forMaxWidth: view.frame.size.width - 32, withFont: .systemFont(ofSize: 16)) + 96
         case 1:
             return 20
         default:
