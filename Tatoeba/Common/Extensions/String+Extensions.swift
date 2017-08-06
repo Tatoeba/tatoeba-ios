@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - String helper methods
 extension String {
     
     /// Calculates the minimum width needed to fully display a string without truncation.

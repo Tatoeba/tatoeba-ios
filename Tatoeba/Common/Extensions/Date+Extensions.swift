@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Date helper methods and variables
 extension Date {
     
     /// Converts a date to a localized string using a date template.

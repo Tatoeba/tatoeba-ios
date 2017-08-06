@@ -10,6 +10,8 @@ import UIKit
 
 class SeparatorCell: UITableViewCell {
     
+    // MARK: - Constants
+    
     static let height: CGFloat = 20
     static let identifier = "SeparatorCell"
 }

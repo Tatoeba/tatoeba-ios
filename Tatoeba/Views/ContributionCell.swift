@@ -10,9 +10,13 @@ import UIKit
 
 class ContributionCell: UITableViewCell {
     
+    // MARK: - Constants
+    
     static let identifier = "ContributionCell"
     static let horizontalSpacing: CGFloat = 32
     static let verticalSpacing: CGFloat = 96
+    
+    // MARK: - Properties
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -68,6 +72,8 @@ class ContributionCell: UITableViewCell {
             contentLabel.text = contribution.text
         }
     }
+    
+    // MARK: - View Life Cycle
     
     override func awakeFromNib() {
         super.awakeFromNib()

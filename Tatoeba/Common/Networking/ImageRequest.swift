@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Returns an image from Tatoeba.
 class ImageRequest: TatoebaRequest {
     
     typealias ResponseData = UIImage

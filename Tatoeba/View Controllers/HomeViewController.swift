@@ -10,13 +10,19 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: - Properties
+    
     @IBOutlet weak var tableView: UITableView!
     
     private var contributions = [Contribution]()
     
+    // MARK: - Types
+    
     private enum HomeCell {
         case contribution(Contribution), separator
     }
+    
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +40,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    // MARK: - Private Methods
+    
     private func cell(for indexPath: IndexPath) -> HomeCell {
         return indexPath.row % 2 == 0 ? .contribution(contributions[indexPath.row / 2]) : .separator
     }
     
-    // MARK: UITableViewDataSource Methods
+    // MARK: - UITableViewDataSource Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contributions.count == 0 ? 0 : contributions.count * 2 - 1
@@ -64,7 +72,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return UITableViewCell()
     }
     
-    // MARK: UITableViewDelegate Methods
+    // MARK: - UITableViewDelegate Methods
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch cell(for: indexPath) {

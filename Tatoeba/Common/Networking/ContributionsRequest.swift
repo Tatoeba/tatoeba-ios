@@ -8,6 +8,7 @@
 
 import SwiftyJSON
 
+/// Returns recent contributions using the specified parameters.
 final class ContributionsRequest: TatoebaRequest {
     
     typealias ResponseData = JSON
