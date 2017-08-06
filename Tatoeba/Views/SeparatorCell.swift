@@ -10,9 +10,6 @@ import UIKit
 
 class SeparatorCell: UITableViewCell {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        selectionStyle = .none
-    }
+    static let height: CGFloat = 20
+    static let identifier = "SeparatorCell"
 }

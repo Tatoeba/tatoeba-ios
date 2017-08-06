@@ -9,25 +9,26 @@
 import Alamofire
 import SwiftyJSON
 
-class TatoebaRequest {
+protocol TatoebaRequest {
+    associatedtype Value
+    var endpoint: String { get }
+    func handleRequest(_ json: JSON?, _ completion: @escaping (Value?) -> Void)
+}
+
+extension TatoebaRequest {
     
-    private let baseURL = "http://localhost:5000"
-    
-    private let endpoint: String
-    
-    init(endpoint: String) {
-        self.endpoint = endpoint
+    private var baseURL: String {
+        return "http://localhost:5000"
     }
     
-    func start(completion: ((JSON?) -> Void)?) {
+    func start(completion: @escaping (Value?) -> Void) {
         Alamofire.request("\(baseURL)\(endpoint)").responseJSON { response in
             guard let value = response.result.value else {
-                completion?(nil)
                 return
             }
             
             let json = JSON(value)
-            completion?(json)
+            self.handleRequest(json, completion)
         }
     }
 }

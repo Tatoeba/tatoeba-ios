@@ -8,11 +8,15 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var contributions = [Contribution]()
+    private var contributions = [Contribution]()
+    
+    private enum HomeCell {
+        case contribution(Contribution), separator
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,65 +24,58 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        TatoebaRequest(endpoint: "/contributions").start { json in
-            guard let contributions = json?.array else {
+        ContributionsRequest().start { contributions in
+            guard let contributions = contributions else {
                 return
             }
             
-            for contributionJson in contributions {
-                let contribution = Contribution(json: contributionJson)
-                
-                if contribution.type == "sentence" {
-                    self.contributions.append(contribution)
-                }
-            }
+            self.contributions = contributions.filter({ $0.type == "sentence" })
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
-}
-
-extension HomeViewController: UITableViewDataSource {
+    
+    private func cell(for indexPath: IndexPath) -> HomeCell {
+        return indexPath.row % 2 == 0 ? .contribution(contributions[indexPath.row / 2]) : .separator
+    }
+    
+    // MARK: UITableViewDataSource Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contributions.count == 0 ? 0 : contributions.count * 2 - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row % 2 {
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContributionCell") as? ContributionCell else {
+        switch cell(for: indexPath) {
+        case .contribution(let contribution):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ContributionCell.identifier) as? ContributionCell else {
                 break
             }
             
-            cell.contribution = contributions[indexPath.row / 2]
+            cell.contribution = contribution
             return cell
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SeparatorCell") as? SeparatorCell else {
+        case .separator:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SeparatorCell.identifier) as? SeparatorCell else {
                 break
             }
             
             return cell
-        default:
-            break
         }
         
         return UITableViewCell()
     }
-}
-
-extension HomeViewController: UITableViewDelegate {
+    
+    // MARK: UITableViewDelegate Methods
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row % 2 {
-        case 0:
-            return contributions[indexPath.row / 2].text.height(forMaxWidth: view.frame.size.width - 32, withFont: .systemFont(ofSize: 16)) + 96
-        case 1:
+        switch cell(for: indexPath) {
+        case .contribution(let contribution):
+            let maximumWidth = view.frame.size.width - ContributionCell.horizontalSpacing
+            return contribution.text.height(forMaxWidth: maximumWidth, withFont: .systemFont(ofSize: 16)) + ContributionCell.verticalSpacing
+        case .separator:
             return 20
-        default:
-            return 0
         }
     }
 }

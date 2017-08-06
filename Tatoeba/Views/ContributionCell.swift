@@ -10,6 +10,10 @@ import UIKit
 
 class ContributionCell: UITableViewCell {
     
+    static let identifier = "ContributionCell"
+    static let horizontalSpacing: CGFloat = 32
+    static let verticalSpacing: CGFloat = 96
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
