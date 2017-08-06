@@ -35,18 +35,50 @@ class ContributionCell: UITableViewCell {
             
             task.resume()
             
-            titleLabel.text = "\(contribution.user.username) added a sentence"
+            let title: String
             
-            let formatter = DateFormatter()
-            
-            if Calendar.current.component(.year, from: contribution.timestamp) == Calendar.current.component(.year, from: Date()) {
-                formatter.dateFormat = "EEEE, MMM d, 'at' h:mm a"
+            if contribution.action == "insert" {
+                title = "\(contribution.user.username) added a sentence"
+            } else if contribution.action == "update" {
+                title = "\(contribution.user.username) edited a sentence"
             } else {
-                formatter.dateFormat = "MMM d, yyyy 'at' h:mm a"
+                title = "\(contribution.user.username)"
             }
             
-            dateLabel.text = formatter.string(from: contribution.timestamp)
+            let titleAttributedText = NSMutableAttributedString(string: title)
+            titleAttributedText.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 18), range: NSRange(location: 0, length: title.characters.count))
+            titleAttributedText.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 18), range: NSRange(location: 0, length: contribution.user.username.characters.count))
+            titleLabel.attributedText = titleAttributedText
             
+            let dateTemplate: String
+            let timeTemplate: String
+            
+            if Calendar.current.component(.year, from: contribution.timestamp) == Calendar.current.component(.year, from: Date()) {
+                // Weekday, month, day
+                dateTemplate = "EEEE MMMM d"
+                
+                // Hour, minute, am/pm
+                timeTemplate = "h mm j"
+            } else {
+                // Month, day, year
+                dateTemplate = "MMMM d yyyy"
+                
+                // Hour, minute, am/pm
+                timeTemplate = "h mm j"
+            }
+            
+            let dateFormat = DateFormatter.dateFormat(fromTemplate: dateTemplate, options: 0, locale: Locale.current)
+            let timeFormat = DateFormatter.dateFormat(fromTemplate: timeTemplate, options: 0, locale: Locale.current)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = dateFormat
+            let dateString = dateFormatter.string(from: contribution.timestamp)
+            
+            let timeFormatter = DateFormatter()
+            timeFormatter.dateFormat = timeFormat
+            let timeString = timeFormatter.string(from: contribution.timestamp)
+            
+            dateLabel.text = "\(dateString) at \(timeString)"
             contentLabel.text = contribution.text
         }
     }
