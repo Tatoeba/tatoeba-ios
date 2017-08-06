@@ -13,7 +13,7 @@
 		EB462D0C1F36DF3F00CFE427 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB462D0B1F36DF3F00CFE427 /* Alamofire.framework */; };
 		EB462D0E1F36DF4900CFE427 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB462D0D1F36DF4900CFE427 /* SwiftyJSON.framework */; };
 		EB462D131F36E06600CFE427 /* TatoebaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D121F36E06600CFE427 /* TatoebaRequest.swift */; };
-		EB462D151F36E5DF00CFE427 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D141F36E5DF00CFE427 /* User.swift */; };
+		EB462D171F36E98B00CFE427 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D161F36E98B00CFE427 /* User.swift */; };
 		EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */; };
 		EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */; };
 		EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */; };
@@ -52,7 +52,7 @@
 		EB462D0B1F36DF3F00CFE427 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EB462D0D1F36DF4900CFE427 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		EB462D121F36E06600CFE427 /* TatoebaRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaRequest.swift; path = Common/TatoebaRequest.swift; sourceTree = "<group>"; };
-		EB462D141F36E5DF00CFE427 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EB462D161F36E98B00CFE427 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
 		EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
 		EBDB5C591F36825C00BAAEF1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				EBDB5C6A1F3692D800BAAEF1 /* Contribution.swift */,
-				EB462D141F36E5DF00CFE427 /* User.swift */,
+				EB462D161F36E98B00CFE427 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				EBDB5C661F36903400BAAEF1 /* SeparatorCell.swift in Sources */,
 				EB462D131F36E06600CFE427 /* TatoebaRequest.swift in Sources */,
 				EBDB5C6B1F3692D800BAAEF1 /* Contribution.swift in Sources */,
-				EB462D151F36E5DF00CFE427 /* User.swift in Sources */,
+				EB462D171F36E98B00CFE427 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
