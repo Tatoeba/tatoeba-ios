@@ -22,6 +22,7 @@
 		EB462D421F378B3100CFE427 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D411F378B3100CFE427 /* SettingsViewController.swift */; };
 		EB462D441F378D6A00CFE427 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D431F378D6A00CFE427 /* SettingCell.swift */; };
 		EB462D461F379B4400CFE427 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */; };
+		EBB5E9BC1F37A89100D03E55 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9BB1F37A89100D03E55 /* ImageManager.swift */; };
 		EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */; };
 		EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */; };
 		EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */; };
@@ -69,6 +70,7 @@
 		EB462D411F378B3100CFE427 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "View Controllers/SettingsViewController.swift"; sourceTree = "<group>"; };
 		EB462D431F378D6A00CFE427 /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "Common/Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		EBB5E9BB1F37A89100D03E55 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManager.swift; path = Common/Managers/ImageManager.swift; sourceTree = "<group>"; };
 		EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
 		EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
 		EBDB5C591F36825C00BAAEF1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				EB462D341F3785FD00CFE427 /* Extensions */,
+				EBB5E9BA1F37A88000D03E55 /* Managers */,
 				EB462D331F3785F900CFE427 /* Networking */,
 			);
 			name = Common;
@@ -195,6 +198,14 @@
 				EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		EBB5E9BA1F37A88000D03E55 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EBB5E9BB1F37A89100D03E55 /* ImageManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		EBDB5C511F3681C800BAAEF1 /* Application */ = {
@@ -403,6 +414,7 @@
 				EB462D381F37860900CFE427 /* String+Extensions.swift in Sources */,
 				EBDB5C661F36903400BAAEF1 /* SeparatorCell.swift in Sources */,
 				EBDB5C6B1F3692D800BAAEF1 /* Contribution.swift in Sources */,
+				EBB5E9BC1F37A89100D03E55 /* ImageManager.swift in Sources */,
 				EB462D3F1F37861000CFE427 /* ProfileImageRequest.swift in Sources */,
 				EB462D421F378B3100CFE427 /* SettingsViewController.swift in Sources */,
 				EB462D171F36E98B00CFE427 /* User.swift in Sources */,

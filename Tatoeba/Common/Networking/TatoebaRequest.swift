@@ -52,7 +52,7 @@ extension TatoebaRequest {
     ///
     /// - Parameter completion: Block that fires when the request finishes with the expected returned data.
     func start(completion: @escaping (Value?) -> Void) {
-        switch self.responseType {
+        switch responseType {
         case .image:
             // Due to local configuration, the port has to be changed for image requests.
             // This won't need to happen in the future.

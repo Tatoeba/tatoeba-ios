@@ -29,7 +29,9 @@ class ContributionCell: UITableViewCell {
                 return
             }
             
-            ProfileImageRequest(user: contribution.user).start { image in
+            let request = ProfileImageRequest(user: contribution.user)
+            
+            ImageManager.default.perform(request: request) { image in
                 self.profileImageView.image = image
             }
             
