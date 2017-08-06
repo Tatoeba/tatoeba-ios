@@ -17,13 +17,13 @@ class ContributionCell: UITableViewCell {
     
     var contribution: Contribution? = nil {
         didSet {
-            guard let contribution = contribution else {
+            guard let contribution = contribution, let imageURL = URL(string: "http://localhost:8080/img/profiles_128/\(contribution.user.imagePath)") else {
                 return
             }
             
             let session = URLSession(configuration: .default)
             
-            let task = session.dataTask(with: contribution.profileImageURL) { (data, response, error) in
+            let task = session.dataTask(with: imageURL) { (data, response, error) in
                 guard let data = data, let image = UIImage(data: data) else {
                     return
                 }
@@ -35,9 +35,19 @@ class ContributionCell: UITableViewCell {
             
             task.resume()
             
-            titleLabel.text = contribution.title
-            dateLabel.text = contribution.date.description
-            contentLabel.text = contribution.content
+            titleLabel.text = "\(contribution.user.username) added a sentence"
+            
+            let formatter = DateFormatter()
+            
+            if Calendar.current.component(.year, from: contribution.timestamp) == Calendar.current.component(.year, from: Date()) {
+                formatter.dateFormat = "EEEE, MMM d, 'at' h:mm a"
+            } else {
+                formatter.dateFormat = "MMM d, yyyy 'at' h:mm a"
+            }
+            
+            dateLabel.text = formatter.string(from: contribution.timestamp)
+            
+            contentLabel.text = contribution.text
         }
     }
     

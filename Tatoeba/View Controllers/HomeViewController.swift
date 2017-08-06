@@ -12,18 +12,38 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    fileprivate var contributions = [Contribution]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        TatoebaRequest(endpoint: "/contributions").start { json in
+            guard let contributions = json?.array else {
+                return
+            }
+            
+            for contributionJson in contributions {
+                let contribution = Contribution(json: contributionJson)
+                
+                if contribution.type == "sentence" {
+                    self.contributions.append(contribution)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return contributions.count == 0 ? 0 : contributions.count * 2 - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -33,15 +53,7 @@ extension HomeViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            let url = URL(string: "https://tatoeba.org/img/profiles_128/668a84cb40b678a3b1616849c378b74c.png?1499510593")!
-            let title = "Trang added a sentence"
-            let date = Date()
-            let content = "Hello world"
-            
-            let contribution = Contribution(profileImageURL: url, title: title, date: date, content: content)
-            
-            cell.contribution = contribution
-            
+            cell.contribution = contributions[indexPath.row / 2]
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SeparatorCell") as? SeparatorCell else {
