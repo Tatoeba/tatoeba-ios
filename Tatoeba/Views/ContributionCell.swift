@@ -14,7 +14,7 @@ class ContributionCell: UITableViewCell {
     
     static let identifier = "ContributionCell"
     static let horizontalSpacing: CGFloat = 32
-    static let verticalSpacing: CGFloat = 96
+    static let verticalSpacing: CGFloat = 105
     
     // MARK: - Properties
     
@@ -22,6 +22,7 @@ class ContributionCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var flagImageView: UIImageView!
     
     var contribution: Contribution? = nil {
         didSet {
@@ -29,10 +30,15 @@ class ContributionCell: UITableViewCell {
                 return
             }
             
-            let request = ProfileImageRequest(user: contribution.user)
-            
-            ImageManager.default.perform(request: request) { image in
-                self.profileImageView.image = image
+            if contribution.user.imagePath == "unknown-avatar.png" {
+                profileImageView.image = #imageLiteral(resourceName: "User")
+                profileImageView.tintColor = UIColor(white: 0.2, alpha: 1)
+            } else {
+                let request = ProfileImageRequest(user: contribution.user)
+                
+                ImageManager.default.perform(request: request) { image in
+                    self.profileImageView.image = image
+                }
             }
             
             let title: String
@@ -72,6 +78,12 @@ class ContributionCell: UITableViewCell {
             
             dateLabel.text = "\(dateString) at \(timeString)"
             contentLabel.text = contribution.text
+            
+            let flagRequest = FlagImageRequest(language: contribution.sentenceLanguage)
+            
+            ImageManager.default.perform(request: flagRequest) { image in
+                self.flagImageView.image = image
+            }
         }
     }
     
@@ -80,7 +92,7 @@ class ContributionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        profileImageView.layer.cornerRadius = 8
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView.layer.masksToBounds = true
     }
 }
