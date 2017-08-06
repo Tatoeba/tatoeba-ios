@@ -15,6 +15,9 @@
 		EBDB5C5C1F36825C00BAAEF1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C591F36825C00BAAEF1 /* Info.plist */; };
 		EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */; };
 		EBDB5C5E1F36825C00BAAEF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5B1F36825C00BAAEF1 /* Main.storyboard */; };
+		EBDB5C651F36903400BAAEF1 /* ContributionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C631F36903400BAAEF1 /* ContributionCell.swift */; };
+		EBDB5C661F36903400BAAEF1 /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C641F36903400BAAEF1 /* SeparatorCell.swift */; };
+		EBDB5C6B1F3692D800BAAEF1 /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C6A1F3692D800BAAEF1 /* Contribution.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		EBDB5C591F36825C00BAAEF1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
 		EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Application/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBDB5C5B1F36825C00BAAEF1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Application/Main.storyboard; sourceTree = "<group>"; };
+		EBDB5C631F36903400BAAEF1 /* ContributionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContributionCell.swift; path = Views/ContributionCell.swift; sourceTree = "<group>"; };
+		EBDB5C641F36903400BAAEF1 /* SeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeparatorCell.swift; path = Views/SeparatorCell.swift; sourceTree = "<group>"; };
+		EBDB5C6A1F3692D800BAAEF1 /* Contribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contribution.swift; path = Models/Contribution.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +104,9 @@
 		EB2992891F3640AB00B88C22 /* Tatoeba */ = {
 			isa = PBXGroup;
 			children = (
+				EBDB5C691F3692D100BAAEF1 /* Models */,
 				EBDB5C541F36820C00BAAEF1 /* View Controllers */,
+				EBDB5C601F36900000BAAEF1 /* Views */,
 				EBDB5C511F3681C800BAAEF1 /* Application */,
 				EB2992911F3640AB00B88C22 /* Assets.xcassets */,
 			);
@@ -140,6 +148,23 @@
 				EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EBDB5C601F36900000BAAEF1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EBDB5C631F36903400BAAEF1 /* ContributionCell.swift */,
+				EBDB5C641F36903400BAAEF1 /* SeparatorCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		EBDB5C691F3692D100BAAEF1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EBDB5C6A1F3692D800BAAEF1 /* Contribution.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,8 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBDB5C651F36903400BAAEF1 /* ContributionCell.swift in Sources */,
 				EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */,
 				EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */,
+				EBDB5C661F36903400BAAEF1 /* SeparatorCell.swift in Sources */,
+				EBDB5C6B1F3692D800BAAEF1 /* Contribution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
