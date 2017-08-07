@@ -69,7 +69,13 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     
     private func cell(for indexPath: IndexPath) -> HomeCell {
         if isSearching {
-            return .sentence(sentences[indexPath.section])
+            let sentence = sentences[indexPath.section]
+            
+            if indexPath.row > 0, let translations = sentence.translations {
+                return .sentence(translations[indexPath.row - 1])
+            } else {
+                return .sentence(sentence)
+            }
         } else {
             return indexPath.row % 2 == 0 ? .contribution(contributions[indexPath.row / 2]) : .separator
         }
@@ -88,6 +94,10 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         }
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
     // MARK: - UITableViewDataSource Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -96,7 +106,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
-            return 1
+            return sentences[section].translations?.count ?? 1
         } else {
             return contributions.count == 0 ? 0 : contributions.count * 2 - 1
         }
@@ -156,5 +166,15 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         case .separator:
             return 20
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return isSearching ? 20 : 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 20))
+        headerView.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
+        return headerView
     }
 }
