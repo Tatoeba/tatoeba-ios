@@ -28,6 +28,7 @@
 		EBB5E9CD1F38074600D03E55 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9CC1F38074600D03E55 /* Sentence.swift */; };
 		EBB5E9CF1F38078000D03E55 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9CE1F38078000D03E55 /* SettingCell.swift */; };
 		EBB5E9D31F3808DF00D03E55 /* SentencesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9D21F3808DF00D03E55 /* SentencesRequest.swift */; };
+		EBB5E9D51F381A4A00D03E55 /* ShowMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9D41F381A4A00D03E55 /* ShowMoreCell.swift */; };
 		EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */; };
 		EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */; };
 		EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */; };
@@ -81,6 +82,7 @@
 		EBB5E9CC1F38074600D03E55 /* Sentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sentence.swift; path = Models/Sentence.swift; sourceTree = "<group>"; };
 		EBB5E9CE1F38078000D03E55 /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingCell.swift; path = Views/SettingCell.swift; sourceTree = "<group>"; };
 		EBB5E9D21F3808DF00D03E55 /* SentencesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SentencesRequest.swift; path = Common/Networking/SentencesRequest.swift; sourceTree = "<group>"; };
+		EBB5E9D41F381A4A00D03E55 /* ShowMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowMoreCell.swift; path = Views/ShowMoreCell.swift; sourceTree = "<group>"; };
 		EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
 		EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
 		EBDB5C591F36825C00BAAEF1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			children = (
 				EBDB5C631F36903400BAAEF1 /* ContributionCell.swift */,
 				EBDB5C641F36903400BAAEF1 /* SeparatorCell.swift */,
+				EBB5E9D41F381A4A00D03E55 /* ShowMoreCell.swift */,
 				EBB5E9CE1F38078000D03E55 /* SettingCell.swift */,
 				EBB5E9C61F37EB4E00D03E55 /* SentenceCell.swift */,
 			);
@@ -439,6 +442,7 @@
 				EB462D3E1F37861000CFE427 /* ImageRequest.swift in Sources */,
 				EBB5E9CF1F38078000D03E55 /* SettingCell.swift in Sources */,
 				EBB5E9C01F37E32700D03E55 /* SentenceViewController.swift in Sources */,
+				EBB5E9D51F381A4A00D03E55 /* ShowMoreCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -216,6 +216,37 @@
                                             <outlet property="flagImageView" destination="dEQ-Ul-RRV" id="9AF-xW-kv5"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowMoreCell" rowHeight="44" id="Wrq-ZT-gyI" customClass="ShowMoreCell" customModule="Tatoeba" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="234" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wrq-ZT-gyI" id="C2x-rZ-Min">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOW MORE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nix-GO-Sa6">
+                                                    <rect key="frame" x="124" y="12.5" width="99" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbq-ST-j4w">
+                                                    <rect key="frame" x="235" y="14" width="16" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="rbq-ST-j4w" secondAttribute="height" multiplier="1:1" id="Z0i-Qf-IvN"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" image="Down"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rbq-ST-j4w" firstAttribute="top" secondItem="C2x-rZ-Min" secondAttribute="top" constant="14" id="YON-zi-FSP"/>
+                                                <constraint firstItem="nix-GO-Sa6" firstAttribute="centerX" secondItem="C2x-rZ-Min" secondAttribute="centerX" constant="-14" id="a11-lA-m0H"/>
+                                                <constraint firstItem="rbq-ST-j4w" firstAttribute="leading" secondItem="nix-GO-Sa6" secondAttribute="trailing" constant="12" id="daY-NO-drB"/>
+                                                <constraint firstItem="nix-GO-Sa6" firstAttribute="centerY" secondItem="C2x-rZ-Min" secondAttribute="centerY" id="eFn-TO-kjE"/>
+                                                <constraint firstItem="rbq-ST-j4w" firstAttribute="centerY" secondItem="nix-GO-Sa6" secondAttribute="centerY" id="pa8-Xp-bT1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -510,6 +541,7 @@
     <resources>
         <image name="Back" width="24" height="24"/>
         <image name="Close" width="24" height="24"/>
+        <image name="Down" width="24" height="24"/>
         <image name="Heart Outline" width="24" height="24"/>
         <image name="Settings" width="24" height="24"/>
         <image name="Tatoeba" width="72" height="72"/>

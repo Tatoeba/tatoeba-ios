@@ -12,6 +12,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     
     // MARK: - Constants
     
+    private let maximumTranslationsShown = 4
     private let sentenceSegueIdentifier = "sentenceSegue"
     
     // MARK: - Properties
@@ -20,7 +21,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     private var contributions = [Contribution]()
-    private var sentences = [Sentence]()
+    private var sentences = [HomeSentence]()
     
     private var isSearching: Bool {
         return !(searchBar.text?.isEmpty ?? true)
@@ -31,7 +32,16 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     // MARK: - Types
     
     private enum HomeCell {
-        case contribution(Contribution), separator, sentence(Sentence)
+        case contribution(Contribution), separator, sentence(Sentence), showMore
+    }
+    
+    private struct HomeSentence {
+        let sentence: Sentence
+        var showing: Bool
+        
+        var translationsCount: Int {
+            return sentence.translations?.count ?? 0
+        }
     }
     
     // MARK: - View Life Cycle
@@ -71,13 +81,43 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         if isSearching {
             let sentence = sentences[indexPath.section]
             
-            if indexPath.row > 0, let translations = sentence.translations {
-                return .sentence(translations[indexPath.row - 1])
+            guard let translations = sentence.sentence.translations else {
+                return .sentence(sentence.sentence)
+            }
+            
+            if sentence.showing {
+                switch indexPath.row {
+                case 0:
+                    // Show the original sentence
+                    return .sentence(sentence.sentence)
+                default:
+                    // Show a translation, subtract 1 to account for the original sentence at the top
+                    return .sentence(translations[indexPath.row - 1])
+                }
             } else {
-                return .sentence(sentence)
+                switch indexPath.row {
+                case 0:
+                    // Show the original sentence
+                    return .sentence(sentence.sentence)
+                case 1 ..< maximumTranslationsShown:
+                    // Show the first three translations, subtract 1 to account for the original sentence at the top
+                    return .sentence(translations[indexPath.row - 1])
+                case maximumTranslationsShown:
+                    // Show the "show more" button
+                    return .showMore
+                default:
+                    // This should never happen
+                    fatalError("There was an error calculating rows for a sentence that isn't showing")
+                }
             }
         } else {
-            return indexPath.row % 2 == 0 ? .contribution(contributions[indexPath.row / 2]) : .separator
+            if indexPath.row % 2 == 0 {
+                // If row is even, this should be a contribution cell
+                return .contribution(contributions[indexPath.row / 2])
+            } else {
+                // If row is odd, this should be a separator cell
+                return .separator
+            }
         }
     }
     
@@ -89,7 +129,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
                 return
             }
             
-            self.sentences = sentences
+            // If a sentence has <= 4 translations, just show all of them immediately
+            self.sentences = sentences.map({ HomeSentence(sentence: $0, showing: $0.translations?.count ?? 0 <= self.maximumTranslationsShown) })
             self.tableView.reloadData()
         }
     }
@@ -106,9 +147,23 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
-            return sentences[section].translations?.count ?? 1
+            let sentence = sentences[section]
+            
+            if sentence.showing {
+                // Show n + 1 cells (add one cell for the original sentence)
+                return sentence.translationsCount + 1
+            } else {
+                // Show the original sentence and its first few translations
+                return maximumTranslationsShown + 1
+            }
         } else {
-            return contributions.count == 0 ? 0 : contributions.count * 2 - 1
+            if contributions.count == 0 {
+                // If there are no contributions, there shouldn't be any cells
+                return 0
+            } else {
+                // Add n - 1 cells to account for separators
+                return contributions.count * 2 - 1
+            }
         }
     }
     
@@ -134,6 +189,12 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
             }
             
             return cell
+        case .showMore:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ShowMoreCell.identifier) as? ShowMoreCell else {
+                break
+            }
+            
+            return cell
         }
         
         return UITableViewCell()
@@ -152,6 +213,9 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
             tableView.deselectRow(at: indexPath, animated: true)
         case .separator:
             break
+        case .showMore:
+            sentences[indexPath.section].showing = true
+            tableView.reloadData()
         }
     }
     
@@ -164,17 +228,20 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
             let maximumWidth = view.frame.size.width - SentenceCell.horizontalSpacing
             return sentence.text.height(forMaxWidth: maximumWidth, withFont: .systemFont(ofSize: 16)) + SentenceCell.verticalSpacing
         case .separator:
-            return 20
+            return SeparatorCell.height
+        case .showMore:
+            return ShowMoreCell.height
         }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return isSearching ? 20 : 0
+        return isSearching ? SeparatorCell.height : 0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 20))
-        headerView.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
+        let headerView = UIView()
+        headerView.backgroundColor = .separatorGray
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: SeparatorCell.height)
         return headerView
     }
 }
