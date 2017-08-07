@@ -53,6 +53,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         super.viewDidLoad()
         
         searchBar.delegate = self
+        searchBar.placeholder = TatoebaLocalizer.localize("Home_Search_Placeholder")
         
         tableView.dataSource = self
         tableView.delegate = self

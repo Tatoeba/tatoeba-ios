@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB25290E1F38B154008C2916 /* TatoebaLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */; };
+		EB2529141F38B17E008C2916 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB2529161F38B17E008C2916 /* Localizable.strings */; };
 		EB2992921F3640AB00B88C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB2992911F3640AB00B88C22 /* Assets.xcassets */; };
 		EB2992A01F3640AB00B88C22 /* TatoebaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB29929F1F3640AB00B88C22 /* TatoebaTests.swift */; };
 		EB2992AB1F3640AB00B88C22 /* TatoebaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2992AA1F3640AB00B88C22 /* TatoebaUITests.swift */; };
@@ -55,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaLocalizer.swift; path = Localization/TatoebaLocalizer.swift; sourceTree = "<group>"; };
+		EB2529151F38B17E008C2916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EB2529171F38B1C2008C2916 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB2992871F3640AB00B88C22 /* Tatoeba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tatoeba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2992911F3640AB00B88C22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB29929B1F3640AB00B88C22 /* TatoebaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TatoebaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,9 +123,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB2529081F38B147008C2916 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */,
+				EB2529161F38B17E008C2916 /* Localizable.strings */,
+			);
+			name = Localization;
+			sourceTree = "<group>";
+		};
 		EB29927E1F3640AB00B88C22 = {
 			isa = PBXGroup;
 			children = (
+				EB2529081F38B147008C2916 /* Localization */,
 				EB2992891F3640AB00B88C22 /* Tatoeba */,
 				EB29929E1F3640AB00B88C22 /* TatoebaTests */,
 				EB2992A91F3640AB00B88C22 /* TatoebaUITests */,
@@ -353,6 +368,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = EB29927E1F3640AB00B88C22;
 			productRefGroup = EB2992881F3640AB00B88C22 /* Products */;
@@ -372,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */,
+				EB2529141F38B17E008C2916 /* Localizable.strings in Resources */,
 				EB2992921F3640AB00B88C22 /* Assets.xcassets in Resources */,
 				EBDB5C5E1F36825C00BAAEF1 /* Main.storyboard in Resources */,
 			);
@@ -424,6 +441,7 @@
 				EBB5E9CD1F38074600D03E55 /* Sentence.swift in Sources */,
 				EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */,
 				EB462D371F37860900CFE427 /* Date+Extensions.swift in Sources */,
+				EB25290E1F38B154008C2916 /* TatoebaLocalizer.swift in Sources */,
 				EB462D3D1F37861000CFE427 /* ContributionsRequest.swift in Sources */,
 				EB462D401F37861000CFE427 /* TatoebaRequest.swift in Sources */,
 				EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */,
@@ -473,11 +491,25 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		EB2529161F38B17E008C2916 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB2529151F38B17E008C2916 /* Base */,
+				EB2529171F38B1C2008C2916 /* fr */,
+			);
+			name = Localizable.strings;
+			path = Localization;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		EB2992AD1F3640AB00B88C22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -529,6 +561,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
