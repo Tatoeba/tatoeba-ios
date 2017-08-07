@@ -214,8 +214,16 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         case .separator:
             break
         case .showMore:
+            tableView.deselectRow(at: indexPath, animated: true)
+            tableView.beginUpdates()
+            
             sentences[indexPath.section].showing = true
-            tableView.reloadData()
+            
+            let range = maximumTranslationsShown ..< sentences[indexPath.section].translationsCount
+            let indexPaths = range.map({ IndexPath(row: $0, section: indexPath.section) })
+            
+            tableView.insertRows(at: indexPaths, with: .automatic)
+            tableView.endUpdates()
         }
     }
     
@@ -234,14 +242,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return isSearching ? SeparatorCell.height : 0
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = .separatorGray
-        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: SeparatorCell.height)
-        return headerView
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? .leastNormalMagnitude : SeparatorCell.height
     }
 }

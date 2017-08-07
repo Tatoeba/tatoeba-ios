@@ -30,6 +30,9 @@ protocol TatoebaRequest {
     /// The endpoint of the request.
     var endpoint: String { get }
     
+    /// The URL parameters of the request.
+    var parameters: Parameters { get }
+    
     /// The type of response that the request is expecting.
     var responseType: TatoebaResponseType { get }
     
@@ -57,7 +60,7 @@ extension TatoebaRequest {
             // Due to local configuration, the port has to be changed for image requests.
             // This won't need to happen in the future.
             
-            Alamofire.request("http://localhost:8080\(endpoint)").responseData { response in
+            Alamofire.request("http://localhost:8080\(endpoint)", parameters: parameters).responseData { response in
                 guard let data = response.result.value else {
                     return
                 }
@@ -69,7 +72,7 @@ extension TatoebaRequest {
                 }
             }
         case .json:
-            Alamofire.request("\(baseURL)\(endpoint)").responseJSON { response in
+            Alamofire.request("\(baseURL)\(endpoint)", parameters: parameters).responseJSON { response in
                 guard let data = response.result.value else {
                     return
                 }

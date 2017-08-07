@@ -6,6 +6,7 @@
 //  Copyright © 2017 Tatoeba. All rights reserved.
 //
 
+import Alamofire
 import SwiftyJSON
 
 /// Returns recent contributions using the specified parameters.
@@ -16,6 +17,10 @@ final class ContributionsRequest: TatoebaRequest {
     
     var endpoint: String {
         return "/contributions"
+    }
+    
+    var parameters: Parameters {
+        return [String: String]()
     }
     
     var responseType: TatoebaResponseType {

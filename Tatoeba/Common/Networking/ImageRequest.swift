@@ -6,6 +6,7 @@
 //  Copyright © 2017 Tatoeba. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 
 /// Returns an image from Tatoeba.
@@ -15,6 +16,10 @@ class ImageRequest: TatoebaRequest {
     typealias Value = UIImage
     
     let endpoint: String
+    
+    var parameters: Parameters {
+        return [String: String]()
+    }
     
     var responseType: TatoebaResponseType {
         return .image

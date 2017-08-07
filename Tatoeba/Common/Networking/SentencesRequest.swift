@@ -6,6 +6,7 @@
 //  Copyright © 2017 Tatoeba. All rights reserved.
 //
 
+import Alamofire
 import SwiftyJSON
 
 /// Returns sentences using the specified parameters.
@@ -15,7 +16,11 @@ final class SentencesRequest: TatoebaRequest {
     typealias Value = [Sentence]
     
     var endpoint: String {
-        return "/sentences?q=\(query)"
+        return "/sentences"
+    }
+    
+    var parameters: Parameters {
+        return ["q": query]
     }
     
     var responseType: TatoebaResponseType {
