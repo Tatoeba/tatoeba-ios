@@ -23,6 +23,9 @@ struct Sentence {
     /// The unique identifier of the user who submitted this sentence.
     let userId: Int
     
+    /// Sentences which are the translation of this one.
+    let translations: [Sentence]?
+    
     /// Creates a sentence from JSON data.
     ///
     /// - Parameter json: JSON data
@@ -31,6 +34,19 @@ struct Sentence {
         text = json["text"].string ?? ""
         language = json["lang"].string ?? ""
         userId = json["user_id"].int ?? 0
+        
+        if let translationsData = json["translations"].array {
+            var translations = [Sentence]()
+            
+            for translation in translationsData {
+                let sentence = Sentence(json: translation)
+                translations.append(sentence)
+            }
+            
+            self.translations = translations
+        } else {
+            self.translations = nil
+        }
     }
     
     /// Creates a sentence from a contribution, if applicable.
@@ -46,5 +62,6 @@ struct Sentence {
         text = contribution.text
         language = contribution.sentenceLanguage
         userId = contribution.user.id
+        translations = nil
     }
 }

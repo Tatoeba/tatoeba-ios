@@ -92,7 +92,7 @@
                                     <constraint firstAttribute="height" constant="1" id="2sd-ev-Me9"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iAJ-FR-0eT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iAJ-FR-0eT">
                                 <rect key="frame" x="0.0" y="112" width="375" height="555"/>
                                 <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -181,6 +181,41 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentenceCell" rowHeight="44" id="NxP-Tz-U0D" customClass="SentenceCell" customModule="Tatoeba" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="190" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NxP-Tz-U0D" id="vQ5-Ne-Pdn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dEQ-Ul-RRV">
+                                                    <rect key="frame" x="16" y="12" width="30" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="dEQ-Ul-RRV" secondAttribute="height" multiplier="3:2" id="hda-wg-Odv"/>
+                                                        <constraint firstAttribute="width" constant="30" id="kP8-Wc-1XF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On devrait toujours tenir ses promesses." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snv-Xd-Fbx">
+                                                    <rect key="frame" x="58" y="12" width="301" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="snv-Xd-Fbx" firstAttribute="top" secondItem="vQ5-Ne-Pdn" secondAttribute="top" constant="12" id="5Uj-T1-18H"/>
+                                                <constraint firstItem="dEQ-Ul-RRV" firstAttribute="top" secondItem="vQ5-Ne-Pdn" secondAttribute="top" constant="12" id="ewy-nF-3yT"/>
+                                                <constraint firstItem="snv-Xd-Fbx" firstAttribute="leading" secondItem="dEQ-Ul-RRV" secondAttribute="trailing" constant="12" id="gtt-Gz-Jt6"/>
+                                                <constraint firstAttribute="bottom" secondItem="snv-Xd-Fbx" secondAttribute="bottom" constant="12" id="ocg-z7-ei3"/>
+                                                <constraint firstItem="dEQ-Ul-RRV" firstAttribute="leading" secondItem="vQ5-Ne-Pdn" secondAttribute="leading" constant="16" id="u0E-f1-YG2"/>
+                                                <constraint firstAttribute="trailing" secondItem="snv-Xd-Fbx" secondAttribute="trailing" constant="16" id="yEV-Tm-501"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="snv-Xd-Fbx" id="61Y-cB-F6x"/>
+                                            <outlet property="flagImageView" destination="dEQ-Ul-RRV" id="9AF-xW-kv5"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -200,6 +235,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mJz-HM-dGj"/>
                     <connections>
+                        <outlet property="searchBar" destination="RL0-6B-JyY" id="iIS-lb-jnZ"/>
                         <outlet property="tableView" destination="iAJ-FR-0eT" id="7mq-GI-7PC"/>
                         <segue destination="TIO-J5-MQ2" kind="show" identifier="sentenceSegue" id="5fd-RX-OL7"/>
                     </connections>

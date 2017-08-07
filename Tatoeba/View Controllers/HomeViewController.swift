@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Constants
     
@@ -16,21 +16,30 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: - Properties
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     private var contributions = [Contribution]()
+    private var sentences = [Sentence]()
+    
+    private var isSearching: Bool {
+        return !(searchBar.text?.isEmpty ?? true)
+    }
+    
     private var selectedContribution: Contribution?
     
     // MARK: - Types
     
     private enum HomeCell {
-        case contribution(Contribution), separator
+        case contribution(Contribution), separator, sentence(Sentence)
     }
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -59,13 +68,38 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Private Methods
     
     private func cell(for indexPath: IndexPath) -> HomeCell {
-        return indexPath.row % 2 == 0 ? .contribution(contributions[indexPath.row / 2]) : .separator
+        if isSearching {
+            return .sentence(sentences[indexPath.section])
+        } else {
+            return indexPath.row % 2 == 0 ? .contribution(contributions[indexPath.row / 2]) : .separator
+        }
+    }
+    
+    // MARK: - UISearchBarDelegate Methods
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        SentencesRequest(query: searchText).start { sentences in
+            guard let sentences = sentences else {
+                return
+            }
+            
+            self.sentences = sentences
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - UITableViewDataSource Methods
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return isSearching ? sentences.count : 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contributions.count == 0 ? 0 : contributions.count * 2 - 1
+        if isSearching {
+            return 1
+        } else {
+            return contributions.count == 0 ? 0 : contributions.count * 2 - 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,6 +110,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
             
             cell.contribution = contribution
+            return cell
+        case .sentence(let sentence):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SentenceCell.identifier) as? SentenceCell else {
+                break
+            }
+            
+            cell.sentence = sentence
             return cell
         case .separator:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SeparatorCell.identifier) as? SeparatorCell else {
@@ -97,6 +138,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             selectedContribution = contribution
             performSegue(withIdentifier: sentenceSegueIdentifier, sender: nil)
+        case .sentence(_):
+            tableView.deselectRow(at: indexPath, animated: true)
         case .separator:
             break
         }
@@ -107,6 +150,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         case .contribution(let contribution):
             let maximumWidth = view.frame.size.width - ContributionCell.horizontalSpacing
             return contribution.text.height(forMaxWidth: maximumWidth, withFont: .systemFont(ofSize: 16)) + ContributionCell.verticalSpacing
+        case .sentence(let sentence):
+            let maximumWidth = view.frame.size.width - SentenceCell.horizontalSpacing
+            return sentence.text.height(forMaxWidth: maximumWidth, withFont: .systemFont(ofSize: 16)) + SentenceCell.verticalSpacing
         case .separator:
             return 20
         }
