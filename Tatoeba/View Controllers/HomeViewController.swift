@@ -28,7 +28,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         return !(searchBar.text?.isEmpty ?? true)
     }
     
-    private var selectedContribution: Contribution?
+    private var selectedSentence: Sentence?
     
     // MARK: - Types
     
@@ -67,12 +67,12 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sentenceController = segue.destination as? SentenceViewController {
-            guard let contribution = selectedContribution, let sentence = Sentence(contribution: contribution) else {
+            guard let sentence = selectedSentence else {
                 return
             }
             
             sentenceController.sentence = sentence
-            selectedContribution = nil
+            selectedSentence = nil
         }
     }
     
@@ -192,10 +192,13 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         case .contribution(let contribution):
             tableView.deselectRow(at: indexPath, animated: true)
             
-            selectedContribution = contribution
+            selectedSentence = Sentence(contribution: contribution)
             performSegue(withIdentifier: sentenceSegueIdentifier, sender: nil)
-        case .sentence(_):
+        case .sentence(let sentence):
             tableView.deselectRow(at: indexPath, animated: true)
+            
+            selectedSentence = sentence
+            performSegue(withIdentifier: sentenceSegueIdentifier, sender: nil)
         case .showMore:
             tableView.deselectRow(at: indexPath, animated: true)
             tableView.beginUpdates()

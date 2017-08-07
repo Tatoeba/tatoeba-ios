@@ -14,12 +14,12 @@ class SentenceViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
-    var sentence: Sentence?
+    var sentence: Sentence!
     
     // MARK: - Types
     
     private enum SentenceCellType {
-        case sentence(Sentence), separator
+        case sentence(Sentence)
     }
     
     // MARK: - View Life Cycle
@@ -32,6 +32,17 @@ class SentenceViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
+    // MARK: - Private Methods
+    
+    private func cell(for indexPath: IndexPath) -> SentenceCellType {
+        switch indexPath.row {
+        case 0:
+            return .sentence(sentence)
+        default:
+            return .sentence(sentence.translations?[indexPath.row - 1] ?? sentence)
+        }
+    }
+    
     // MARK: - IBActions
     
     @IBAction func backButton(_ sender: Any) {
@@ -41,26 +52,34 @@ class SentenceViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - UITableViewDataSource Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return sentence?.translations?.count ?? 0 + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SentenceCell.identifier) as? SentenceCell else {
-            return UITableViewCell()
+        switch cell(for: indexPath) {
+        case .sentence(let sentence):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SentenceCell.identifier) as? SentenceCell else {
+                break
+            }
+            
+            cell.sentence = sentence
+            return cell
         }
         
-        cell.sentence = sentence
-        return cell
+        return UITableViewCell()
     }
     
     // MARK: - UITableViewDelegate Methods
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let sentence = sentence else {
-            return 0
+        switch cell(for: indexPath) {
+        case .sentence(let sentence):
+            let maximumWidth = view.frame.size.width - SentenceCell.horizontalSpacing
+            return sentence.text.height(forMaxWidth: maximumWidth, withFont: .systemFont(ofSize: 16)) + SentenceCell.verticalSpacing
         }
-        
-        let maximumWidth = view.frame.size.width - SentenceCell.horizontalSpacing
-        return sentence.text.height(forMaxWidth: maximumWidth, withFont: .systemFont(ofSize: 16)) + SentenceCell.verticalSpacing
     }
 }
