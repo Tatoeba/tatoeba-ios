@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    private let refreshControl = UIRefreshControl()
+    
     private var contributions = [Contribution]()
     private var sentences = [HomeSentence]()
     
@@ -55,14 +57,10 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         tableView.dataSource = self
         tableView.delegate = self
         
-        ContributionsRequest().start { contributions in
-            guard let contributions = contributions else {
-                return
-            }
-            
-            self.contributions = contributions.filter({ $0.type == "sentence" })
-            self.tableView.reloadData()
-        }
+        refreshControl.addTarget(self, action: #selector(refreshControlPulled), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
+        refresh()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -117,18 +115,47 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         }
     }
     
-    // MARK: - UISearchBarDelegate Methods
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        SentencesRequest(query: searchText).start { sentences in
-            guard let sentences = sentences else {
+    private func refresh() {
+        if isSearching {
+            guard let searchText = searchBar.text else {
                 return
             }
             
-            // If a sentence has <= 4 translations, just show all of them immediately
-            self.sentences = sentences.map({ HomeSentence(sentence: $0, showing: $0.translations?.count ?? 0 <= self.maximumTranslationsShown) })
-            self.tableView.reloadData()
+            SentencesRequest(query: searchText).start { sentences in
+                guard let sentences = sentences else {
+                    return
+                }
+                
+                // If a sentence has <= 4 translations, just show all of them immediately
+                self.sentences = sentences.map({ HomeSentence(sentence: $0, showing: $0.translations?.count ?? 0 <= self.maximumTranslationsShown) })
+                self.tableView.reloadData()
+                
+                self.refreshControl.endRefreshing()
+            }
+        } else {
+            ContributionsRequest().start { contributions in
+                guard let contributions = contributions else {
+                    return
+                }
+                
+                self.contributions = contributions.filter({ $0.type == "sentence" })
+                self.tableView.reloadData()
+                
+                self.refreshControl.endRefreshing()
+            }
         }
+    }
+    
+    // MARK: - IBActions
+    
+    func refreshControlPulled(_ sender: Any) {
+        refresh()
+    }
+    
+    // MARK: - UISearchBarDelegate Methods
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        refresh()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
