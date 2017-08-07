@@ -205,10 +205,11 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
             
             sentences[indexPath.section].showing = true
             
-            let range = maximumTranslationsShown ..< sentences[indexPath.section].translationsCount
+            let range = maximumTranslationsShown ... sentences[indexPath.section].translationsCount
             let indexPaths = range.map({ IndexPath(row: $0, section: indexPath.section) })
             
-            tableView.insertRows(at: indexPaths, with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .top)
+            tableView.insertRows(at: indexPaths, with: .top)
             tableView.endUpdates()
         }
     }

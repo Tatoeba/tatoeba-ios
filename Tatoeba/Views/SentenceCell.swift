@@ -36,4 +36,13 @@ class SentenceCell: UITableViewCell {
             contentLabel.text = sentence.text
         }
     }
+    
+    // MARK: - View Life Cycle
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        flagImageView.image = nil
+        contentLabel.text = nil
+    }
 }
