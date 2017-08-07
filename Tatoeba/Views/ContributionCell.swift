@@ -36,8 +36,12 @@ class ContributionCell: UITableViewCell {
             } else {
                 let request = ProfileImageRequest(user: contribution.user)
                 
-                ImageManager.default.perform(request: request) { image in
-                    self.profileImageView.image = image
+                ImageManager.default.perform(request: request) { [weak self] image in
+                    guard let strongSelf = self else {
+                        return
+                    }
+                    
+                    strongSelf.profileImageView.image = image
                 }
             }
             
@@ -81,8 +85,12 @@ class ContributionCell: UITableViewCell {
             
             let flagRequest = FlagImageRequest(language: contribution.sentenceLanguage)
             
-            ImageManager.default.perform(request: flagRequest) { image in
-                self.flagImageView.image = image
+            ImageManager.default.perform(request: flagRequest) { [weak self] image in
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                strongSelf.flagImageView.image = image
             }
         }
     }

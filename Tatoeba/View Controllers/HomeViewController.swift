@@ -121,27 +121,27 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
                 return
             }
             
-            SentencesRequest(query: searchText).start { sentences in
-                guard let sentences = sentences else {
+            SentencesRequest(query: searchText).start { [weak self] sentences in
+                guard let strongSelf = self, let sentences = sentences else {
                     return
                 }
                 
                 // If a sentence has <= 4 translations, just show all of them immediately
-                self.sentences = sentences.map({ HomeSentence(sentence: $0, showing: $0.translations?.count ?? 0 <= self.maximumTranslationsShown) })
-                self.tableView.reloadData()
+                strongSelf.sentences = sentences.map({ HomeSentence(sentence: $0, showing: $0.translations?.count ?? 0 <= strongSelf.maximumTranslationsShown) })
+                strongSelf.tableView.reloadData()
                 
-                self.refreshControl.endRefreshing()
+                strongSelf.refreshControl.endRefreshing()
             }
         } else {
-            ContributionsRequest().start { contributions in
-                guard let contributions = contributions else {
+            ContributionsRequest().start { [weak self] contributions in
+                guard let strongSelf = self, let contributions = contributions else {
                     return
                 }
                 
-                self.contributions = contributions.filter({ $0.type == "sentence" })
-                self.tableView.reloadData()
+                strongSelf.contributions = contributions.filter({ $0.type == "sentence" })
+                strongSelf.tableView.reloadData()
                 
-                self.refreshControl.endRefreshing()
+                strongSelf.refreshControl.endRefreshing()
             }
         }
     }

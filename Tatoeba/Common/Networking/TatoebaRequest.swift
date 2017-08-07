@@ -48,7 +48,7 @@ extension TatoebaRequest {
     
     /// The base URL of all requests.
     private var baseURL: String {
-        return "http://172.20.10.10:5000"
+        return "http://localhost:5000"
     }
     
     /// Begins to execute the request.
@@ -60,7 +60,7 @@ extension TatoebaRequest {
             // Due to local configuration, the port has to be changed for image requests.
             // This won't need to happen in the future.
             
-            Alamofire.request("http://172.20.10.10:8080\(endpoint)", parameters: parameters).responseData { response in
+            Alamofire.request("http://localhost:8080\(endpoint)", parameters: parameters).responseData { response in
                 guard let data = response.result.value else {
                     return
                 }

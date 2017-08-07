@@ -29,8 +29,12 @@ class SentenceCell: UITableViewCell {
             
             let request = FlagImageRequest(language: sentence.language)
             
-            ImageManager.default.perform(request: request) { image in
-                self.flagImageView.image = image
+            ImageManager.default.perform(request: request) { [weak self] image in
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                strongSelf.flagImageView.image = image
             }
             
             contentLabel.text = sentence.text
