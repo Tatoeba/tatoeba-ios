@@ -184,9 +184,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="snv-Xd-Fbx" firstAttribute="top" secondItem="vQ5-Ne-Pdn" secondAttribute="top" constant="12" id="5Uj-T1-18H"/>
-                                                <constraint firstItem="dEQ-Ul-RRV" firstAttribute="top" secondItem="vQ5-Ne-Pdn" secondAttribute="top" constant="12" id="ewy-nF-3yT"/>
                                                 <constraint firstItem="snv-Xd-Fbx" firstAttribute="leading" secondItem="dEQ-Ul-RRV" secondAttribute="trailing" constant="12" id="gtt-Gz-Jt6"/>
                                                 <constraint firstAttribute="bottom" secondItem="snv-Xd-Fbx" secondAttribute="bottom" constant="12" id="ocg-z7-ei3"/>
+                                                <constraint firstItem="dEQ-Ul-RRV" firstAttribute="centerY" secondItem="snv-Xd-Fbx" secondAttribute="centerY" id="qPG-kH-cl9"/>
                                                 <constraint firstItem="dEQ-Ul-RRV" firstAttribute="leading" secondItem="vQ5-Ne-Pdn" secondAttribute="leading" constant="16" id="u0E-f1-YG2"/>
                                                 <constraint firstAttribute="trailing" secondItem="snv-Xd-Fbx" secondAttribute="trailing" constant="16" id="yEV-Tm-501"/>
                                             </constraints>
@@ -335,7 +335,7 @@
                                                 <constraint firstItem="Ond-8x-ZpY" firstAttribute="top" secondItem="7Cj-Lb-86w" secondAttribute="top" constant="12" id="0Kt-3L-ShD"/>
                                                 <constraint firstItem="Ond-8x-ZpY" firstAttribute="leading" secondItem="qAH-s7-RXI" secondAttribute="trailing" constant="12" id="4ud-uO-yMQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ond-8x-ZpY" secondAttribute="trailing" constant="16" id="9LI-J9-riT"/>
-                                                <constraint firstItem="qAH-s7-RXI" firstAttribute="top" secondItem="7Cj-Lb-86w" secondAttribute="top" constant="12" id="FOr-Of-7Vn"/>
+                                                <constraint firstItem="qAH-s7-RXI" firstAttribute="centerY" secondItem="Ond-8x-ZpY" secondAttribute="centerY" id="TVd-i5-CkY"/>
                                                 <constraint firstItem="qAH-s7-RXI" firstAttribute="leading" secondItem="7Cj-Lb-86w" secondAttribute="leading" constant="16" id="U7l-Hm-WhG"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ond-8x-ZpY" secondAttribute="bottom" constant="12" id="Xdc-6U-VIJ"/>
                                             </constraints>
