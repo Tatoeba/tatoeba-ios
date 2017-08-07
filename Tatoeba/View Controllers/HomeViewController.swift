@@ -10,11 +10,16 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: - Constants
+    
+    private let sentenceSegueIdentifier = "sentenceSegue"
+    
     // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
     
     private var contributions = [Contribution]()
+    private var selectedContribution: Contribution?
     
     // MARK: - Types
     
@@ -37,6 +42,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             self.contributions = contributions.filter({ $0.type == "sentence" })
             self.tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let sentenceController = segue.destination as? SentenceViewController {
+            guard let contribution = selectedContribution, let sentence = Sentence(contribution: contribution) else {
+                return
+            }
+            
+            sentenceController.sentence = sentence
+            selectedContribution = nil
         }
     }
     
@@ -73,6 +89,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     // MARK: - UITableViewDelegate Methods
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch cell(for: indexPath) {
+        case .contribution(let contribution):
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            selectedContribution = contribution
+            performSegue(withIdentifier: sentenceSegueIdentifier, sender: nil)
+        case .separator:
+            break
+        }
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch cell(for: indexPath) {
