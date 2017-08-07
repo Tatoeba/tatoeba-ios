@@ -34,7 +34,6 @@
 		EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */; };
 		EBDB5C5E1F36825C00BAAEF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDB5C5B1F36825C00BAAEF1 /* Main.storyboard */; };
 		EBDB5C651F36903400BAAEF1 /* ContributionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C631F36903400BAAEF1 /* ContributionCell.swift */; };
-		EBDB5C661F36903400BAAEF1 /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C641F36903400BAAEF1 /* SeparatorCell.swift */; };
 		EBDB5C6B1F3692D800BAAEF1 /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C6A1F3692D800BAAEF1 /* Contribution.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,7 +88,6 @@
 		EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Application/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBDB5C5B1F36825C00BAAEF1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Application/Main.storyboard; sourceTree = "<group>"; };
 		EBDB5C631F36903400BAAEF1 /* ContributionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContributionCell.swift; path = Views/ContributionCell.swift; sourceTree = "<group>"; };
-		EBDB5C641F36903400BAAEF1 /* SeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeparatorCell.swift; path = Views/SeparatorCell.swift; sourceTree = "<group>"; };
 		EBDB5C6A1F3692D800BAAEF1 /* Contribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contribution.swift; path = Models/Contribution.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				EBDB5C631F36903400BAAEF1 /* ContributionCell.swift */,
-				EBDB5C641F36903400BAAEF1 /* SeparatorCell.swift */,
 				EBB5E9D41F381A4A00D03E55 /* ShowMoreCell.swift */,
 				EBB5E9CE1F38078000D03E55 /* SettingCell.swift */,
 				EBB5E9C61F37EB4E00D03E55 /* SentenceCell.swift */,
@@ -431,7 +428,6 @@
 				EB462D401F37861000CFE427 /* TatoebaRequest.swift in Sources */,
 				EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */,
 				EB462D381F37860900CFE427 /* String+Extensions.swift in Sources */,
-				EBDB5C661F36903400BAAEF1 /* SeparatorCell.swift in Sources */,
 				EBDB5C6B1F3692D800BAAEF1 /* Contribution.swift in Sources */,
 				EBB5E9BC1F37A89100D03E55 /* ImageManager.swift in Sources */,
 				EB462D3F1F37861000CFE427 /* ProfileImageRequest.swift in Sources */,

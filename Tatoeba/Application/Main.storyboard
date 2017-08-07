@@ -172,17 +172,8 @@
                                             <outlet property="titleLabel" destination="71o-es-fVa" id="QRJ-eZ-lcp"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SeparatorCell" rowHeight="20" id="ARj-iM-Y2e" customClass="SeparatorCell" customModule="Tatoeba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="197.5" width="375" height="20"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ARj-iM-Y2e" id="2e4-Dg-V8C">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentenceCell" rowHeight="44" id="NxP-Tz-U0D" customClass="SentenceCell" customModule="Tatoeba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="217.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="197.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NxP-Tz-U0D" id="vQ5-Ne-Pdn">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -217,7 +208,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowMoreCell" rowHeight="44" id="Wrq-ZT-gyI" customClass="ShowMoreCell" customModule="Tatoeba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="261.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="241.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wrq-ZT-gyI" id="C2x-rZ-Min">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -364,15 +355,6 @@
                                             <outlet property="contentLabel" destination="Ond-8x-ZpY" id="Tao-O5-1UB"/>
                                             <outlet property="flagImageView" destination="qAH-s7-RXI" id="gDE-Un-4hQ"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SeparatorCell" rowHeight="1" id="g8J-Ed-EqI">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="1"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g8J-Ed-EqI" id="pdZ-2i-3gy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

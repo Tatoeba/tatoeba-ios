@@ -14,6 +14,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     
     private let maximumTranslationsShown = 4
     private let sentenceSegueIdentifier = "sentenceSegue"
+    private let separatorHeight: CGFloat = 20
     
     // MARK: - Properties
     
@@ -32,7 +33,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     // MARK: - Types
     
     private enum HomeCell {
-        case contribution(Contribution), separator, sentence(Sentence), showMore
+        case contribution(Contribution), sentence(Sentence), showMore
     }
     
     private struct HomeSentence {
@@ -111,13 +112,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
                 }
             }
         } else {
-            if indexPath.row % 2 == 0 {
-                // If row is even, this should be a contribution cell
-                return .contribution(contributions[indexPath.row / 2])
-            } else {
-                // If row is odd, this should be a separator cell
-                return .separator
-            }
+            // Return contribution cell for this section
+            return .contribution(contributions[indexPath.section])
         }
     }
     
@@ -142,7 +138,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     // MARK: - UITableViewDataSource Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return isSearching ? sentences.count : 1
+        return isSearching ? sentences.count : contributions.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -157,13 +153,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
                 return maximumTranslationsShown + 1
             }
         } else {
-            if contributions.count == 0 {
-                // If there are no contributions, there shouldn't be any cells
-                return 0
-            } else {
-                // Add n - 1 cells to account for separators
-                return contributions.count * 2 - 1
-            }
+            // There is always one contribution per section
+            return 1
         }
     }
     
@@ -182,12 +173,6 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
             }
             
             cell.sentence = sentence
-            return cell
-        case .separator:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SeparatorCell.identifier) as? SeparatorCell else {
-                break
-            }
-            
             return cell
         case .showMore:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ShowMoreCell.identifier) as? ShowMoreCell else {
@@ -211,8 +196,6 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
             performSegue(withIdentifier: sentenceSegueIdentifier, sender: nil)
         case .sentence(_):
             tableView.deselectRow(at: indexPath, animated: true)
-        case .separator:
-            break
         case .showMore:
             tableView.deselectRow(at: indexPath, animated: true)
             tableView.beginUpdates()
@@ -235,14 +218,16 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         case .sentence(let sentence):
             let maximumWidth = view.frame.size.width - SentenceCell.horizontalSpacing
             return sentence.text.height(forMaxWidth: maximumWidth, withFont: .systemFont(ofSize: 16)) + SentenceCell.verticalSpacing
-        case .separator:
-            return SeparatorCell.height
         case .showMore:
             return ShowMoreCell.height
         }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? .leastNormalMagnitude : SeparatorCell.height
+        return section == 0 ? .leastNormalMagnitude : separatorHeight
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
     }
 }
