@@ -430,7 +430,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <inset key="separatorInset" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" rowHeight="44" id="Ey7-K7-l42" customClass="SettingCell" customModule="Tatoeba" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" rowHeight="44" id="Ey7-K7-l42" customClass="SettingsCell" customModule="Tatoeba" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ey7-K7-l42" id="UDa-8R-Rca">
@@ -511,7 +511,7 @@
                                             <outlet property="topSeparator" destination="qBw-iW-R73" id="82j-oZ-svw"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingSwitchCell" rowHeight="53" id="SeJ-sg-Nhi" customClass="SettingCell" customModule="Tatoeba" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsSwitchCell" rowHeight="53" id="SeJ-sg-Nhi" customClass="SettingsCell" customModule="Tatoeba" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="99.5" width="375" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SeJ-sg-Nhi" id="haG-4s-Did">

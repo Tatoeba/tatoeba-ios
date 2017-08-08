@@ -10,7 +10,6 @@
 		EB25290E1F38B154008C2916 /* TatoebaLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */; };
 		EB2529141F38B17E008C2916 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB2529161F38B17E008C2916 /* Localizable.strings */; };
 		EB2529191F395853008C2916 /* strings.po in Resources */ = {isa = PBXBuildFile; fileRef = EB2529181F395853008C2916 /* strings.po */; };
-		EB25291C1F3972CB008C2916 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25291B1F3972CB008C2916 /* SettingsItem.swift */; };
 		EB2992921F3640AB00B88C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB2992911F3640AB00B88C22 /* Assets.xcassets */; };
 		EB2992A01F3640AB00B88C22 /* TatoebaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB29929F1F3640AB00B88C22 /* TatoebaTests.swift */; };
 		EB2992AB1F3640AB00B88C22 /* TatoebaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2992AA1F3640AB00B88C22 /* TatoebaUITests.swift */; };
@@ -25,12 +24,13 @@
 		EB462D401F37861000CFE427 /* TatoebaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D3C1F37861000CFE427 /* TatoebaRequest.swift */; };
 		EB462D421F378B3100CFE427 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D411F378B3100CFE427 /* SettingsViewController.swift */; };
 		EB462D461F379B4400CFE427 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */; };
+		EB958EB11F3A111D005B9F4B /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB958EB01F3A111D005B9F4B /* SettingsItem.swift */; };
 		EBB5E9BC1F37A89100D03E55 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9BB1F37A89100D03E55 /* ImageManager.swift */; };
 		EBB5E9C01F37E32700D03E55 /* SentenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9BF1F37E32700D03E55 /* SentenceViewController.swift */; };
 		EBB5E9C71F37EB4E00D03E55 /* SentenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9C61F37EB4E00D03E55 /* SentenceCell.swift */; };
 		EBB5E9CB1F38073400D03E55 /* FlagImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9CA1F38073400D03E55 /* FlagImageRequest.swift */; };
 		EBB5E9CD1F38074600D03E55 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9CC1F38074600D03E55 /* Sentence.swift */; };
-		EBB5E9CF1F38078000D03E55 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9CE1F38078000D03E55 /* SettingCell.swift */; };
+		EBB5E9CF1F38078000D03E55 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9CE1F38078000D03E55 /* SettingsCell.swift */; };
 		EBB5E9D31F3808DF00D03E55 /* SentencesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9D21F3808DF00D03E55 /* SentencesRequest.swift */; };
 		EBB5E9D51F381A4A00D03E55 /* ShowMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9D41F381A4A00D03E55 /* ShowMoreCell.swift */; };
 		EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */; };
@@ -63,7 +63,6 @@
 		EB2529151F38B17E008C2916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB2529171F38B1C2008C2916 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB2529181F395853008C2916 /* strings.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = strings.po; path = Localization/strings.po; sourceTree = "<group>"; };
-		EB25291B1F3972CB008C2916 /* SettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		EB2992871F3640AB00B88C22 /* Tatoeba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tatoeba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2992911F3640AB00B88C22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB29929B1F3640AB00B88C22 /* TatoebaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TatoebaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,12 +82,13 @@
 		EB462D3C1F37861000CFE427 /* TatoebaRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaRequest.swift; path = Common/Networking/TatoebaRequest.swift; sourceTree = "<group>"; };
 		EB462D411F378B3100CFE427 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "View Controllers/SettingsViewController.swift"; sourceTree = "<group>"; };
 		EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "Common/Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		EB958EB01F3A111D005B9F4B /* SettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsItem.swift; path = Models/SettingsItem.swift; sourceTree = "<group>"; };
 		EBB5E9BB1F37A89100D03E55 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManager.swift; path = Common/Managers/ImageManager.swift; sourceTree = "<group>"; };
 		EBB5E9BF1F37E32700D03E55 /* SentenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SentenceViewController.swift; path = "View Controllers/SentenceViewController.swift"; sourceTree = "<group>"; };
 		EBB5E9C61F37EB4E00D03E55 /* SentenceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SentenceCell.swift; path = Views/SentenceCell.swift; sourceTree = "<group>"; };
 		EBB5E9CA1F38073400D03E55 /* FlagImageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlagImageRequest.swift; path = Common/Networking/FlagImageRequest.swift; sourceTree = "<group>"; };
 		EBB5E9CC1F38074600D03E55 /* Sentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sentence.swift; path = Models/Sentence.swift; sourceTree = "<group>"; };
-		EBB5E9CE1F38078000D03E55 /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingCell.swift; path = Views/SettingCell.swift; sourceTree = "<group>"; };
+		EBB5E9CE1F38078000D03E55 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsCell.swift; path = Views/SettingsCell.swift; sourceTree = "<group>"; };
 		EBB5E9D21F3808DF00D03E55 /* SentencesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SentencesRequest.swift; path = Common/Networking/SentencesRequest.swift; sourceTree = "<group>"; };
 		EBB5E9D41F381A4A00D03E55 /* ShowMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowMoreCell.swift; path = Views/ShowMoreCell.swift; sourceTree = "<group>"; };
 		EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 			children = (
 				EBDB5C631F36903400BAAEF1 /* ContributionCell.swift */,
 				EBB5E9D41F381A4A00D03E55 /* ShowMoreCell.swift */,
-				EBB5E9CE1F38078000D03E55 /* SettingCell.swift */,
+				EBB5E9CE1F38078000D03E55 /* SettingsCell.swift */,
 				EBB5E9C61F37EB4E00D03E55 /* SentenceCell.swift */,
 			);
 			name = Views;
@@ -278,7 +278,7 @@
 				EBDB5C6A1F3692D800BAAEF1 /* Contribution.swift */,
 				EB462D161F36E98B00CFE427 /* User.swift */,
 				EBB5E9CC1F38074600D03E55 /* Sentence.swift */,
-				EB25291B1F3972CB008C2916 /* SettingsItem.swift */,
+				EB958EB01F3A111D005B9F4B /* SettingsItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -457,12 +457,12 @@
 				EBB5E9BC1F37A89100D03E55 /* ImageManager.swift in Sources */,
 				EB462D3F1F37861000CFE427 /* ProfileImageRequest.swift in Sources */,
 				EB462D421F378B3100CFE427 /* SettingsViewController.swift in Sources */,
-				EB25291C1F3972CB008C2916 /* SettingsItem.swift in Sources */,
+				EB958EB11F3A111D005B9F4B /* SettingsItem.swift in Sources */,
 				EBB5E9CB1F38073400D03E55 /* FlagImageRequest.swift in Sources */,
 				EB462D171F36E98B00CFE427 /* User.swift in Sources */,
 				EBB5E9C71F37EB4E00D03E55 /* SentenceCell.swift in Sources */,
 				EB462D3E1F37861000CFE427 /* ImageRequest.swift in Sources */,
-				EBB5E9CF1F38078000D03E55 /* SettingCell.swift in Sources */,
+				EBB5E9CF1F38078000D03E55 /* SettingsCell.swift in Sources */,
 				EBB5E9C01F37E32700D03E55 /* SentenceViewController.swift in Sources */,
 				EBB5E9D51F381A4A00D03E55 /* ShowMoreCell.swift in Sources */,
 			);

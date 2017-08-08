@@ -89,7 +89,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = cell(for: indexPath)
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: model.identifier, for: indexPath) as? SettingCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: model.identifier, for: indexPath) as? SettingsCell else {
             return UITableViewCell()
         }
         

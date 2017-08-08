@@ -39,9 +39,9 @@ struct SettingsCellModel: Equatable {
     var identifier: String {
         switch type {
         case .external, .push:
-            return "SettingCell"
+            return "SettingsCell"
         case .switch:
-            return "SettingSwitchCell"
+            return "SettingsSwitchCell"
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  SettingCell.swift
+//  SettingsCell.swift
 //  Tatoeba
 //
 //  Created by Jack Cook on 8/6/17.
@@ -14,14 +14,14 @@ import UIKit
 /// - top: This cell is at the top of its section.
 /// - middle: This cell is in the middle of its section.
 /// - bottom: This cell is at the bottom of its section.
-enum SettingCellPosition {
+enum SettingsCellPosition {
     case alone
     case top
     case middle
     case bottom
 }
 
-class SettingCell: UITableViewCell {
+class SettingsCell: UITableViewCell {
     
     // MARK: - Constants
     
@@ -52,16 +52,16 @@ class SettingCell: UITableViewCell {
         }
     }
     
-    var position: SettingCellPosition = .alone {
+    var position: SettingsCellPosition = .alone {
         didSet {
             switch position {
             case .alone:
                 break
             case .top:
-                bottomSeparatorLeftConstraint.constant = SettingCell.leftSeparatorInset
+                bottomSeparatorLeftConstraint.constant = SettingsCell.leftSeparatorInset
             case .middle:
                 topSeparator.isHidden = true
-                bottomSeparatorLeftConstraint.constant = SettingCell.leftSeparatorInset
+                bottomSeparatorLeftConstraint.constant = SettingsCell.leftSeparatorInset
             case .bottom:
                 topSeparator.isHidden = true
             }
