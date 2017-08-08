@@ -29,7 +29,7 @@ enum SettingsItem {
     case footer(String)
 }
 
-struct SettingsCellModel {
+struct SettingsCellModel: Equatable {
     
     let color: UIColor
     let icon: UIImage
@@ -50,4 +50,8 @@ struct SettingsCellModel {
     static let supportTatoeba = SettingsCellModel(color: .supportRed, icon: #imageLiteral(resourceName: "Heart"), text: TatoebaLocalizer.localize("Settings_Support_Tatoeba"), type: .external)
     
     static let termsOfUse = SettingsCellModel(color: .termsGray, icon: #imageLiteral(resourceName: "Text"), text: TatoebaLocalizer.localize("Settings_Terms"), type: .external)
+    
+    static func ==(lhs: SettingsCellModel, rhs: SettingsCellModel) -> Bool {
+        return lhs.color == rhs.color && lhs.icon == rhs.icon && lhs.text == rhs.text && lhs.type == rhs.type
+    }
 }

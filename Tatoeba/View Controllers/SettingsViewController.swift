@@ -6,6 +6,7 @@
 //  Copyright © 2017 Tatoeba. All rights reserved.
 //
 
+import SafariServices
 import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -42,17 +43,24 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - Private Methods
     
-    private func item(for indexPath: IndexPath) -> SettingsItem {
-        let cellModels = items[indexPath.section].filter {
+    private func cell(for indexPath: IndexPath) -> SettingsCellModel {
+        let models: [SettingsCellModel] = items[indexPath.section].filter({
             switch $0 {
             case .cell(_):
                 return true
             default:
                 return false
             }
-        }
+        }).map({
+            switch $0 {
+            case .cell(let model):
+                return model
+            default:
+                fatalError()
+            }
+        })
         
-        return cellModels[indexPath.row]
+        return models[indexPath.row]
     }
     
     // MARK: - IBActions
@@ -79,30 +87,23 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model: SettingsCellModel
-        
-        switch item(for: indexPath) {
-        case .cell(let cellModel):
-            model = cellModel
-        default:
-            return UITableViewCell()
-        }
+        let model = cell(for: indexPath)
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: model.identifier, for: indexPath) as? SettingCell else {
             return UITableViewCell()
         }
         
+        switch model.type {
+        case .switch:
+            cell.selectionStyle = .none
+        default:
+            break
+        }
+        
         cell.model = model
         
         // Get number of cells in the section
-        let numberOfCellsInSection = items[indexPath.section].filter({
-            switch $0 {
-            case .cell(_):
-                return true
-            default:
-                return false
-            }
-        }).count
+        let numberOfCellsInSection = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
         
         // Set up cell separators
         switch (numberOfCellsInSection, indexPath.row) {
@@ -125,17 +126,32 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch cell(for: indexPath) {
+        case SettingsCellModel.supportTatoeba:
+            guard let url = URL(string: "https://tatoeba.org/eng/donate") else {
+                return
+            }
+            
+            UIApplication.shared.openURL(url)
+        case SettingsCellModel.termsOfUse:
+            guard let url = URL(string: "https://tatoeba.org/eng/terms_of_use") else {
+                return
+            }
+            
+            if #available(iOS 9.0, *) {
+                let safariController = SFSafariViewController(url: url, entersReaderIfAvailable: true)
+                present(safariController, animated: true, completion: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        default:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let model: SettingsCellModel
-        
-        switch item(for: indexPath) {
-        case .cell(let cellModel):
-            model = cellModel
-        default:
-            return 0
-        }
+        let model = cell(for: indexPath)
         
         let horizontalSpacing: CGFloat
         let verticalSpacing: CGFloat = 24
