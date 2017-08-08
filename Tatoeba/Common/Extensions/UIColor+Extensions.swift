@@ -11,6 +11,11 @@ import UIKit
 // MARK: - Color constants
 extension UIColor {
     
+    /// Gray color used for cell separators in settings.
+    static var separatorGray: UIColor {
+        return UIColor(red: 227/255, green: 227/255, blue: 227/255, alpha: 1)
+    }
+    
     /// Red color used for the "Support Tatoeba" setting.
     static var supportRed: UIColor {
         return UIColor(red: 244/255, green: 67/255, blue: 54/255, alpha: 1)

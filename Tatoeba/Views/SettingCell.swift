@@ -25,8 +25,6 @@ class SettingCell: UITableViewCell {
     
     // MARK: - Constants
     
-    static let height: CGFloat = 44
-    static let identifier = "SettingCell"
     static let leftSeparatorInset: CGFloat = 60
     
     // MARK: - Properties
@@ -34,7 +32,8 @@ class SettingCell: UITableViewCell {
     @IBOutlet weak var iconBackground: UIView!
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var actionImage: UIImageView!
+    @IBOutlet weak var actionImage: UIImageView?
+    @IBOutlet weak var `switch`: UISwitch?
     
     @IBOutlet weak var topSeparator: UIView!
     @IBOutlet weak var bottomSeparator: UIView!
@@ -49,7 +48,7 @@ class SettingCell: UITableViewCell {
             iconBackground.backgroundColor = model.color
             iconImage.image = model.icon
             nameLabel.text = model.text
-            actionImage.image = model.action.image
+            actionImage?.image = model.type.image
         }
     }
     
@@ -76,17 +75,24 @@ class SettingCell: UITableViewCell {
         
         iconBackground.layer.cornerRadius = 4
         iconBackground.layer.masksToBounds = true
+        
+        topSeparator.backgroundColor = .separatorGray
+        bottomSeparator.backgroundColor = .separatorGray
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         
         iconBackground.backgroundColor = model?.color
+        topSeparator.backgroundColor = .separatorGray
+        bottomSeparator.backgroundColor = .separatorGray
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         iconBackground.backgroundColor = model?.color
+        topSeparator.backgroundColor = .separatorGray
+        bottomSeparator.backgroundColor = .separatorGray
     }
 }

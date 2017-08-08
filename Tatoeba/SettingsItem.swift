@@ -8,15 +8,17 @@
 
 import UIKit
 
-enum SettingsItemActionType {
-    case external, push
+enum SettingsCellItemType {
+    case external, push, `switch`
     
-    var image: UIImage {
+    var image: UIImage? {
         switch self {
         case .external:
             return #imageLiteral(resourceName: "Launch")
         case .push:
             return #imageLiteral(resourceName: "Next")
+        default:
+            return nil
         }
     }
 }
@@ -32,11 +34,20 @@ struct SettingsCellModel {
     let color: UIColor
     let icon: UIImage
     let text: String
-    let action: SettingsItemActionType
+    let type: SettingsCellItemType
     
-    static let sendAnonymousUsageData = SettingsCellModel(color: .usageTeal, icon: #imageLiteral(resourceName: "Graph"), text: TatoebaLocalizer.localize("Settings_Usage_Data"), action: .external)
+    var identifier: String {
+        switch type {
+        case .external, .push:
+            return "SettingCell"
+        case .switch:
+            return "SettingSwitchCell"
+        }
+    }
     
-    static let supportTatoeba = SettingsCellModel(color: .supportRed, icon: #imageLiteral(resourceName: "Heart"), text: TatoebaLocalizer.localize("Settings_Support_Tatoeba"), action: .external)
+    static let sendAnonymousUsageData = SettingsCellModel(color: .usageTeal, icon: #imageLiteral(resourceName: "Graph"), text: TatoebaLocalizer.localize("Settings_Usage_Data"), type: .switch)
     
-    static let termsOfUse = SettingsCellModel(color: .termsGray, icon: #imageLiteral(resourceName: "Text"), text: TatoebaLocalizer.localize("Settings_Terms"), action: .external)
+    static let supportTatoeba = SettingsCellModel(color: .supportRed, icon: #imageLiteral(resourceName: "Heart"), text: TatoebaLocalizer.localize("Settings_Support_Tatoeba"), type: .external)
+    
+    static let termsOfUse = SettingsCellModel(color: .termsGray, icon: #imageLiteral(resourceName: "Text"), text: TatoebaLocalizer.localize("Settings_Terms"), type: .external)
 }

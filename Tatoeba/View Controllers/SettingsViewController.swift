@@ -79,16 +79,20 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.identifier, for: indexPath) as? SettingCell else {
-            return UITableViewCell()
-        }
+        let model: SettingsCellModel
         
         switch item(for: indexPath) {
-        case .cell(let model):
-            cell.model = model
+        case .cell(let cellModel):
+            model = cellModel
         default:
             return UITableViewCell()
         }
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: model.identifier, for: indexPath) as? SettingCell else {
+            return UITableViewCell()
+        }
+        
+        cell.model = model
         
         // Get number of cells in the section
         let numberOfCellsInSection = items[indexPath.section].filter({
@@ -124,7 +128,26 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return SettingCell.height
+        let model: SettingsCellModel
+        
+        switch item(for: indexPath) {
+        case .cell(let cellModel):
+            model = cellModel
+        default:
+            return 0
+        }
+        
+        let horizontalSpacing: CGFloat
+        let verticalSpacing: CGFloat = 24
+        
+        switch model.type {
+        case .external, .push:
+            horizontalSpacing = 116
+        case .switch:
+            horizontalSpacing = 141
+        }
+        
+        return model.text.height(forMaxWidth: view.frame.size.width - horizontalSpacing, withFont: .systemFont(ofSize: 17)) + verticalSpacing
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
