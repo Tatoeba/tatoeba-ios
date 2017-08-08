@@ -14,4 +14,16 @@ class ShowMoreCell: UITableViewCell {
     
     static let height: CGFloat = 44
     static let identifier = "ShowMoreCell"
+    
+    // MARK: - Variables
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    // MARK: - View Life Cycle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        titleLabel.text = TatoebaLocalizer.localize("Search_Show_More")
+    }
 }

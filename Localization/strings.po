@@ -8,5 +8,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en\n"
 
+msgid "Generic_Back"
+msgstr "Back"
+
+msgid "Generic_Close"
+msgstr "Close"
+
 msgid "Home_Search_Placeholder"
 msgstr "Search Tatoeba"
+
+msgid "Contribution_Added_Sentence"
+msgstr "{name} added a sentence"
+
+msgid "Contribution_Edited_Sentence"
+msgstr "{name} edited a sentence"
+
+# e.g. Sunday, August 7 at 4:56 PM. Dates and times are taken care of in code
+msgid "Contribution_Date"
+msgstr "{date} at {time}"
+
+msgid "Search_Show_More"
+msgstr "Show More"
+
+msgid "Sentence_Title"
+msgstr "Sentence"
+
+msgid "Settings_Title"
+msgstr "Settings"
+
+msgid "Settings_Support_Tatoeba"
+msgstr "Support Tatoeba"

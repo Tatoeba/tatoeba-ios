@@ -14,18 +14,21 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     private let items = [
         [
-            SettingsItem(color: .supportRed, icon: #imageLiteral(resourceName: "Heart"), text: "Support Tatoeba", action: .external)
+            SettingsItem(color: .supportRed, icon: #imageLiteral(resourceName: "Heart"), text: TatoebaLocalizer.localize("Settings_Support_Tatoeba"), action: .external)
         ]
     ]
     
     // MARK: - Properties
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleLabel.text = TatoebaLocalizer.localize("Settings_Title")
         
         tableView.dataSource = self
         tableView.delegate = self

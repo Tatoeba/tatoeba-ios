@@ -48,11 +48,11 @@ class ContributionCell: UITableViewCell {
             let title: String
             
             if contribution.action == "insert" {
-                title = "\(contribution.user.username) added a sentence"
+                title = TatoebaLocalizer.localize("Contribution_Added_Sentence", parameters: ["name": contribution.user.username])
             } else if contribution.action == "update" {
-                title = "\(contribution.user.username) edited a sentence"
+                title = TatoebaLocalizer.localize("Contribution_Edited_Sentence", parameters: ["name": contribution.user.username])
             } else {
-                title = "\(contribution.user.username)"
+                title = contribution.user.username
             }
             
             let titleAttributedText = NSMutableAttributedString(string: title)
@@ -80,7 +80,7 @@ class ContributionCell: UITableViewCell {
             let dateString = contribution.timestamp.string(from: dateTemplate)
             let timeString = contribution.timestamp.string(from: timeTemplate)
             
-            dateLabel.text = "\(dateString) at \(timeString)"
+            dateLabel.text = TatoebaLocalizer.localize("Contribution_Date", parameters: ["date": dateString, "time": timeString])
             contentLabel.text = contribution.text
             
             let flagRequest = FlagImageRequest(language: contribution.sentenceLanguage)

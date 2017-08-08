@@ -226,6 +226,9 @@
                                                 <constraint firstItem="rbq-ST-j4w" firstAttribute="centerY" secondItem="nix-GO-Sa6" secondAttribute="centerY" id="pa8-Xp-bT1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="nix-GO-Sa6" id="KQU-Y8-Uu0"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -325,7 +328,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On devrait toujours tenir ses promesses." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ond-8x-ZpY">
-                                                    <rect key="frame" x="58" y="12" width="301" height="19.5"/>
+                                                    <rect key="frame" x="58" y="12" width="526" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -364,6 +367,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="5nO-zB-u84" id="89g-tf-dlK"/>
+                        <outlet property="titleLabel" destination="BwC-zq-gKz" id="0he-5z-j2T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ps9-8d-iOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -451,13 +455,13 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvk-jx-3ih">
-                                                    <rect key="frame" x="60" y="11.5" width="259" height="21"/>
+                                                    <rect key="frame" x="60" y="11.5" width="484" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DuM-no-ayH">
-                                                    <rect key="frame" x="335" y="10" width="24" height="24"/>
+                                                    <rect key="frame" x="560" y="10" width="24" height="24"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.34999999999999998" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="DuM-no-ayH" secondAttribute="height" multiplier="1:1" id="lfF-15-g2F"/>
@@ -502,6 +506,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Pd2-jt-Z28" id="p9l-tz-vJM"/>
+                        <outlet property="titleLabel" destination="GXW-tV-BXc" id="grb-8V-2LW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2X-uz-6qI" userLabel="First Responder" sceneMemberID="firstResponder"/>

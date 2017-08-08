@@ -1,1 +1,10 @@
+"Generic_Back" = "Retour";
+"Generic_Close" = "Fermer";
 "Home_Search_Placeholder" = "Chercher Tatoeba";
+"Contribution_Added_Sentence" = "{name} a ajouté une phrase";
+"Contribution_Edited_Sentence" = "{name} a révisé une phrase";
+"Contribution_Date" = "{date} à {time}";
+"Search_Show_More" = "Afficher plus";
+"Sentence_Title" = "Phrase";
+"Settings_Title" = "Paramètres";
+"Settings_Support_Tatoeba" = "Supporter Tatoeba";

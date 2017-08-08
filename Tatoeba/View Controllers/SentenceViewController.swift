@@ -12,6 +12,7 @@ class SentenceViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - Properties
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var sentence: Sentence!
@@ -26,6 +27,8 @@ class SentenceViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleLabel.text = TatoebaLocalizer.localize("Sentence_Title")
         
         tableView.dataSource = self
         tableView.delegate = self
