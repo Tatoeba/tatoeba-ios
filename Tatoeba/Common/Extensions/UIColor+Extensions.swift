@@ -26,8 +26,13 @@ extension UIColor {
         return UIColor(red: 117/255, green: 117/255, blue: 117/255, alpha: 1)
     }
     
-    /// Blue color used for the "Send anonymous usage data" setting.
+    /// Teal color used for the "Send anonymous usage data" setting.
     static var usageTeal: UIColor {
         return UIColor(red: 0, green: 150/255, blue: 136/255, alpha: 1)
+    }
+    
+    /// Blue color used for the "Open source libraries" setting.
+    static var openSourceBlue: UIColor {
+        return UIColor(red: 3/255, green: 155/255, blue: 229/255, alpha: 1)
     }
 }

@@ -33,7 +33,9 @@ class SettingsCell: UITableViewCell {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var actionImage: UIImageView?
+    @IBOutlet weak var actionImageRightConstraint: NSLayoutConstraint?
     @IBOutlet weak var `switch`: UISwitch?
+    @IBOutlet weak var detailLabel: UILabel?
     
     @IBOutlet weak var topSeparator: UIView!
     @IBOutlet weak var bottomSeparator: UIView!
@@ -49,6 +51,25 @@ class SettingsCell: UITableViewCell {
             iconImage.image = model.icon
             nameLabel.text = model.text
             actionImage?.image = model.type.image
+            
+            switch model.color {
+            case UIColor.white:
+                iconBackground.layer.borderColor = UIColor.separatorGray.cgColor
+                iconBackground.layer.borderWidth = 1
+            default:
+                break
+            }
+            
+            switch model.type {
+            case .push:
+                actionImageRightConstraint?.constant = 14
+            case .switch:
+                selectionStyle = .none
+            case .text(let text):
+                detailLabel?.text = text
+            default:
+                break
+            }
         }
     }
     

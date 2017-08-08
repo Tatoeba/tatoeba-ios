@@ -22,6 +22,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             .cell(.termsOfUse),
             .cell(.sendAnonymousUsageData),
             .footer(TatoebaLocalizer.localize("Settings_Terms_Footer"))
+        ],
+        [
+            .header("ABOUT"),
+            .cell(.thirdPartyNotices),
+            .cell(.version)
         ]
     ]
     
@@ -93,13 +98,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             return UITableViewCell()
         }
         
-        switch model.type {
-        case .switch:
-            cell.selectionStyle = .none
-        default:
-            break
-        }
-        
         cell.model = model
         
         // Get number of cells in the section
@@ -161,6 +159,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             horizontalSpacing = 116
         case .switch:
             horizontalSpacing = 141
+        case .text(_):
+            horizontalSpacing = 112
         }
         
         return model.text.height(forMaxWidth: view.frame.size.width - horizontalSpacing, withFont: .systemFont(ofSize: 17)) + verticalSpacing

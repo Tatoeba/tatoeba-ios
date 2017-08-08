@@ -8,8 +8,8 @@
 
 import UIKit
 
-enum SettingsCellItemType {
-    case external, push, `switch`
+enum SettingsCellItemType: Equatable {
+    case external, push, `switch`, text(String)
     
     var image: UIImage? {
         switch self {
@@ -19,6 +19,21 @@ enum SettingsCellItemType {
             return #imageLiteral(resourceName: "Next")
         default:
             return nil
+        }
+    }
+    
+    static func ==(lhs: SettingsCellItemType, rhs: SettingsCellItemType) -> Bool {
+        switch (lhs, rhs) {
+        case (.external, .external):
+            return true
+        case (.push, .push):
+            return true
+        case (.switch, .switch):
+            return true
+        case (.text(let str1), .text(let str2)):
+            return str1 == str2
+        default:
+            return false
         }
     }
 }
@@ -42,6 +57,8 @@ struct SettingsCellModel: Equatable {
             return "SettingsCell"
         case .switch:
             return "SettingsSwitchCell"
+        case .text(_):
+            return "SettingsTextCell"
         }
     }
     
@@ -50,6 +67,10 @@ struct SettingsCellModel: Equatable {
     static let supportTatoeba = SettingsCellModel(color: .supportRed, icon: #imageLiteral(resourceName: "Heart"), text: TatoebaLocalizer.localize("Settings_Support_Tatoeba"), type: .external)
     
     static let termsOfUse = SettingsCellModel(color: .termsGray, icon: #imageLiteral(resourceName: "Text"), text: TatoebaLocalizer.localize("Settings_Terms"), type: .external)
+    
+    static let thirdPartyNotices = SettingsCellModel(color: .openSourceBlue, icon: #imageLiteral(resourceName: "Modules"), text: "Open source libraries", type: .push)
+    
+    static let version = SettingsCellModel(color: .white, icon: #imageLiteral(resourceName: "Tatoeba"), text: "Version", type: .text("1.0"))
     
     static func ==(lhs: SettingsCellModel, rhs: SettingsCellModel) -> Bool {
         return lhs.color == rhs.color && lhs.icon == rhs.icon && lhs.text == rhs.text && lhs.type == rhs.type
