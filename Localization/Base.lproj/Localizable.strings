@@ -1,9 +1,1 @@
-/* 
-  Localizable.strings
-  Tatoeba
-
-  Created by Jack Cook on 8/7/17.
-  Copyright © 2017 Tatoeba. All rights reserved.
-*/
-
-"Home_Search_Placeholder" = "Chercher Tatoeba";
+"Home_Search_Placeholder" = "Search Tatoeba";

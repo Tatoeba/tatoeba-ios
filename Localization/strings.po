@@ -1,0 +1,12 @@
+# Tatoeba iOS strings
+# Copyright (c) 2017 Jack Cook
+# This file is distributed under the same license as the iOS repository.
+msgid ""
+msgstr ""
+"Project-Id-Version: Tatoeba iOS\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "Home_Search_Placeholder"
+msgstr "Search Tatoeba"

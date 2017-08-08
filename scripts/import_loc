@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Clear all strings files, we're about to write new strings to these
+printf "Clearing existing strings files... "
+
+for D in Localization/*; do
+  if [ -d "${D}" ] && [[ "${D}" == *.lproj ]]; then
+    > "${D}/Localizable.strings"
+  fi
+done
+
+echo "Done!"
+
+# Loop through source loc files
+for F in Localization/Source/*; do
+  # Save the language id from this file's name
+  # Looks for the string after the last underscore and before a period
+  # e.g. for_use_tatoeba_website_tatoeba-languages_fr.po -> fr
+  id=$(echo "${F}" | awk -F"_" ' {print $NF}' | awk -F"." '{print $1}')
+  
+  printf "Parsing strings for $id... "
+  
+  # If $id is english, convert to "Base" (since we use base localization)
+  if [ "$id" == "en" ]; then
+    id=Base
+  fi
+  
+  # Loop through all lines in this file
+  while read line; do
+    # If line begins with msgid, save the string between the quotes
+    if [[ $line == msgid* ]]; then
+      lineid=$(echo $line | awk -F'"' '{print $2}')
+    # If line begins with msgstr, save the string between the quotes
+    elif [[ $line == msgstr* ]]; then
+      linestr=$(echo $line | awk -F'"' '{print $2}')
+    fi
+    
+    # If both lineid and linestr are defined, print them to the .strings file
+    if [ ! -z "$lineid" ] && [ ! -z "$linestr" ]; then
+      echo "\"$lineid\" = \"$linestr\";" >> Localization/$id.lproj/Localizable.strings
+      lineid=
+      linestr=
+    fi
+  done <"${F}"
+  
+  echo "Done!"
+  
+  id=
+done

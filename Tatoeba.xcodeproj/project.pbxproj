@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB25290E1F38B154008C2916 /* TatoebaLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */; };
 		EB2529141F38B17E008C2916 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB2529161F38B17E008C2916 /* Localizable.strings */; };
+		EB2529191F395853008C2916 /* strings.po in Resources */ = {isa = PBXBuildFile; fileRef = EB2529181F395853008C2916 /* strings.po */; };
 		EB2992921F3640AB00B88C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB2992911F3640AB00B88C22 /* Assets.xcassets */; };
 		EB2992A01F3640AB00B88C22 /* TatoebaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB29929F1F3640AB00B88C22 /* TatoebaTests.swift */; };
 		EB2992AB1F3640AB00B88C22 /* TatoebaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2992AA1F3640AB00B88C22 /* TatoebaUITests.swift */; };
@@ -60,6 +61,7 @@
 		EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaLocalizer.swift; path = Localization/TatoebaLocalizer.swift; sourceTree = "<group>"; };
 		EB2529151F38B17E008C2916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB2529171F38B1C2008C2916 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EB2529181F395853008C2916 /* strings.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = strings.po; path = Localization/strings.po; sourceTree = "<group>"; };
 		EB2992871F3640AB00B88C22 /* Tatoeba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tatoeba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2992911F3640AB00B88C22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB29929B1F3640AB00B88C22 /* TatoebaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TatoebaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 			children = (
 				EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */,
 				EB2529161F38B17E008C2916 /* Localizable.strings */,
+				EB2529181F395853008C2916 /* strings.po */,
 			);
 			name = Localization;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */,
 				EB2529141F38B17E008C2916 /* Localizable.strings in Resources */,
 				EB2992921F3640AB00B88C22 /* Assets.xcassets in Resources */,
+				EB2529191F395853008C2916 /* strings.po in Resources */,
 				EBDB5C5E1F36825C00BAAEF1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

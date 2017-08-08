@@ -2,6 +2,9 @@
 xcuserdata
 *.xcuserstate
 
+# Project
+Localization/Source/
+
 # Carthage
 Carthage
 Carthage Cache
