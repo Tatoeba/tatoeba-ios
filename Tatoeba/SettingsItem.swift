@@ -34,9 +34,9 @@ struct SettingsCellModel {
     let text: String
     let action: SettingsItemActionType
     
-    static let sendAnonymousUsageData = SettingsCellModel(color: .usageTeal, icon: #imageLiteral(resourceName: "Graph"), text: "Send usage data", action: .external)
+    static let sendAnonymousUsageData = SettingsCellModel(color: .usageTeal, icon: #imageLiteral(resourceName: "Graph"), text: TatoebaLocalizer.localize("Settings_Usage_Data"), action: .external)
     
     static let supportTatoeba = SettingsCellModel(color: .supportRed, icon: #imageLiteral(resourceName: "Heart"), text: TatoebaLocalizer.localize("Settings_Support_Tatoeba"), action: .external)
     
-    static let termsOfUse = SettingsCellModel(color: .termsGray, icon: #imageLiteral(resourceName: "Text"), text: "Terms of Use", action: .external)
+    static let termsOfUse = SettingsCellModel(color: .termsGray, icon: #imageLiteral(resourceName: "Text"), text: TatoebaLocalizer.localize("Settings_Terms"), action: .external)
 }

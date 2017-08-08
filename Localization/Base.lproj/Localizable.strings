@@ -8,3 +8,7 @@
 "Sentence_Title" = "Sentence";
 "Settings_Title" = "Settings";
 "Settings_Support_Tatoeba" = "Support Tatoeba";
+"Settings_Terms_Header" = "Terms and Usage";
+"Settings_Terms" = "Terms of Use";
+"Settings_Usage_Data" = "Send usage data";
+"Settings_Terms_Footer" = "Allow Tatoeba to collect anonymous information about how you use the app to make the app better.";

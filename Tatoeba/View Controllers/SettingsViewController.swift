@@ -17,10 +17,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             .cell(.supportTatoeba)
         ],
         [
-            .header("TERMS AND USAGE"),
+            .header(TatoebaLocalizer.localize("Settings_Terms_Header")),
             .cell(.termsOfUse),
             .cell(.sendAnonymousUsageData),
-            .footer("Allow Tatoeba to collect anonymous information about how you use the app to make the app better.")
+            .footer(TatoebaLocalizer.localize("Settings_Terms_Footer"))
         ]
     ]
     
@@ -134,7 +134,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         switch item {
         case .header(let text):
-            return text
+            return text.uppercased(with: Locale.current)
         default:
             return nil
         }

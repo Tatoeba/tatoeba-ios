@@ -38,3 +38,15 @@ msgstr "Settings"
 
 msgid "Settings_Support_Tatoeba"
 msgstr "Support Tatoeba"
+
+msgid "Settings_Terms_Header"
+msgstr "Terms and Usage"
+
+msgid "Settings_Terms"
+msgstr "Terms of Use"
+
+msgid "Settings_Usage_Data"
+msgstr "Send usage data"
+
+msgid "Settings_Terms_Footer"
+msgstr "Allow Tatoeba to collect anonymous information about how you use the app to make the app better."
