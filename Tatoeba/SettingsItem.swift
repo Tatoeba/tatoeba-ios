@@ -23,6 +23,7 @@ enum SettingsItemActionType {
 
 enum SettingsItem {
     case cell(SettingsCellModel)
+    case header(String)
     case footer(String)
 }
 

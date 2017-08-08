@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             .cell(.supportTatoeba)
         ],
         [
+            .header("TERMS AND USAGE"),
             .cell(.termsOfUse),
             .cell(.sendAnonymousUsageData),
             .footer("Allow Tatoeba to collect anonymous information about how you use the app to make the app better.")
@@ -42,7 +43,16 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - Private Methods
     
     private func item(for indexPath: IndexPath) -> SettingsItem {
-        return items[indexPath.section][indexPath.row]
+        let cellModels = items[indexPath.section].filter {
+            switch $0 {
+            case .cell(_):
+                return true
+            default:
+                return false
+            }
+        }
+        
+        return cellModels[indexPath.row]
     }
     
     // MARK: - IBActions
@@ -115,6 +125,19 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return SettingCell.height
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let item = items[section].first else {
+            return nil
+        }
+        
+        switch item {
+        case .header(let text):
+            return text
+        default:
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
