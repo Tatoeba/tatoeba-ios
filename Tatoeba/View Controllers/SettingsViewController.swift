@@ -12,9 +12,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - Constants
     
-    private let items = [
+    private let items: [[SettingsItem]] = [
         [
-            SettingsItem(color: .supportRed, icon: #imageLiteral(resourceName: "Heart"), text: TatoebaLocalizer.localize("Settings_Support_Tatoeba"), action: .external)
+            .cell(.supportTatoeba)
+        ],
+        [
+            .cell(.termsOfUse),
+            .cell(.sendAnonymousUsageData),
+            .footer("Allow Tatoeba to collect anonymous information about how you use the app to make the app better.")
         ]
     ]
     
@@ -53,7 +58,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items[section].count
+        return items[section].filter({
+            switch $0 {
+            case .cell(_):
+                return true
+            default:
+                return false
+            }
+        }).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,7 +73,37 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             return UITableViewCell()
         }
         
-        cell.item = item(for: indexPath)
+        switch item(for: indexPath) {
+        case .cell(let model):
+            cell.model = model
+        default:
+            return UITableViewCell()
+        }
+        
+        // Get number of cells in the section
+        let numberOfCellsInSection = items[indexPath.section].filter({
+            switch $0 {
+            case .cell(_):
+                return true
+            default:
+                return false
+            }
+        }).count
+        
+        // Set up cell separators
+        switch (numberOfCellsInSection, indexPath.row) {
+        case (1, 0):
+            cell.position = .alone
+        case (numberOfCellsInSection, 0):
+            cell.position = .top
+        case (numberOfCellsInSection, 1 ..< numberOfCellsInSection - 1):
+            cell.position = .middle
+        case (numberOfCellsInSection, numberOfCellsInSection - 1):
+            cell.position = .bottom
+        default:
+            break
+        }
+        
         return cell
     }
     
@@ -73,5 +115,18 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return SettingCell.height
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        guard let item = items[section].last else {
+            return nil
+        }
+        
+        switch item {
+        case .footer(let text):
+            return text
+        default:
+            return nil
+        }
     }
 }

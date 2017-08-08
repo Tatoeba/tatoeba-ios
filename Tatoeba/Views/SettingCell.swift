@@ -8,24 +8,17 @@
 
 import UIKit
 
-enum SettingsItemActionType {
-    case external, push
-    
-    var image: UIImage {
-        switch self {
-        case .external:
-            return #imageLiteral(resourceName: "Launch")
-        case .push:
-            return #imageLiteral(resourceName: "Next")
-        }
-    }
-}
-
-struct SettingsItem {
-    let color: UIColor
-    let icon: UIImage
-    let text: String
-    let action: SettingsItemActionType
+/// Describes a cell's position relative to its section. Used to set up separators.
+///
+/// - alone: This is the only cell in its section.
+/// - top: This cell is at the top of its section.
+/// - middle: This cell is in the middle of its section.
+/// - bottom: This cell is at the bottom of its section.
+enum SettingCellPosition {
+    case alone
+    case top
+    case middle
+    case bottom
 }
 
 class SettingCell: UITableViewCell {
@@ -34,6 +27,7 @@ class SettingCell: UITableViewCell {
     
     static let height: CGFloat = 44
     static let identifier = "SettingCell"
+    static let leftSeparatorInset: CGFloat = 60
     
     // MARK: - Properties
     
@@ -42,16 +36,36 @@ class SettingCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var actionImage: UIImageView!
     
-    var item: SettingsItem? = nil {
+    @IBOutlet weak var topSeparator: UIView!
+    @IBOutlet weak var bottomSeparator: UIView!
+    @IBOutlet weak var bottomSeparatorLeftConstraint: NSLayoutConstraint!
+    
+    var model: SettingsCellModel? = nil {
         didSet {
-            guard let item = item else {
+            guard let model = model else {
                 return
             }
             
-            iconBackground.backgroundColor = item.color
-            iconImage.image = item.icon
-            nameLabel.text = item.text
-            actionImage.image = item.action.image
+            iconBackground.backgroundColor = model.color
+            iconImage.image = model.icon
+            nameLabel.text = model.text
+            actionImage.image = model.action.image
+        }
+    }
+    
+    var position: SettingCellPosition = .alone {
+        didSet {
+            switch position {
+            case .alone:
+                break
+            case .top:
+                bottomSeparatorLeftConstraint.constant = SettingCell.leftSeparatorInset
+            case .middle:
+                topSeparator.isHidden = true
+                bottomSeparatorLeftConstraint.constant = SettingCell.leftSeparatorInset
+            case .bottom:
+                topSeparator.isHidden = true
+            }
         }
     }
     
@@ -67,12 +81,12 @@ class SettingCell: UITableViewCell {
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         
-        iconBackground.backgroundColor = item?.color
+        iconBackground.backgroundColor = model?.color
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        iconBackground.backgroundColor = item?.color
+        iconBackground.backgroundColor = model?.color
     }
 }
