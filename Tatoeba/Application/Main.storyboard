@@ -232,23 +232,55 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLu-Qu-xoK">
+                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Offline" translatesAutoresizingMaskIntoConstraints="NO" id="LIO-Nm-BOo">
+                                        <rect key="frame" x="115" y="149.5" width="144" height="144"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="LIO-Nm-BOo" secondAttribute="height" multiplier="1:1" id="fNJ-UM-Jui"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your internet connection appears to be offline. Please try again later." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wf1-OV-lnl">
+                                        <rect key="frame" x="48" y="309.5" width="279" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="wf1-OV-lnl" secondAttribute="trailing" constant="48" id="5MM-Yn-6lU"/>
+                                    <constraint firstItem="LIO-Nm-BOo" firstAttribute="centerY" secondItem="TLu-Qu-xoK" secondAttribute="centerY" constant="-56" id="Eam-IY-6Ec"/>
+                                    <constraint firstItem="LIO-Nm-BOo" firstAttribute="centerX" secondItem="TLu-Qu-xoK" secondAttribute="centerX" id="Sga-RU-cUL"/>
+                                    <constraint firstItem="wf1-OV-lnl" firstAttribute="leading" secondItem="TLu-Qu-xoK" secondAttribute="leading" constant="48" id="bKz-5Y-44C"/>
+                                    <constraint firstItem="wf1-OV-lnl" firstAttribute="top" secondItem="LIO-Nm-BOo" secondAttribute="bottom" constant="16" id="bb8-hk-HcB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="iAJ-FR-0eT" secondAttribute="trailing" id="1IG-3h-doq"/>
                             <constraint firstItem="iAJ-FR-0eT" firstAttribute="leading" secondItem="xFb-d6-2W1" secondAttribute="leading" id="1MO-cS-CWG"/>
                             <constraint firstAttribute="trailing" secondItem="Pkw-ZL-aO4" secondAttribute="trailing" id="4Kc-k6-bdu"/>
+                            <constraint firstItem="TLu-Qu-xoK" firstAttribute="leading" secondItem="xFb-d6-2W1" secondAttribute="leading" id="9qo-6l-x7b"/>
+                            <constraint firstItem="TLu-Qu-xoK" firstAttribute="top" secondItem="Pkw-ZL-aO4" secondAttribute="bottom" id="Cda-xY-eGw"/>
                             <constraint firstItem="Pkw-ZL-aO4" firstAttribute="leading" secondItem="xFb-d6-2W1" secondAttribute="leading" id="QEU-tb-vBm"/>
                             <constraint firstItem="iAJ-FR-0eT" firstAttribute="top" secondItem="Pkw-ZL-aO4" secondAttribute="bottom" id="ReR-Uj-3fU"/>
+                            <constraint firstItem="EkG-Je-Kpo" firstAttribute="top" secondItem="TLu-Qu-xoK" secondAttribute="bottom" id="XJJ-2f-Uxf"/>
                             <constraint firstAttribute="trailing" secondItem="CYe-yV-Mb2" secondAttribute="trailing" id="Yy9-wC-zUb"/>
                             <constraint firstItem="CYe-yV-Mb2" firstAttribute="leading" secondItem="xFb-d6-2W1" secondAttribute="leading" id="eIt-1X-Nmx"/>
                             <constraint firstItem="CYe-yV-Mb2" firstAttribute="top" secondItem="xFb-d6-2W1" secondAttribute="top" id="tFR-fB-gyW"/>
                             <constraint firstItem="EkG-Je-Kpo" firstAttribute="top" secondItem="iAJ-FR-0eT" secondAttribute="bottom" id="wff-jA-WE7"/>
                             <constraint firstItem="Pkw-ZL-aO4" firstAttribute="top" secondItem="CYe-yV-Mb2" secondAttribute="bottom" id="xIz-PU-mMi"/>
+                            <constraint firstAttribute="trailing" secondItem="TLu-Qu-xoK" secondAttribute="trailing" id="zZN-aZ-K91"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mJz-HM-dGj"/>
                     <connections>
+                        <outlet property="offlineImageView" destination="LIO-Nm-BOo" id="oQn-S5-8vj"/>
+                        <outlet property="offlineLabel" destination="wf1-OV-lnl" id="gEG-Oz-UXF"/>
+                        <outlet property="offlineView" destination="TLu-Qu-xoK" id="veE-mM-IW5"/>
                         <outlet property="searchBar" destination="RL0-6B-JyY" id="iIS-lb-jnZ"/>
                         <outlet property="tableView" destination="iAJ-FR-0eT" id="7mq-GI-7PC"/>
                         <segue destination="TIO-J5-MQ2" kind="show" identifier="sentenceSegue" id="5fd-RX-OL7"/>
@@ -708,6 +740,7 @@
         <image name="Back" width="24" height="24"/>
         <image name="Close" width="24" height="24"/>
         <image name="Down" width="24" height="24"/>
+        <image name="Offline" width="144" height="144"/>
         <image name="Settings" width="24" height="24"/>
         <image name="Tatoeba" width="72" height="72"/>
     </resources>

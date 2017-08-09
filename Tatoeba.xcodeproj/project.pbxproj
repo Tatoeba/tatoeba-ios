@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB19B2531F3B556400D0D954 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB19B2521F3B556400D0D954 /* Reachability.framework */; };
 		EB25290E1F38B154008C2916 /* TatoebaLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */; };
 		EB2529141F38B17E008C2916 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB2529161F38B17E008C2916 /* Localizable.strings */; };
 		EB2529191F395853008C2916 /* strings.po in Resources */ = {isa = PBXBuildFile; fileRef = EB2529181F395853008C2916 /* strings.po */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB19B2521F3B556400D0D954 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaLocalizer.swift; path = Localization/TatoebaLocalizer.swift; sourceTree = "<group>"; };
 		EB2529151F38B17E008C2916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB2529171F38B1C2008C2916 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB19B2531F3B556400D0D954 /* Reachability.framework in Frameworks */,
 				EB462D0E1F36DF4900CFE427 /* SwiftyJSON.framework in Frameworks */,
 				EB462D0C1F36DF3F00CFE427 /* Alamofire.framework in Frameworks */,
 			);
@@ -193,6 +196,7 @@
 		EB462D0A1F36DF3F00CFE427 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB19B2521F3B556400D0D954 /* Reachability.framework */,
 				EB462D0D1F36DF4900CFE427 /* SwiftyJSON.framework */,
 				EB462D0B1F36DF3F00CFE427 /* Alamofire.framework */,
 			);
@@ -426,10 +430,12 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Reachability.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

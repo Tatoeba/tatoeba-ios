@@ -6,6 +6,7 @@
 //  Copyright © 2017 Tatoeba. All rights reserved.
 //
 
+import Reachability
 import UIKit
 
 class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
@@ -21,6 +22,10 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var offlineView: UIView!
+    @IBOutlet weak var offlineImageView: UIImageView!
+    @IBOutlet weak var offlineLabel: UILabel!
+    
     private let refreshControl = UIRefreshControl()
     
     private var contributions = [Contribution]()
@@ -30,6 +35,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         return !(searchBar.text?.isEmpty ?? true)
     }
     
+    private var reachability: Reachability?
     private var selectedSentence: Sentence?
     
     // MARK: - Types
@@ -52,6 +58,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startReachability()
+        
         searchBar.delegate = self
         searchBar.placeholder = TatoebaLocalizer.localize("Home_Search_Placeholder")
         
@@ -62,6 +70,9 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         tableView.insertSubview(refreshControl, at: 0)
         
         refresh()
+        
+        offlineImageView.tintColor = UIColor(white: 9 / 16, alpha: 1)
+        offlineLabel.textColor = UIColor(white: 9 / 16, alpha: 1)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -117,13 +128,23 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     }
     
     private func refresh() {
+        guard reachability?.isReachable == true else {
+            return
+        }
+        
         if isSearching {
             guard let searchText = searchBar.text else {
                 return
             }
             
             SentencesRequest(query: searchText).start { [weak self] sentences in
-                guard let strongSelf = self, let sentences = sentences else {
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                guard let sentences = sentences else {
+                    strongSelf.offlineView.isHidden = false
+                    strongSelf.startReachability()
                     return
                 }
                 
@@ -131,19 +152,65 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
                 strongSelf.sentences = sentences.map({ HomeSentence(sentence: $0, showing: $0.translations?.count ?? 0 <= strongSelf.maximumTranslationsShown) })
                 strongSelf.tableView.reloadData()
                 
+                strongSelf.offlineView.isHidden = true
                 strongSelf.refreshControl.endRefreshing()
             }
         } else {
             ContributionsRequest().start { [weak self] contributions in
-                guard let strongSelf = self, let contributions = contributions else {
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                guard let contributions = contributions else {
+                    strongSelf.offlineView.isHidden = false
+                    strongSelf.startReachability()
                     return
                 }
                 
                 strongSelf.contributions = contributions.filter({ $0.type == "sentence" })
                 strongSelf.tableView.reloadData()
                 
+                strongSelf.offlineView.isHidden = true
                 strongSelf.refreshControl.endRefreshing()
             }
+        }
+    }
+    
+    private func startReachability() {
+        reachability?.stopNotifier()
+        reachability = nil
+        
+        reachability = Reachability()
+        
+        guard let reachability = reachability else {
+            return
+        }
+        
+        reachability.whenReachable = { [weak self] reachability in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                strongSelf.offlineView.isHidden = true
+            }
+        }
+        
+        reachability.whenUnreachable = { [weak self] reachability in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                strongSelf.offlineView.isHidden = false
+                strongSelf.refresh()
+            }
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Error: couldn't start reachability")
         }
     }
     
