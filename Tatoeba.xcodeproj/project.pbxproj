@@ -25,6 +25,7 @@
 		EB462D401F37861000CFE427 /* TatoebaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D3C1F37861000CFE427 /* TatoebaRequest.swift */; };
 		EB462D421F378B3100CFE427 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D411F378B3100CFE427 /* SettingsViewController.swift */; };
 		EB462D461F379B4400CFE427 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */; };
+		EB4BA4F21F3D7CC200D0B687 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4BA4F11F3D7CC200D0B687 /* LoadingCell.swift */; };
 		EB958EB11F3A111D005B9F4B /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB958EB01F3A111D005B9F4B /* SettingsItem.swift */; };
 		EBB5E9BC1F37A89100D03E55 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9BB1F37A89100D03E55 /* ImageManager.swift */; };
 		EBB5E9C01F37E32700D03E55 /* SentenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5E9BF1F37E32700D03E55 /* SentenceViewController.swift */; };
@@ -84,6 +85,7 @@
 		EB462D3C1F37861000CFE427 /* TatoebaRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaRequest.swift; path = Common/Networking/TatoebaRequest.swift; sourceTree = "<group>"; };
 		EB462D411F378B3100CFE427 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "View Controllers/SettingsViewController.swift"; sourceTree = "<group>"; };
 		EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "Common/Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		EB4BA4F11F3D7CC200D0B687 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingCell.swift; path = Views/LoadingCell.swift; sourceTree = "<group>"; };
 		EB958EB01F3A111D005B9F4B /* SettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsItem.swift; path = Models/SettingsItem.swift; sourceTree = "<group>"; };
 		EBB5E9BB1F37A89100D03E55 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManager.swift; path = Common/Managers/ImageManager.swift; sourceTree = "<group>"; };
 		EBB5E9BF1F37E32700D03E55 /* SentenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SentenceViewController.swift; path = "View Controllers/SentenceViewController.swift"; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				EBB5E9D41F381A4A00D03E55 /* ShowMoreCell.swift */,
 				EBB5E9CE1F38078000D03E55 /* SettingsCell.swift */,
 				EBB5E9C61F37EB4E00D03E55 /* SentenceCell.swift */,
+				EB4BA4F11F3D7CC200D0B687 /* LoadingCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				EB958EB11F3A111D005B9F4B /* SettingsItem.swift in Sources */,
 				EBB5E9CB1F38073400D03E55 /* FlagImageRequest.swift in Sources */,
 				EB462D171F36E98B00CFE427 /* User.swift in Sources */,
+				EB4BA4F21F3D7CC200D0B687 /* LoadingCell.swift in Sources */,
 				EBB5E9C71F37EB4E00D03E55 /* SentenceCell.swift in Sources */,
 				EB462D3E1F37861000CFE427 /* ImageRequest.swift in Sources */,
 				EBB5E9CF1F38078000D03E55 /* SettingsCell.swift in Sources */,

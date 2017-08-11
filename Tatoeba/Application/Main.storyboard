@@ -92,6 +92,31 @@
                                     <constraint firstAttribute="height" constant="1" id="2sd-ev-Me9"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLu-Qu-xoK">
+                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Offline" translatesAutoresizingMaskIntoConstraints="NO" id="LIO-Nm-BOo">
+                                        <rect key="frame" x="115" y="149.5" width="144" height="144"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="LIO-Nm-BOo" secondAttribute="height" multiplier="1:1" id="fNJ-UM-Jui"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your internet connection appears to be offline. Please try again later." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wf1-OV-lnl">
+                                        <rect key="frame" x="48" y="309.5" width="279" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="wf1-OV-lnl" secondAttribute="trailing" constant="48" id="5MM-Yn-6lU"/>
+                                    <constraint firstItem="LIO-Nm-BOo" firstAttribute="centerY" secondItem="TLu-Qu-xoK" secondAttribute="centerY" constant="-56" id="Eam-IY-6Ec"/>
+                                    <constraint firstItem="LIO-Nm-BOo" firstAttribute="centerX" secondItem="TLu-Qu-xoK" secondAttribute="centerX" id="Sga-RU-cUL"/>
+                                    <constraint firstItem="wf1-OV-lnl" firstAttribute="leading" secondItem="TLu-Qu-xoK" secondAttribute="leading" constant="48" id="bKz-5Y-44C"/>
+                                    <constraint firstItem="wf1-OV-lnl" firstAttribute="top" secondItem="LIO-Nm-BOo" secondAttribute="bottom" constant="16" id="bb8-hk-HcB"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="140" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="iAJ-FR-0eT">
                                 <rect key="frame" x="0.0" y="112" width="375" height="555"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -230,33 +255,28 @@
                                             <outlet property="titleLabel" destination="nix-GO-Sa6" id="KQU-Y8-Uu0"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" rowHeight="52" id="X1N-at-0qf" customClass="LoadingCell" customModule="Tatoeba" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="259.5" width="375" height="52"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X1N-at-0qf" id="jdh-nl-cfP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UOz-lg-wtw">
+                                                    <rect key="frame" x="177" y="16" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UOz-lg-wtw" firstAttribute="centerX" secondItem="jdh-nl-cfP" secondAttribute="centerX" id="Hx0-OA-Sla"/>
+                                                <constraint firstItem="UOz-lg-wtw" firstAttribute="centerY" secondItem="jdh-nl-cfP" secondAttribute="centerY" id="UB9-Pi-C66"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="activityIndicator" destination="UOz-lg-wtw" id="TVJ-ma-8th"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLu-Qu-xoK">
-                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Offline" translatesAutoresizingMaskIntoConstraints="NO" id="LIO-Nm-BOo">
-                                        <rect key="frame" x="115" y="149.5" width="144" height="144"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="LIO-Nm-BOo" secondAttribute="height" multiplier="1:1" id="fNJ-UM-Jui"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your internet connection appears to be offline. Please try again later." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wf1-OV-lnl">
-                                        <rect key="frame" x="48" y="309.5" width="279" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="wf1-OV-lnl" secondAttribute="trailing" constant="48" id="5MM-Yn-6lU"/>
-                                    <constraint firstItem="LIO-Nm-BOo" firstAttribute="centerY" secondItem="TLu-Qu-xoK" secondAttribute="centerY" constant="-56" id="Eam-IY-6Ec"/>
-                                    <constraint firstItem="LIO-Nm-BOo" firstAttribute="centerX" secondItem="TLu-Qu-xoK" secondAttribute="centerX" id="Sga-RU-cUL"/>
-                                    <constraint firstItem="wf1-OV-lnl" firstAttribute="leading" secondItem="TLu-Qu-xoK" secondAttribute="leading" constant="48" id="bKz-5Y-44C"/>
-                                    <constraint firstItem="wf1-OV-lnl" firstAttribute="top" secondItem="LIO-Nm-BOo" secondAttribute="bottom" constant="16" id="bb8-hk-HcB"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

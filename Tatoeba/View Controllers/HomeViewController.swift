@@ -41,7 +41,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     // MARK: - Types
     
     private enum HomeCell {
-        case contribution(Contribution), sentence(Sentence), showMore
+        case contribution(Contribution), sentence(Sentence), showMore, loading
     }
     
     private struct HomeSentence {
@@ -90,40 +90,49 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     
     private func cell(for indexPath: IndexPath) -> HomeCell {
         if isSearching {
-            let sentence = sentences[indexPath.section]
-            
-            guard let translations = sentence.sentence.translations else {
-                return .sentence(sentence.sentence)
-            }
-            
-            if sentence.showing {
-                switch indexPath.row {
-                case 0:
-                    // Show the original sentence
-                    return .sentence(sentence.sentence)
-                default:
-                    // Show a translation, subtract 1 to account for the original sentence at the top
-                    return .sentence(translations[indexPath.row - 1])
-                }
+            if indexPath.section == tableView.numberOfSections - 1 {
+                return .loading
             } else {
-                switch indexPath.row {
-                case 0:
-                    // Show the original sentence
+                let sentence = sentences[indexPath.section]
+                
+                guard let translations = sentence.sentence.translations else {
                     return .sentence(sentence.sentence)
-                case 1 ..< maximumTranslationsShown:
-                    // Show the first three translations, subtract 1 to account for the original sentence at the top
-                    return .sentence(translations[indexPath.row - 1])
-                case maximumTranslationsShown:
-                    // Show the "show more" button
-                    return .showMore
-                default:
-                    // This should never happen
-                    fatalError("There was an error calculating rows for a sentence that isn't showing")
+                }
+                
+                if sentence.showing {
+                    switch indexPath.row {
+                    case 0:
+                        // Show the original sentence
+                        return .sentence(sentence.sentence)
+                    default:
+                        // Show a translation, subtract 1 to account for the original sentence at the top
+                        return .sentence(translations[indexPath.row - 1])
+                    }
+                } else {
+                    switch indexPath.row {
+                    case 0:
+                        // Show the original sentence
+                        return .sentence(sentence.sentence)
+                    case 1 ..< maximumTranslationsShown:
+                        // Show the first three translations, subtract 1 to account for the original sentence at the top
+                        return .sentence(translations[indexPath.row - 1])
+                    case maximumTranslationsShown:
+                        // Show the "show more" button
+                        return .showMore
+                    default:
+                        // This should never happen
+                        fatalError("There was an error calculating rows for a sentence that isn't showing")
+                    }
                 }
             }
         } else {
-            // Return contribution cell for this section
-            return .contribution(contributions[indexPath.section])
+            if indexPath.section == tableView.numberOfSections - 1 {
+                // The cell in the very last section should be the loading cell
+                return .loading
+            } else {
+                // Return contribution cell for this section
+                return .contribution(contributions[indexPath.section])
+            }
         }
     }
     
@@ -233,19 +242,25 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     // MARK: - UITableViewDataSource Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return isSearching ? sentences.count : contributions.count
+        // Add one for the loading cell at the bottom (allows infinite scrolling)
+        return (isSearching ? sentences.count : contributions.count) + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
-            let sentence = sentences[section]
-            
-            if sentence.showing {
-                // Show n + 1 cells (add one cell for the original sentence)
-                return sentence.translationsCount + 1
+            if section == tableView.numberOfSections - 1 {
+                // This would be the loading cell
+                return 1
             } else {
-                // Show the original sentence and its first few translations
-                return maximumTranslationsShown + 1
+                let sentence = sentences[section]
+                
+                if sentence.showing {
+                    // Show n + 1 cells (add one cell for the original sentence)
+                    return sentence.translationsCount + 1
+                } else {
+                    // Show the original sentence and its first few translations
+                    return maximumTranslationsShown + 1
+                }
             }
         } else {
             // There is always one contribution per section
@@ -271,6 +286,12 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
             return cell
         case .showMore:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ShowMoreCell.identifier) as? ShowMoreCell else {
+                break
+            }
+            
+            return cell
+        case .loading:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: LoadingCell.identifier) as? LoadingCell else {
                 break
             }
             
@@ -306,6 +327,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
             tableView.deleteRows(at: [indexPath], with: .top)
             tableView.insertRows(at: indexPaths, with: .top)
             tableView.endUpdates()
+        case .loading:
+            break
         }
     }
     
@@ -319,6 +342,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
             return sentence.text.height(forMaxWidth: maximumWidth, withFont: .systemFont(ofSize: 16)) + SentenceCell.verticalSpacing
         case .showMore:
             return ShowMoreCell.height
+        case .loading:
+            return LoadingCell.height
         }
     }
     
