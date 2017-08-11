@@ -303,6 +303,15 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     
     // MARK: - UITableViewDelegate Methods
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        switch self.cell(for: indexPath) {
+        case .loading:
+            print("load things")
+        default:
+            break
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch cell(for: indexPath) {
         case .contribution(let contribution):
