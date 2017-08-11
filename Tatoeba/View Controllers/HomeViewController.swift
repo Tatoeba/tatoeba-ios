@@ -69,7 +69,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         refreshControl.addTarget(self, action: #selector(refreshControlPulled), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
         
-        refresh()
+        loadContent(refreshing: true)
         
         offlineImageView.tintColor = UIColor(white: 9 / 16, alpha: 1)
         offlineLabel.textColor = UIColor(white: 9 / 16, alpha: 1)
@@ -136,7 +136,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         }
     }
     
-    private func refresh() {
+    private func loadContent(refreshing: Bool) {
         guard reachability?.isReachable == true else {
             return
         }
@@ -146,7 +146,15 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
                 return
             }
             
-            SentencesRequest(query: searchText).start { [weak self] sentences in
+            let offset: Int
+            
+            if refreshing {
+                offset = 0
+            } else {
+                offset = sentences.count
+            }
+            
+            SentencesRequest(query: searchText, offset: offset).start { [weak self] sentences in
                 guard let strongSelf = self else {
                     return
                 }
@@ -158,11 +166,20 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
                 }
                 
                 // If a sentence has <= 4 translations, just show all of them immediately
-                strongSelf.sentences = sentences.map({ HomeSentence(sentence: $0, showing: $0.translations?.count ?? 0 <= strongSelf.maximumTranslationsShown) })
+                let newSentences = sentences.map({ HomeSentence(sentence: $0, showing: $0.translations?.count ?? 0 <= strongSelf.maximumTranslationsShown) })
+                
+                if refreshing {
+                    strongSelf.sentences = newSentences
+                } else {
+                    strongSelf.sentences.append(contentsOf: newSentences)
+                }
+                
                 strongSelf.tableView.reloadData()
                 
-                strongSelf.offlineView.isHidden = true
-                strongSelf.refreshControl.endRefreshing()
+                if refreshing {
+                    strongSelf.offlineView.isHidden = true
+                    strongSelf.refreshControl.endRefreshing()
+                }
             }
         } else {
             ContributionsRequest().start { [weak self] contributions in
@@ -212,7 +229,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
                 }
                 
                 strongSelf.offlineView.isHidden = false
-                strongSelf.refresh()
+                strongSelf.loadContent(refreshing: true)
             }
         }
         
@@ -226,13 +243,13 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     // MARK: - IBActions
     
     func refreshControlPulled(_ sender: Any) {
-        refresh()
+        loadContent(refreshing: true)
     }
     
     // MARK: - UISearchBarDelegate Methods
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        refresh()
+        loadContent(refreshing: true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -306,7 +323,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         switch self.cell(for: indexPath) {
         case .loading:
-            print("load things")
+            loadContent(refreshing: false)
         default:
             break
         }
