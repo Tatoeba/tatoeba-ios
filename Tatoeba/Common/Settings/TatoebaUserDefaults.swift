@@ -14,6 +14,10 @@ class TatoebaUserDefaults: UserDefaults {
         set(true, forKey: .defaultsConfigured)
     }
     
+    static func bool(forKey defaultName: TatoebaUserDefaultsKey) -> Bool {
+        return standard.bool(forKey: defaultName.rawValue)
+    }
+    
     static func string(forKey defaultName: TatoebaUserDefaultsKey) -> String? {
         return standard.string(forKey: defaultName.rawValue)
     }

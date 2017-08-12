@@ -60,15 +60,24 @@ class SettingsCell: UITableViewCell {
                 break
             }
             
+            accessibilityTraits = UIAccessibilityTraitButton
+            
             switch model.type {
+            case .external:
+                break
             case .push:
                 actionImageRightConstraint?.constant = 14
-            case .switch:
+            case .switch(let setting):
+                let setting = TatoebaUserDefaults.bool(forKey: setting)
+                
+                accessibilityValue = TatoebaLocalizer.localize(setting ? "Generic_On" : "Generic_Off")
                 selectionStyle = .none
+                
+                self.switch?.isAccessibilityElement = false
+                self.switch?.isOn = setting
             case .text(let text):
+                accessibilityTraits = UIAccessibilityTraitStaticText
                 detailLabel?.text = text
-            default:
-                break
             }
         }
     }
@@ -115,5 +124,39 @@ class SettingsCell: UITableViewCell {
         iconBackground.backgroundColor = model?.color
         topSeparator.backgroundColor = .separatorGray
         bottomSeparator.backgroundColor = .separatorGray
+    }
+    
+    // MARK: - Public Methods
+    
+    func toggleSwitch() {
+        guard let switchView = self.switch else {
+            return
+        }
+        
+        switchView.setOn(!switchView.isOn, animated: true)
+        updateSetting()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func updateSetting() {
+        guard let switchView = self.switch, let type = model?.type else {
+            return
+        }
+        
+        switch type {
+        case .switch(let setting):
+            accessibilityValue = TatoebaLocalizer.localize(switchView.isOn ? "Generic_On" : "Generic_Off")
+            
+            TatoebaUserDefaults.set(switchView.isOn, forKey: setting)
+        default:
+            break
+        }
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func switchToggled(_ sender: Any) {
+        updateSetting()
     }
 }

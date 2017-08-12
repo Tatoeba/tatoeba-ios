@@ -59,6 +59,7 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        closeButton.accessibilityLabel = TatoebaLocalizer.localize("Generic_Close")
         titleLabel.text = title
         
         tableView.dataSource = self

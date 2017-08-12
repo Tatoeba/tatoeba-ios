@@ -1,5 +1,7 @@
 "Generic_Back" = "Retour";
 "Generic_Close" = "Fermer";
+"Generic_Off" = "Désactivé";
+"Generic_On" = "Activé";
 "Home_Search_Placeholder" = "Chercher Tatoeba";
 "Contribution_Added_Sentence" = "{name} a ajouté une phrase";
 "Contribution_Edited_Sentence" = "{name} a révisé une phrase";

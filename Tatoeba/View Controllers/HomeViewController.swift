@@ -70,6 +70,9 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         searchBar.delegate = self
         searchBar.placeholder = TatoebaLocalizer.localize("Home_Search_Placeholder")
         
+        settingsButton.accessibilityLabel = TatoebaLocalizer.localize("Settings_Title")
+        filterButton.accessibilityLabel = TatoebaLocalizer.localize("Filter_Title")
+        
         tableView.dataSource = self
         tableView.delegate = self
         

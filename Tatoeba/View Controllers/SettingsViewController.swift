@@ -32,6 +32,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - Properties
     
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -40,6 +41,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        closeButton.accessibilityLabel = TatoebaLocalizer.localize("Generic_Close")
         titleLabel.text = TatoebaLocalizer.localize("Settings_Title")
         
         tableView.dataSource = self
@@ -143,6 +145,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             } else {
                 UIApplication.shared.openURL(url)
             }
+        case SettingsCellModel.sendAnonymousUsageData:
+            // this will only happen when voiceover is on
+            guard let cell = tableView.cellForRow(at: indexPath) as? SettingsCell else {
+                return
+            }
+            
+            cell.toggleSwitch()
         default:
             break
         }

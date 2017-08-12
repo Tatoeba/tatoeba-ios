@@ -1,5 +1,7 @@
 "Generic_Back" = "Back";
 "Generic_Close" = "Close";
+"Generic_Off" = "Off";
+"Generic_On" = "On";
 "Home_Search_Placeholder" = "Search Tatoeba";
 "Contribution_Added_Sentence" = "{name} added a sentence";
 "Contribution_Edited_Sentence" = "{name} edited a sentence";
@@ -7,6 +9,7 @@
 "Search_Show_More" = "Show More";
 "Filter_Title" = "Filter";
 "Filter_Clear_Button" = "Clear all filters";
+"Filter_Choose_Languages" = "Choose Languages";
 "Filter_Source_Language" = "Source Language";
 "Filter_Target_Language" = "Target Language";
 "Filter_Language_Title" = "Select Language";

@@ -55,6 +55,9 @@ class ContributionCell: UITableViewCell {
                 title = contribution.user.username
             }
             
+            accessibilityLabel = title
+            accessibilityValue = contribution.text
+            
             let titleAttributedText = NSMutableAttributedString(string: title)
             titleAttributedText.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 18), range: NSRange(location: 0, length: title.characters.count))
             titleAttributedText.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 18), range: NSRange(location: 0, length: contribution.user.username.characters.count))

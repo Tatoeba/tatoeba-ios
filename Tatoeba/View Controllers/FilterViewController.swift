@@ -28,7 +28,9 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        closeButton.accessibilityLabel = TatoebaLocalizer.localize("Generic_Close")
         titleLabel.text = TatoebaLocalizer.localize("Filter_Title")
+        clearButton.accessibilityLabel = TatoebaLocalizer.localize("Filter_Clear_Button")
         
         tableView.dataSource = self
         tableView.delegate = self

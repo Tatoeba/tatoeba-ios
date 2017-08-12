@@ -9,7 +9,7 @@
 import UIKit
 
 enum SettingsCellItemType: Equatable {
-    case external, push, `switch`, text(String)
+    case external, push, `switch`(TatoebaUserDefaultsKey), text(String)
     
     var image: UIImage? {
         switch self {
@@ -28,8 +28,8 @@ enum SettingsCellItemType: Equatable {
             return true
         case (.push, .push):
             return true
-        case (.switch, .switch):
-            return true
+        case (.switch(let key1), .switch(let key2)):
+            return key1 == key2
         case (.text(let str1), .text(let str2)):
             return str1 == str2
         default:
@@ -62,7 +62,7 @@ struct SettingsCellModel: Equatable {
         }
     }
     
-    static let sendAnonymousUsageData = SettingsCellModel(color: .usageTeal, icon: #imageLiteral(resourceName: "Graph"), text: TatoebaLocalizer.localize("Settings_Usage_Data"), type: .switch)
+    static let sendAnonymousUsageData = SettingsCellModel(color: .usageTeal, icon: #imageLiteral(resourceName: "Graph"), text: TatoebaLocalizer.localize("Settings_Usage_Data"), type: .switch(.sendAnonymousUsageData))
     
     static let supportTatoeba = SettingsCellModel(color: .supportRed, icon: #imageLiteral(resourceName: "Heart"), text: TatoebaLocalizer.localize("Settings_Support_Tatoeba"), type: .external)
     

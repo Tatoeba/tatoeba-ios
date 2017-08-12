@@ -451,6 +451,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="l8o-Os-u9X" id="7PF-AQ-4Mv"/>
                         <outlet property="tableView" destination="5nO-zB-u84" id="89g-tf-dlK"/>
                         <outlet property="titleLabel" destination="BwC-zq-gKz" id="0he-5z-j2T"/>
                     </connections>
@@ -647,6 +648,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="49" id="Ruk-8s-KxT"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="switchToggled:" destination="SeJ-sg-Nhi" eventType="valueChanged" id="wmD-s0-E9t"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -780,6 +784,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="wJn-Z4-Yc5" id="XrL-kB-jSU"/>
                         <outlet property="tableView" destination="Pd2-jt-Z28" id="p9l-tz-vJM"/>
                         <outlet property="titleLabel" destination="GXW-tV-BXc" id="grb-8V-2LW"/>
                     </connections>

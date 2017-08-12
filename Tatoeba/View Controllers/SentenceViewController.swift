@@ -12,6 +12,7 @@ class SentenceViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - Properties
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,6 +29,7 @@ class SentenceViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        backButton.accessibilityLabel = TatoebaLocalizer.localize("Generic_Back")
         titleLabel.text = TatoebaLocalizer.localize("Sentence_Title")
         
         tableView.dataSource = self
