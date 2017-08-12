@@ -16,6 +16,9 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - Variables
     
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     private var selectedSetting: TatoebaUserDefaultsKey?
@@ -25,9 +28,10 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleLabel.text = TatoebaLocalizer.localize("Filter_Title")
+        
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +49,7 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
             
             choiceController.setting = setting
             choiceController.values = languages.map({ Choice(id: $0.id, name: $0.name) })
+            choiceController.title = TatoebaLocalizer.localize("Filter_Language_Title")
             
             selectedSetting = nil
         }
@@ -65,13 +70,21 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - UITableViewDataSource Methods
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return TatoebaLocalizer.localize("Filter_Choose_Languages")
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
-        cell.textLabel?.text = indexPath.row == 0 ? "From Language" : "To Language"
+        cell.textLabel?.text = TatoebaLocalizer.localize(indexPath.row == 0 ? "Filter_Source_Language" : "Filter_Target_Language")
         cell.accessoryType = .disclosureIndicator
         
         if let id = TatoebaUserDefaults.string(forKey: indexPath.row == 0 ? .fromLanguage : .toLanguage) {

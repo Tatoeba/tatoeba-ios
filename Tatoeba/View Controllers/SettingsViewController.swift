@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             .footer(TatoebaLocalizer.localize("Settings_Terms_Footer"))
         ],
         [
-            .header("ABOUT"),
+            .header(TatoebaLocalizer.localize("Settings_About_Header")),
             .cell(.thirdPartyNotices),
             .cell(.version)
         ]

@@ -30,6 +30,24 @@ msgstr "{date} at {time}"
 msgid "Search_Show_More"
 msgstr "Show More"
 
+msgid "Filter_Title"
+msgstr "Filter"
+
+msgid "Filter_Clear_Button"
+msgstr "Clear all filters"
+
+msgid "Filter_Choose_Languages"
+msgstr "Choose Languages"
+
+msgid "Filter_Source_Language"
+msgstr "Source Language"
+
+msgid "Filter_Target_Language"
+msgstr "Target Language"
+
+msgid "Filter_Language_Title"
+msgstr "Select Language"
+
 msgid "Sentence_Title"
 msgstr "Sentence"
 
@@ -50,3 +68,15 @@ msgstr "Send usage data"
 
 msgid "Settings_Terms_Footer"
 msgstr "Allow Tatoeba to collect anonymous information about how you use the app to make the app better."
+
+msgid "Settings_About_Header"
+msgstr "About"
+
+msgid "Settings_Open_Source"
+msgstr "Open source libraries"
+
+msgid "Settings_Version"
+msgstr "Version"
+
+msgid "Settings_Open_Source_Header"
+msgstr "Open Source"

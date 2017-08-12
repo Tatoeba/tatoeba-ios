@@ -853,9 +853,9 @@
                                     <constraint firstAttribute="height" constant="1" id="sqN-JR-WXA"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="139" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3cT-nl-lO5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="139" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="3cT-nl-lO5">
                                 <rect key="frame" x="0.0" y="65" width="375" height="602"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -873,7 +873,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="clearButton" destination="w6K-oR-FC3" id="Srj-Rv-4LX"/>
+                        <outlet property="closeButton" destination="PBg-es-3fM" id="1qQ-pk-NXw"/>
                         <outlet property="tableView" destination="3cT-nl-lO5" id="o9Z-nX-E6m"/>
+                        <outlet property="titleLabel" destination="GZ1-1c-tc7" id="0E7-0a-E1E"/>
                         <segue destination="Vfc-kK-E5Z" kind="show" identifier="choiceSegue" id="kxm-gv-YG3"/>
                     </connections>
                 </viewController>
@@ -896,8 +899,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsm-PB-LF4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2m-PO-SsX">
-                                        <rect key="frame" x="167" y="29.5" width="41" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2m-PO-SsX">
+                                        <rect key="frame" x="162" y="29.5" width="51" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -952,7 +955,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="Uf5-xa-uXK" id="H1O-sf-avX"/>
                         <outlet property="tableView" destination="0Ay-b0-GlU" id="Dyt-9Z-pH6"/>
+                        <outlet property="titleLabel" destination="f2m-PO-SsX" id="Sq7-Uo-YoT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvN-rL-uH5" userLabel="First Responder" sceneMemberID="firstResponder"/>

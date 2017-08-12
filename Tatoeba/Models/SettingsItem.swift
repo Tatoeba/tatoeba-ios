@@ -68,9 +68,9 @@ struct SettingsCellModel: Equatable {
     
     static let termsOfUse = SettingsCellModel(color: .termsGray, icon: #imageLiteral(resourceName: "Text"), text: TatoebaLocalizer.localize("Settings_Terms"), type: .external)
     
-    static let thirdPartyNotices = SettingsCellModel(color: .openSourceBlue, icon: #imageLiteral(resourceName: "Modules"), text: "Open source libraries", type: .push)
+    static let thirdPartyNotices = SettingsCellModel(color: .openSourceBlue, icon: #imageLiteral(resourceName: "Modules"), text: TatoebaLocalizer.localize("Settings_Open_Source"), type: .push)
     
-    static let version = SettingsCellModel(color: .white, icon: #imageLiteral(resourceName: "Tatoeba"), text: "Version", type: .text("1.0"))
+    static let version = SettingsCellModel(color: .white, icon: #imageLiteral(resourceName: "Tatoeba"), text: TatoebaLocalizer.localize("Settings_Version"), type: .text("1.0"))
     
     static func ==(lhs: SettingsCellModel, rhs: SettingsCellModel) -> Bool {
         return lhs.color == rhs.color && lhs.icon == rhs.icon && lhs.text == rhs.text && lhs.type == rhs.type

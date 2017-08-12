@@ -17,6 +17,8 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - Variables
     
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var setting: TatoebaUserDefaultsKey?
@@ -56,6 +58,8 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleLabel.text = title
         
         tableView.dataSource = self
         tableView.delegate = self
