@@ -14,12 +14,7 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    var options = [
-        "English",
-        "Spanish",
-        "French",
-        "Chinese"
-    ]
+    let languages = Language.loadAllLanguages()
     
     // MARK: - View Life Cycle
     
@@ -40,13 +35,12 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: - UITableViewDataSource Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
+        return languages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        cell.textLabel?.text = options[indexPath.row]
-        cell.detailTextLabel?.text = "English"
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.textLabel?.text = languages[indexPath.row].name
         return cell
     }
     

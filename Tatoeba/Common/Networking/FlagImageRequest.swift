@@ -6,15 +6,13 @@
 //  Copyright © 2017 Tatoeba. All rights reserved.
 //
 
-typealias Language = String
-
 /// Returns a flag image from Tatoeba.
 final class FlagImageRequest: ImageRequest {
     
     /// Creates a request that should retrieve a flag image by language.
     ///
     /// - Parameter language: The language of the flag being retrieved.
-    init(language: Language) {
+    init(language: String) {
         super.init(endpoint: "/img/flags/\(language).png")
     }
 }

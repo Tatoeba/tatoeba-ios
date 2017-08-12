@@ -11,6 +11,8 @@
 		EB1873EA1F3EBAB40045891A /* TatoebaUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1873E91F3EBAB40045891A /* TatoebaUserDefaults.swift */; };
 		EB1873EC1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1873EB1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift */; };
 		EB1873EE1F3EC0330045891A /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1873ED1F3EC0330045891A /* ChoiceViewController.swift */; };
+		EB1873F01F3EC8DE0045891A /* Languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB1873EF1F3EC8DE0045891A /* Languages.plist */; };
+		EB1873F21F3ECF470045891A /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1873F11F3ECF470045891A /* Language.swift */; };
 		EB19B2531F3B556400D0D954 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB19B2521F3B556400D0D954 /* Reachability.framework */; };
 		EB25290E1F38B154008C2916 /* TatoebaLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */; };
 		EB2529141F38B17E008C2916 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB2529161F38B17E008C2916 /* Localizable.strings */; };
@@ -69,6 +71,8 @@
 		EB1873E91F3EBAB40045891A /* TatoebaUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaUserDefaults.swift; path = Common/Settings/TatoebaUserDefaults.swift; sourceTree = "<group>"; };
 		EB1873EB1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaUserDefaultsKey.swift; path = Common/Settings/TatoebaUserDefaultsKey.swift; sourceTree = "<group>"; };
 		EB1873ED1F3EC0330045891A /* ChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceViewController.swift; path = "View Controllers/ChoiceViewController.swift"; sourceTree = "<group>"; };
+		EB1873EF1F3EC8DE0045891A /* Languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Languages.plist; path = Application/Languages.plist; sourceTree = "<group>"; };
+		EB1873F11F3ECF470045891A /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Language.swift; path = Models/Language.swift; sourceTree = "<group>"; };
 		EB19B2521F3B556400D0D954 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaLocalizer.swift; path = Localization/TatoebaLocalizer.swift; sourceTree = "<group>"; };
 		EB2529151F38B17E008C2916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 			children = (
 				EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */,
 				EBDB5C591F36825C00BAAEF1 /* Info.plist */,
+				EB1873EF1F3EC8DE0045891A /* Languages.plist */,
 				EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */,
 				EBDB5C5B1F36825C00BAAEF1 /* Main.storyboard */,
 			);
@@ -303,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				EBDB5C6A1F3692D800BAAEF1 /* Contribution.swift */,
+				EB1873F11F3ECF470045891A /* Language.swift */,
 				EB462D161F36E98B00CFE427 /* User.swift */,
 				EBB5E9CC1F38074600D03E55 /* Sentence.swift */,
 				EB958EB01F3A111D005B9F4B /* SettingsItem.swift */,
@@ -422,6 +428,7 @@
 			files = (
 				EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */,
 				EB2529141F38B17E008C2916 /* Localizable.strings in Resources */,
+				EB1873F01F3EC8DE0045891A /* Languages.plist in Resources */,
 				EB2992921F3640AB00B88C22 /* Assets.xcassets in Resources */,
 				EB2529191F395853008C2916 /* strings.po in Resources */,
 				EBDB5C5E1F36825C00BAAEF1 /* Main.storyboard in Resources */,
@@ -474,6 +481,7 @@
 				EBB5E9D31F3808DF00D03E55 /* SentencesRequest.swift in Sources */,
 				EBDB5C651F36903400BAAEF1 /* ContributionCell.swift in Sources */,
 				EB462D461F379B4400CFE427 /* UIColor+Extensions.swift in Sources */,
+				EB1873F21F3ECF470045891A /* Language.swift in Sources */,
 				EBB5E9CD1F38074600D03E55 /* Sentence.swift in Sources */,
 				EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */,
 				EB462D371F37860900CFE427 /* Date+Extensions.swift in Sources */,

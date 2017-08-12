@@ -18,7 +18,7 @@ struct Sentence {
     let text: String
     
     /// The sentence's language, if identified.
-    let language: Language
+    let language: String
     
     /// The unique identifier of the user who submitted this sentence.
     let userId: Int
