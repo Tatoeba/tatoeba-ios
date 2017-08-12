@@ -19,6 +19,13 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     
     // MARK: - Properties
     
+    @IBOutlet weak var navigationBar: UIView!
+    @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchBarTrailingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -240,6 +247,25 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         }
     }
     
+    private func transition(searching: Bool) {
+        // Don't transition between states if there is text in the search bar
+        guard searching || !isSearching else {
+            return
+        }
+        
+        navigationBarHeightConstraint.constant = searching ? 64 : 111
+        searchBarTrailingConstraint.constant = searching ? 32 : 0
+        view.setNeedsLayout()
+        
+        UIView.animate(withDuration: 0.25) { 
+            self.view.layoutIfNeeded()
+            
+            self.settingsButton.alpha = searching ? 0 : 1
+            self.logoImage.alpha = searching ? 0 : 1
+            self.filterButton.alpha = searching ? 1 : 0
+        }
+    }
+    
     // MARK: - IBActions
     
     func refreshControlPulled(_ sender: Any) {
@@ -254,6 +280,14 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        transition(searching: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        transition(searching: false)
     }
     
     // MARK: - UITableViewDataSource Methods

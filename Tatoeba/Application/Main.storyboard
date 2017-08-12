@@ -45,18 +45,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYe-yV-Mb2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Tatoeba" translatesAutoresizingMaskIntoConstraints="NO" id="RL0-6B-JyY">
-                                        <rect key="frame" x="0.0" y="67" width="375" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="Kgy-Vt-H8K"/>
-                                        </constraints>
-                                        <color key="barTintColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tatoeba" translatesAutoresizingMaskIntoConstraints="NO" id="FAs-yJ-UK5">
                                         <rect key="frame" x="168.5" y="24" width="38" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="FAs-yJ-UK5" secondAttribute="height" multiplier="1:1" id="cgk-HG-BFM"/>
+                                            <constraint firstAttribute="height" constant="38" id="xF3-lZ-CC7"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKt-GO-PTn">
@@ -71,17 +64,48 @@
                                             <segue destination="vT2-us-uiG" kind="presentation" id="MUN-i7-URX"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Saf-QK-Dlz">
+                                        <rect key="frame" x="345" y="32" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Saf-QK-Dlz" secondAttribute="height" multiplier="1:1" id="FRl-Mh-QQ9"/>
+                                            <constraint firstAttribute="height" constant="20" id="e0m-GG-djW"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="Filter"/>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeC-zG-2BN">
+                                        <rect key="frame" x="0.0" y="67" width="375" height="44"/>
+                                        <subviews>
+                                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Tatoeba" translatesAutoresizingMaskIntoConstraints="NO" id="RL0-6B-JyY">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Kgy-Vt-H8K"/>
+                                                </constraints>
+                                                <color key="barTintColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="RL0-6B-JyY" secondAttribute="trailing" id="UgA-mO-BXx"/>
+                                            <constraint firstAttribute="height" constant="44" id="XmB-du-TiA"/>
+                                            <constraint firstItem="RL0-6B-JyY" firstAttribute="leading" secondItem="XeC-zG-2BN" secondAttribute="leading" id="deh-Ib-zUM"/>
+                                            <constraint firstAttribute="bottom" secondItem="RL0-6B-JyY" secondAttribute="bottom" id="gfN-FR-sGi"/>
+                                            <constraint firstItem="RL0-6B-JyY" firstAttribute="top" secondItem="XeC-zG-2BN" secondAttribute="top" id="xCl-HL-2G6"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="SKt-GO-PTn" firstAttribute="leading" secondItem="CYe-yV-Mb2" secondAttribute="leading" constant="20" id="0SV-Bu-rCS"/>
+                                    <constraint firstAttribute="trailing" secondItem="Saf-QK-Dlz" secondAttribute="trailing" constant="10" id="414-Ps-G5B"/>
                                     <constraint firstAttribute="height" constant="111" id="7F4-94-Hf4"/>
-                                    <constraint firstItem="RL0-6B-JyY" firstAttribute="leading" secondItem="CYe-yV-Mb2" secondAttribute="leading" id="Cbo-mR-elQ"/>
                                     <constraint firstItem="SKt-GO-PTn" firstAttribute="centerY" secondItem="FAs-yJ-UK5" secondAttribute="centerY" id="Ej0-Rp-D12"/>
                                     <constraint firstItem="FAs-yJ-UK5" firstAttribute="centerX" secondItem="CYe-yV-Mb2" secondAttribute="centerX" id="F8e-0b-IXh"/>
-                                    <constraint firstAttribute="trailing" secondItem="RL0-6B-JyY" secondAttribute="trailing" id="H3N-4q-6Tp"/>
-                                    <constraint firstAttribute="bottom" secondItem="RL0-6B-JyY" secondAttribute="bottom" id="LTt-dm-mQg"/>
-                                    <constraint firstItem="RL0-6B-JyY" firstAttribute="top" secondItem="FAs-yJ-UK5" secondAttribute="bottom" constant="5" id="ovB-d3-6Cg"/>
+                                    <constraint firstAttribute="bottom" secondItem="XeC-zG-2BN" secondAttribute="bottom" id="KNU-I0-VKL"/>
+                                    <constraint firstItem="XeC-zG-2BN" firstAttribute="leading" secondItem="CYe-yV-Mb2" secondAttribute="leading" id="STe-EM-6Ld"/>
+                                    <constraint firstItem="Saf-QK-Dlz" firstAttribute="top" secondItem="CYe-yV-Mb2" secondAttribute="top" constant="32" id="ZhJ-OR-FeW"/>
+                                    <constraint firstAttribute="trailing" secondItem="XeC-zG-2BN" secondAttribute="trailing" id="uUw-t1-5VP"/>
                                     <constraint firstItem="FAs-yJ-UK5" firstAttribute="top" secondItem="CYe-yV-Mb2" secondAttribute="top" constant="24" id="y9e-fh-ZMl"/>
                                 </constraints>
                             </view>
@@ -298,10 +322,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="mJz-HM-dGj"/>
                     <connections>
+                        <outlet property="filterButton" destination="Saf-QK-Dlz" id="NGT-i6-F4p"/>
+                        <outlet property="logoImage" destination="FAs-yJ-UK5" id="kql-eI-3e6"/>
+                        <outlet property="navigationBar" destination="CYe-yV-Mb2" id="qXB-FY-9bu"/>
+                        <outlet property="navigationBarHeightConstraint" destination="7F4-94-Hf4" id="PZf-jS-IzH"/>
                         <outlet property="offlineImageView" destination="LIO-Nm-BOo" id="oQn-S5-8vj"/>
                         <outlet property="offlineLabel" destination="wf1-OV-lnl" id="gEG-Oz-UXF"/>
                         <outlet property="offlineView" destination="TLu-Qu-xoK" id="veE-mM-IW5"/>
                         <outlet property="searchBar" destination="RL0-6B-JyY" id="iIS-lb-jnZ"/>
+                        <outlet property="searchBarTrailingConstraint" destination="uUw-t1-5VP" id="qif-Yf-iYc"/>
+                        <outlet property="settingsButton" destination="SKt-GO-PTn" id="Pdw-LU-joK"/>
                         <outlet property="tableView" destination="iAJ-FR-0eT" id="7mq-GI-7PC"/>
                         <segue destination="TIO-J5-MQ2" kind="show" identifier="sentenceSegue" id="5fd-RX-OL7"/>
                     </connections>
@@ -760,6 +790,7 @@
         <image name="Back" width="24" height="24"/>
         <image name="Close" width="24" height="24"/>
         <image name="Down" width="24" height="24"/>
+        <image name="Filter" width="24" height="24"/>
         <image name="Offline" width="144" height="144"/>
         <image name="Settings" width="24" height="24"/>
         <image name="Tatoeba" width="72" height="72"/>
