@@ -8,46 +8,51 @@
 
 import UIKit
 
+struct Choice {
+    let id: String
+    let name: String
+}
+
 class ChoiceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Variables
     
     @IBOutlet weak var tableView: UITableView!
     
-    let letters: [String]
-    let languages: [String: [Language]]
+    var setting: TatoebaUserDefaultsKey?
+    
+    var values = [Choice]() {
+        didSet {
+            var sortedValues = [String: [Choice]]()
+            var letters = [String]()
+            
+            for value in values {
+                guard let firstCharacter = value.name.characters.first else {
+                    continue
+                }
+                
+                let firstLetter = String(firstCharacter)
+                
+                if !letters.contains(firstLetter) {
+                    letters.append(firstLetter)
+                }
+                
+                if let _ = sortedValues[firstLetter] {
+                    sortedValues[firstLetter]?.append(value)
+                } else {
+                    sortedValues[firstLetter] = [value]
+                }
+            }
+            
+            self.letters = letters
+            self.sortedValues = sortedValues
+        }
+    }
+    
+    private var letters = [String]()
+    private var sortedValues = [String: [Choice]]()
     
     // MARK: - View Life Cycle
-    
-    required init?(coder aDecoder: NSCoder) {
-        let languageNames = Language.loadAllLanguages()
-        
-        var languages = [String: [Language]]()
-        var letters = [String]()
-        
-        for language in languageNames {
-            guard let firstCharacter = language.name.characters.first else {
-                continue
-            }
-            
-            let firstLetter = String(firstCharacter)
-            
-            if !letters.contains(firstLetter) {
-                letters.append(firstLetter)
-            }
-            
-            if let _ = languages[firstLetter] {
-                languages[firstLetter]?.append(language)
-            } else {
-                languages[firstLetter] = [language]
-            }
-        }
-        
-        self.letters = letters
-        self.languages = languages
-        
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +75,7 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let rows = languages[letters[section]]?.count else {
+        guard let rows = sortedValues[letters[section]]?.count else {
             fatalError("Error determining number of rows in choice controller")
         }
         
@@ -78,14 +83,14 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let language = languages[letters[indexPath.section]]?[indexPath.row] else {
-            fatalError("Error determining language for cell in choice controller")
+        guard let value = sortedValues[letters[indexPath.section]]?[indexPath.row] else {
+            fatalError("Error determining value for cell in choice controller")
         }
         
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = language.name
+        cell.textLabel?.text = value.name
         
-        if TatoebaUserDefaults.string(forKey: .fromLanguage) == language.id {
+        if let setting = setting, TatoebaUserDefaults.string(forKey: setting) == value.id {
             cell.accessoryType = .checkmark
         }
         
@@ -111,8 +116,8 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         
-        if let language = languages[letters[indexPath.section]]?[indexPath.row] {
-            TatoebaUserDefaults.set(language.id, forKey: .fromLanguage)
+        if let setting = setting, let value = sortedValues[letters[indexPath.section]]?[indexPath.row] {
+            TatoebaUserDefaults.set(value.id, forKey: setting)
         }
     }
     
