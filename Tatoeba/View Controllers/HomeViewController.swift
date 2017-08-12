@@ -82,6 +82,13 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         offlineLabel.textColor = UIColor(white: 9 / 16, alpha: 1)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let isFilterApplied = TatoebaUserDefaults.string(forKey: .fromLanguage) != nil || TatoebaUserDefaults.string(forKey: .toLanguage) != nil
+        filterButton.setImage(isFilterApplied ? #imageLiteral(resourceName: "Filter Filled") : #imageLiteral(resourceName: "Filter"), for: .normal)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sentenceController = segue.destination as? SentenceViewController {
             guard let sentence = selectedSentence else {
@@ -153,15 +160,10 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
                 return
             }
             
-            let offset: Int
+            let offset = refreshing ? 0 : sentences.count
+            let fromLanguage = TatoebaUserDefaults.string(forKey: .fromLanguage)
             
-            if refreshing {
-                offset = 0
-            } else {
-                offset = sentences.count
-            }
-            
-            SentencesRequest(query: searchText, offset: offset).start { [weak self] sentences in
+            SentencesRequest(query: searchText, offset: offset, fromLanguage: fromLanguage).start { [weak self] sentences in
                 guard let strongSelf = self else {
                     return
                 }

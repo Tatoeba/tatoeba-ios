@@ -20,7 +20,13 @@ final class SentencesRequest: TatoebaRequest {
     }
     
     var parameters: Parameters {
-        return ["q": query, "offset": offset]
+        var params: Parameters = ["q": query, "offset": offset]
+        
+        if let fromLanguage = fromLanguage {
+            params["from"] = fromLanguage
+        }
+        
+        return params
     }
     
     var responseType: TatoebaResponseType {
@@ -29,10 +35,12 @@ final class SentencesRequest: TatoebaRequest {
     
     let query: String
     let offset: Int
+    let fromLanguage: String?
     
-    init(query: String, offset: Int = 0) {
+    init(query: String, offset: Int = 0, fromLanguage: String? = nil) {
         self.query = query
         self.offset = offset
+        self.fromLanguage = fromLanguage
     }
     
     func handleRequest(_ json: JSON?, _ completion: @escaping ([Sentence]?) -> Void) {
