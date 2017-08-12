@@ -21,8 +21,10 @@ for F in Localization/Source/*; do
   printf "Parsing strings for $id... "
   
   # If $id is english, convert to "Base" (since we use base localization)
-  if [ "$id" == "en" ]; then
+  if [ $id == "en" ]; then
     id=Base
+  elif [ $id == "TW" ]; then
+    id="zh-Hant"
   fi
   
   # Loop through all lines in this file

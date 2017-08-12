@@ -67,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB03F6871F3FB84D00C8D26C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		EB1873E11F3EB83F0045891A /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = "View Controllers/FilterViewController.swift"; sourceTree = "<group>"; };
 		EB1873E91F3EBAB40045891A /* TatoebaUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaUserDefaults.swift; path = Common/Settings/TatoebaUserDefaults.swift; sourceTree = "<group>"; };
 		EB1873EB1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaUserDefaultsKey.swift; path = Common/Settings/TatoebaUserDefaultsKey.swift; sourceTree = "<group>"; };
@@ -408,6 +409,7 @@
 				en,
 				Base,
 				fr,
+				"zh-Hant",
 			);
 			mainGroup = EB29927E1F3640AB00B88C22;
 			productRefGroup = EB2992881F3640AB00B88C22 /* Products */;
@@ -547,6 +549,7 @@
 			children = (
 				EB2529151F38B17E008C2916 /* Base */,
 				EB2529171F38B1C2008C2916 /* fr */,
+				EB03F6871F3FB84D00C8D26C /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			path = Localization;
