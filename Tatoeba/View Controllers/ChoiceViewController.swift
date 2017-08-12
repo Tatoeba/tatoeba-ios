@@ -14,9 +14,40 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    let languages = Language.loadAllLanguages()
+    let letters: [String]
+    let languages: [String: [Language]]
     
     // MARK: - View Life Cycle
+    
+    required init?(coder aDecoder: NSCoder) {
+        let languageNames = Language.loadAllLanguages()
+        
+        var languages = [String: [Language]]()
+        var letters = [String]()
+        
+        for language in languageNames {
+            guard let firstCharacter = language.name.characters.first else {
+                continue
+            }
+            
+            let firstLetter = String(firstCharacter)
+            
+            if !letters.contains(firstLetter) {
+                letters.append(firstLetter)
+            }
+            
+            if let _ = languages[firstLetter] {
+                languages[firstLetter]?.append(language)
+            } else {
+                languages[firstLetter] = [language]
+            }
+        }
+        
+        self.letters = letters
+        self.languages = languages
+        
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +65,33 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - UITableViewDataSource Methods
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return letters.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return languages.count
+        guard let rows = languages[letters[section]]?.count else {
+            fatalError("Error determining number of rows in choice controller")
+        }
+        
+        return rows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = languages[indexPath.row].name
+        cell.textLabel?.text = languages[letters[indexPath.section]]?[indexPath.row].name
         return cell
     }
     
     // MARK: - UITableViewDelegate Methods
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return letters[section]
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return letters
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
