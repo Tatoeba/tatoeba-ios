@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB1873E21F3EB83F0045891A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1873E11F3EB83F0045891A /* FilterViewController.swift */; };
+		EB1873EA1F3EBAB40045891A /* TatoebaUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1873E91F3EBAB40045891A /* TatoebaUserDefaults.swift */; };
+		EB1873EC1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1873EB1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift */; };
+		EB1873EE1F3EC0330045891A /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1873ED1F3EC0330045891A /* ChoiceViewController.swift */; };
 		EB19B2531F3B556400D0D954 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB19B2521F3B556400D0D954 /* Reachability.framework */; };
 		EB25290E1F38B154008C2916 /* TatoebaLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */; };
 		EB2529141F38B17E008C2916 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB2529161F38B17E008C2916 /* Localizable.strings */; };
@@ -61,6 +65,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB1873E11F3EB83F0045891A /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = "View Controllers/FilterViewController.swift"; sourceTree = "<group>"; };
+		EB1873E91F3EBAB40045891A /* TatoebaUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaUserDefaults.swift; path = Common/Settings/TatoebaUserDefaults.swift; sourceTree = "<group>"; };
+		EB1873EB1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaUserDefaultsKey.swift; path = Common/Settings/TatoebaUserDefaultsKey.swift; sourceTree = "<group>"; };
+		EB1873ED1F3EC0330045891A /* ChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceViewController.swift; path = "View Controllers/ChoiceViewController.swift"; sourceTree = "<group>"; };
 		EB19B2521F3B556400D0D954 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		EB25290B1F38B154008C2916 /* TatoebaLocalizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaLocalizer.swift; path = Localization/TatoebaLocalizer.swift; sourceTree = "<group>"; };
 		EB2529151F38B17E008C2916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -132,6 +140,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB1873E81F3EBA9D0045891A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EB1873E91F3EBAB40045891A /* TatoebaUserDefaults.swift */,
+				EB1873EB1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		EB2529081F38B147008C2916 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +228,7 @@
 				EB462D341F3785FD00CFE427 /* Extensions */,
 				EBB5E9BA1F37A88000D03E55 /* Managers */,
 				EB462D331F3785F900CFE427 /* Networking */,
+				EB1873E81F3EBA9D0045891A /* Settings */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -263,6 +281,8 @@
 				EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */,
 				EB462D411F378B3100CFE427 /* SettingsViewController.swift */,
 				EBB5E9BF1F37E32700D03E55 /* SentenceViewController.swift */,
+				EB1873E11F3EB83F0045891A /* FilterViewController.swift */,
+				EB1873ED1F3EC0330045891A /* ChoiceViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -469,12 +489,16 @@
 				EB958EB11F3A111D005B9F4B /* SettingsItem.swift in Sources */,
 				EBB5E9CB1F38073400D03E55 /* FlagImageRequest.swift in Sources */,
 				EB462D171F36E98B00CFE427 /* User.swift in Sources */,
+				EB1873EC1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift in Sources */,
 				EB4BA4F21F3D7CC200D0B687 /* LoadingCell.swift in Sources */,
+				EB1873E21F3EB83F0045891A /* FilterViewController.swift in Sources */,
 				EBB5E9C71F37EB4E00D03E55 /* SentenceCell.swift in Sources */,
 				EB462D3E1F37861000CFE427 /* ImageRequest.swift in Sources */,
 				EBB5E9CF1F38078000D03E55 /* SettingsCell.swift in Sources */,
+				EB1873EA1F3EBAB40045891A /* TatoebaUserDefaults.swift in Sources */,
 				EBB5E9C01F37E32700D03E55 /* SentenceViewController.swift in Sources */,
 				EBB5E9D51F381A4A00D03E55 /* ShowMoreCell.swift in Sources */,
+				EB1873EE1F3EC0330045891A /* ChoiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
