@@ -78,8 +78,17 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let language = languages[letters[indexPath.section]]?[indexPath.row] else {
+            fatalError("Error determining language for cell in choice controller")
+        }
+        
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = languages[letters[indexPath.section]]?[indexPath.row].name
+        cell.textLabel?.text = language.name
+        
+        if TatoebaUserDefaults.string(forKey: .fromLanguage) == language.id {
+            cell.accessoryType = .checkmark
+        }
+        
         return cell
     }
     
@@ -101,6 +110,10 @@ class ChoiceViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        
+        if let language = languages[letters[indexPath.section]]?[indexPath.row] {
+            TatoebaUserDefaults.set(language.id, forKey: .fromLanguage)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

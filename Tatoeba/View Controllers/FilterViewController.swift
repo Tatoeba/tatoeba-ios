@@ -10,6 +10,10 @@ import UIKit
 
 class FilterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: - Constants
+    
+    private let languages = Language.loadAllLanguages()
+    
     // MARK: - Variables
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,6 +26,13 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView(frame: .zero)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // This makes detail values appear correctly when tapping close on the choice controller
+        tableView.reloadData()
     }
     
     // MARK: - IBActions
@@ -42,9 +53,14 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
         cell.textLabel?.text = "From Language"
         cell.accessoryType = .disclosureIndicator
+        
+        if let id = TatoebaUserDefaults.string(forKey: .fromLanguage) {
+            cell.detailTextLabel?.text = languages.first(where: { $0.id == id })?.name
+        }
+        
         return cell
     }
     

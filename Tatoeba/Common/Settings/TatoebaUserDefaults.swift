@@ -14,6 +14,10 @@ class TatoebaUserDefaults: UserDefaults {
         set(true, forKey: .defaultsConfigured)
     }
     
+    static func string(forKey defaultName: TatoebaUserDefaultsKey) -> String? {
+        return standard.string(forKey: defaultName.rawValue)
+    }
+    
     static func removeObject(forKey defaultName: TatoebaUserDefaultsKey) {
         standard.removeObject(forKey: defaultName.rawValue)
     }
