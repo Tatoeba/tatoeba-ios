@@ -73,7 +73,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - IBActions
     
     @IBAction func closeButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - UITableViewDataSource Methods
@@ -152,6 +152,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             cell.toggleSwitch()
+        case SettingsCellModel.thirdPartyNotices:
+            performSegue(withIdentifier: "librariesSegue", sender: self)
         default:
             break
         }

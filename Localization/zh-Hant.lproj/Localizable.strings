@@ -3,9 +3,9 @@
 "Generic_Off" = "關";
 "Generic_On" = "開";
 "Home_Search_Placeholder" = "搜尋Tatoeba";
-"Contribution_Added_Sentence" = "{name}加一句話";
+"Contribution_Added_Sentence" = "{name}加了一句話";
 "Contribution_Edited_Sentence" = "{name}修正了一句話";
-"Contribution_Date" = "{date}在{time}";
+"Contribution_Date" = "{date}{time}";
 "Search_Show_More" = "顯示更多";
 "Filter_Title" = "篩選";
 "Filter_Clear_Button" = "清除所有的篩選";
