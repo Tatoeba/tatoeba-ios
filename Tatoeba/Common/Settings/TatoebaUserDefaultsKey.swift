@@ -8,9 +8,7 @@
 
 enum TatoebaUserDefaultsKey: String {
     case defaultsConfigured
-    
     case sendAnonymousUsageData
-    
     case fromLanguage
     case toLanguage
 }

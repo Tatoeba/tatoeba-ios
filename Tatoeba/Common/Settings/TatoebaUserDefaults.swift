@@ -10,8 +10,9 @@ import Foundation
 
 class TatoebaUserDefaults: UserDefaults {
     
-    static public func setDefaultValues() {
+    static func setDefaultValues() {
         set(true, forKey: .defaultsConfigured)
+        set(true, forKey: .sendAnonymousUsageData)
     }
     
     static func bool(forKey defaultName: TatoebaUserDefaultsKey) -> Bool {
