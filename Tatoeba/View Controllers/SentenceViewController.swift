@@ -6,6 +6,9 @@
 //  Copyright © 2017 Tatoeba. All rights reserved.
 //
 
+import Contacts
+import CoreSpotlight
+import MobileCoreServices
 import UIKit
 
 class SentenceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -35,6 +38,17 @@ class SentenceViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView(frame: .zero)
+        
+        if #available(iOS 9.0, *) {
+            let attributes = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+            attributes.contentDescription = sentence.text
+            attributes.contentURL = URL(string: "https://tatoeba.org/sentences/show/\(sentence.id)")
+            attributes.identifier = "\(sentence.id)"
+            attributes.title = TatoebaLocalizer.localize("Sentence_Title")
+            
+            let item = CSSearchableItem(uniqueIdentifier: "org.tatoeba.Tatoeba.\(sentence.id)", domainIdentifier: "sentences", attributeSet: attributes)
+            CSSearchableIndex.default().indexSearchableItems([item])
+        }
     }
     
     // MARK: - Private Methods

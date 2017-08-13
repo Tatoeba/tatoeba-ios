@@ -63,27 +63,7 @@ class ContributionCell: UITableViewCell {
             titleAttributedText.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 18), range: NSRange(location: 0, length: contribution.user.username.characters.count))
             titleLabel.attributedText = titleAttributedText
             
-            let dateTemplate: String
-            let timeTemplate: String
-            
-            if contribution.timestamp.year == Date().year {
-                // Weekday, month, day
-                dateTemplate = "EEEE MMMM d"
-                
-                // Hour, minute, am/pm (if applicable)
-                timeTemplate = "h mm j"
-            } else {
-                // Month, day, year
-                dateTemplate = "MMMM d yyyy"
-                
-                // Hour, minute, am/pm (if applicable)
-                timeTemplate = "h mm j"
-            }
-            
-            let dateString = contribution.timestamp.string(from: dateTemplate)
-            let timeString = contribution.timestamp.string(from: timeTemplate)
-            
-            dateLabel.text = TatoebaLocalizer.localize("Contribution_Date", parameters: ["date": dateString, "time": timeString])
+            dateLabel.text = contribution.timestamp.localizedDescription
             contentLabel.text = contribution.text
             
             let flagRequest = FlagImageRequest(language: contribution.sentenceLanguage)

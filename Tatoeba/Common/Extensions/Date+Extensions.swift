@@ -36,4 +36,29 @@ extension Date {
     var day: Int {
         return Calendar.current.component(.day, from: self)
     }
+    
+    /// A localized readable representation of this date
+    var localizedDescription: String {
+        let dateTemplate: String
+        let timeTemplate: String
+        
+        if year == Date().year {
+            // Weekday, month, day
+            dateTemplate = "EEEE MMMM d"
+            
+            // Hour, minute, am/pm (if applicable)
+            timeTemplate = "h mm j"
+        } else {
+            // Month, day, year
+            dateTemplate = "MMMM d yyyy"
+            
+            // Hour, minute, am/pm (if applicable)
+            timeTemplate = "h mm j"
+        }
+        
+        let dateString = string(from: dateTemplate)
+        let timeString = string(from: timeTemplate)
+        
+        return TatoebaLocalizer.localize("Contribution_Date", parameters: ["date": dateString, "time": timeString])
+    }
 }
