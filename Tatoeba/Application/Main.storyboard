@@ -346,7 +346,7 @@
         <!--Sentence View Controller-->
         <scene sceneID="Jdq-08-c1J">
             <objects>
-                <viewController id="TIO-J5-MQ2" customClass="SentenceViewController" customModule="Tatoeba" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SentenceViewController" id="TIO-J5-MQ2" customClass="SentenceViewController" customModule="Tatoeba" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8LV-S5-WoD"/>
                         <viewControllerLayoutGuide type="bottom" id="yvJ-eV-VW6"/>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB03F68B1F3FD7C400C8D26C /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03F68A1F3FD7C400C8D26C /* UIStoryboard+Extensions.swift */; };
+		EB03F68D1F3FD7D600C8D26C /* SentenceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03F68C1F3FD7D600C8D26C /* SentenceRequest.swift */; };
 		EB1873E21F3EB83F0045891A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1873E11F3EB83F0045891A /* FilterViewController.swift */; };
 		EB1873EA1F3EBAB40045891A /* TatoebaUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1873E91F3EBAB40045891A /* TatoebaUserDefaults.swift */; };
 		EB1873EC1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1873EB1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift */; };
@@ -68,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		EB03F6871F3FB84D00C8D26C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EB03F68A1F3FD7C400C8D26C /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Extensions.swift"; path = "Common/Extensions/UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		EB03F68C1F3FD7D600C8D26C /* SentenceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SentenceRequest.swift; path = Common/Networking/SentenceRequest.swift; sourceTree = "<group>"; };
 		EB1873E11F3EB83F0045891A /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = "View Controllers/FilterViewController.swift"; sourceTree = "<group>"; };
 		EB1873E91F3EBAB40045891A /* TatoebaUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaUserDefaults.swift; path = Common/Settings/TatoebaUserDefaults.swift; sourceTree = "<group>"; };
 		EB1873EB1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TatoebaUserDefaultsKey.swift; path = Common/Settings/TatoebaUserDefaultsKey.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				EB462D3C1F37861000CFE427 /* TatoebaRequest.swift */,
 				EB462D391F37861000CFE427 /* ContributionsRequest.swift */,
 				EBB5E9D21F3808DF00D03E55 /* SentencesRequest.swift */,
+				EB03F68C1F3FD7D600C8D26C /* SentenceRequest.swift */,
 				EB462D3A1F37861000CFE427 /* ImageRequest.swift */,
 				EB462D3B1F37861000CFE427 /* ProfileImageRequest.swift */,
 				EBB5E9CA1F38073400D03E55 /* FlagImageRequest.swift */,
@@ -257,6 +262,7 @@
 				EB462D351F37860900CFE427 /* Date+Extensions.swift */,
 				EB462D361F37860900CFE427 /* String+Extensions.swift */,
 				EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */,
+				EB03F68A1F3FD7C400C8D26C /* UIStoryboard+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -489,6 +495,7 @@
 				EB462D371F37860900CFE427 /* Date+Extensions.swift in Sources */,
 				EB25290E1F38B154008C2916 /* TatoebaLocalizer.swift in Sources */,
 				EB462D3D1F37861000CFE427 /* ContributionsRequest.swift in Sources */,
+				EB03F68D1F3FD7D600C8D26C /* SentenceRequest.swift in Sources */,
 				EB462D401F37861000CFE427 /* TatoebaRequest.swift in Sources */,
 				EBDB5C581F36823C00BAAEF1 /* HomeViewController.swift in Sources */,
 				EB462D381F37860900CFE427 /* String+Extensions.swift in Sources */,
@@ -498,6 +505,7 @@
 				EB462D421F378B3100CFE427 /* SettingsViewController.swift in Sources */,
 				EB958EB11F3A111D005B9F4B /* SettingsItem.swift in Sources */,
 				EBB5E9CB1F38073400D03E55 /* FlagImageRequest.swift in Sources */,
+				EB03F68B1F3FD7C400C8D26C /* UIStoryboard+Extensions.swift in Sources */,
 				EB462D171F36E98B00CFE427 /* User.swift in Sources */,
 				EB1873EC1F3EBB1A0045891A /* TatoebaUserDefaultsKey.swift in Sources */,
 				EB4BA4F21F3D7CC200D0B687 /* LoadingCell.swift in Sources */,

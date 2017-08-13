@@ -48,7 +48,7 @@ extension TatoebaRequest {
     
     /// The base URL of all requests.
     private var baseURL: String {
-        return "http://198.199.119.246"
+        return "http://localhost:5000"
     }
     
     /// Begins to execute the request.

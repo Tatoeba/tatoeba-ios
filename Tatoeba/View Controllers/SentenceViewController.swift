@@ -21,6 +21,8 @@ class SentenceViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var sentence: Sentence!
     
+    private var wasPresentedModally = false
+    
     // MARK: - Types
     
     private enum SentenceCellType {
@@ -51,6 +53,15 @@ class SentenceViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if isBeingPresented {
+            backButton.setImage(#imageLiteral(resourceName: "Close"), for: .normal)
+            wasPresentedModally = true
+        }
+    }
+    
     // MARK: - Private Methods
     
     private func cell(for indexPath: IndexPath) -> SentenceCellType {
@@ -65,7 +76,11 @@ class SentenceViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - IBActions
     
     @IBAction func backButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        if wasPresentedModally {
+            dismiss(animated: true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     // MARK: - UITableViewDataSource Methods
