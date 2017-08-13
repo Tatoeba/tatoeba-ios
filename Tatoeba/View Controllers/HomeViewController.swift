@@ -42,6 +42,9 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
         return !(searchBar.text?.isEmpty ?? true)
     }
     
+    private var isRefreshing = false
+    private var reachedBottom = false
+    
     private var reachability: Reachability?
     private var selectedSentence: Sentence?
     
@@ -154,7 +157,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     }
     
     private func loadContent(refreshing: Bool) {
-        guard reachability?.isReachable == true else {
+        guard !isRefreshing, !reachedBottom, reachability?.isReachable == true else {
             return
         }
         
@@ -166,12 +169,15 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
             let offset = refreshing ? 0 : sentences.count
             let fromLanguage = TatoebaUserDefaults.string(forKey: .fromLanguage)
             
+            isRefreshing = true
+            
             SentencesRequest(query: searchText, offset: offset, fromLanguage: fromLanguage).start { [weak self] sentences in
                 guard let strongSelf = self else {
                     return
                 }
                 
                 guard let sentences = sentences else {
+                    strongSelf.isRefreshing = false
                     strongSelf.offlineView.isHidden = false
                     strongSelf.startReachability()
                     return
@@ -192,14 +198,23 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
                     strongSelf.offlineView.isHidden = true
                     strongSelf.refreshControl.endRefreshing()
                 }
+                
+                strongSelf.isRefreshing = false
+                
+                if sentences.count < 10 {
+                    strongSelf.reachedBottom = true
+                }
             }
         } else {
+            isRefreshing = true
+            
             ContributionsRequest().start { [weak self] contributions in
                 guard let strongSelf = self else {
                     return
                 }
                 
                 guard let contributions = contributions else {
+                    strongSelf.isRefreshing = false
                     strongSelf.offlineView.isHidden = false
                     strongSelf.startReachability()
                     return
@@ -210,6 +225,12 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
                 
                 strongSelf.offlineView.isHidden = true
                 strongSelf.refreshControl.endRefreshing()
+                
+                strongSelf.isRefreshing = false
+                
+                if contributions.count < 10 {
+                    strongSelf.reachedBottom = true
+                }
             }
         }
     }
@@ -288,10 +309,12 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewData
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        reachedBottom = false
         transition(searching: true)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        reachedBottom = false
         transition(searching: false)
     }
     
