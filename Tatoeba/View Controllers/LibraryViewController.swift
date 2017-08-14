@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LibraryViewController: UIViewController {
+class LibraryViewController: BaseViewController {
     
     // MARK: - Variables
     

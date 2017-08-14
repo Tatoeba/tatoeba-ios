@@ -7,6 +7,7 @@
 //
 
 import CoreSpotlight
+import Fuji
 import UIKit
 
 @UIApplicationMain
@@ -17,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if !TatoebaUserDefaults.bool(forKey: .defaultsConfigured) {
             TatoebaUserDefaults.setDefaultValues()
+        }
+        
+        do {
+            try Fuji.shared.start()
+        } catch {
+            print("Fuji analytics wasn't able to start")
         }
         
         return true

@@ -11,7 +11,7 @@ import CoreSpotlight
 import MobileCoreServices
 import UIKit
 
-class SentenceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SentenceViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
     

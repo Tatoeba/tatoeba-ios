@@ -21,6 +21,7 @@
 		EB2992921F3640AB00B88C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB2992911F3640AB00B88C22 /* Assets.xcassets */; };
 		EB2992A01F3640AB00B88C22 /* TatoebaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB29929F1F3640AB00B88C22 /* TatoebaTests.swift */; };
 		EB2992AB1F3640AB00B88C22 /* TatoebaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2992AA1F3640AB00B88C22 /* TatoebaUITests.swift */; };
+		EB32358A1F416EAE005E6068 /* Fuji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3235891F416EAE005E6068 /* Fuji.framework */; };
 		EB462D0C1F36DF3F00CFE427 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB462D0B1F36DF3F00CFE427 /* Alamofire.framework */; };
 		EB462D0E1F36DF4900CFE427 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB462D0D1F36DF4900CFE427 /* SwiftyJSON.framework */; };
 		EB462D171F36E98B00CFE427 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D161F36E98B00CFE427 /* User.swift */; };
@@ -33,6 +34,8 @@
 		EB462D421F378B3100CFE427 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D411F378B3100CFE427 /* SettingsViewController.swift */; };
 		EB462D461F379B4400CFE427 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */; };
 		EB4BA4F21F3D7CC200D0B687 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4BA4F11F3D7CC200D0B687 /* LoadingCell.swift */; };
+		EB8A91481F4174C900A7D3C4 /* Fuji-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB8A91471F4174C900A7D3C4 /* Fuji-Info.plist */; };
+		EB8A914A1F41755000A7D3C4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A91491F41755000A7D3C4 /* BaseViewController.swift */; };
 		EB958EB11F3A111D005B9F4B /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB958EB01F3A111D005B9F4B /* SettingsItem.swift */; };
 		EB9F29161F3FEC8700CB21AE /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9F29151F3FEC8700CB21AE /* LibrariesViewController.swift */; };
 		EB9F29191F3FEF3600CB21AE /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9F29181F3FEF3600CB21AE /* LibraryViewController.swift */; };
@@ -94,6 +97,7 @@
 		EB2992A61F3640AB00B88C22 /* TatoebaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TatoebaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2992AA1F3640AB00B88C22 /* TatoebaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TatoebaUITests.swift; sourceTree = "<group>"; };
 		EB2992AC1F3640AB00B88C22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB3235891F416EAE005E6068 /* Fuji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fuji.framework; path = Carthage/Build/iOS/Fuji.framework; sourceTree = "<group>"; };
 		EB462D0B1F36DF3F00CFE427 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EB462D0D1F36DF4900CFE427 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		EB462D161F36E98B00CFE427 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		EB462D411F378B3100CFE427 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "View Controllers/SettingsViewController.swift"; sourceTree = "<group>"; };
 		EB462D451F379B4400CFE427 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "Common/Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		EB4BA4F11F3D7CC200D0B687 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingCell.swift; path = Views/LoadingCell.swift; sourceTree = "<group>"; };
+		EB8A91471F4174C900A7D3C4 /* Fuji-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Fuji-Info.plist"; sourceTree = "<group>"; };
+		EB8A91491F41755000A7D3C4 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EB958EB01F3A111D005B9F4B /* SettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsItem.swift; path = Models/SettingsItem.swift; sourceTree = "<group>"; };
 		EB9F29151F3FEC8700CB21AE /* LibrariesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibrariesViewController.swift; path = "View Controllers/LibrariesViewController.swift"; sourceTree = "<group>"; };
 		EB9F29181F3FEF3600CB21AE /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = "View Controllers/LibraryViewController.swift"; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB32358A1F416EAE005E6068 /* Fuji.framework in Frameworks */,
 				EB19B2531F3B556400D0D954 /* Reachability.framework in Frameworks */,
 				EB462D0E1F36DF4900CFE427 /* SwiftyJSON.framework in Frameworks */,
 				EB462D0C1F36DF3F00CFE427 /* Alamofire.framework in Frameworks */,
@@ -233,6 +240,7 @@
 		EB462D0A1F36DF3F00CFE427 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB3235891F416EAE005E6068 /* Fuji.framework */,
 				EB19B2521F3B556400D0D954 /* Reachability.framework */,
 				EB462D0D1F36DF4900CFE427 /* SwiftyJSON.framework */,
 				EB462D0B1F36DF3F00CFE427 /* Alamofire.framework */,
@@ -297,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				EBDB5C521F3681D900BAAEF1 /* AppDelegate.swift */,
+				EB8A91471F4174C900A7D3C4 /* Fuji-Info.plist */,
 				EBDB5C591F36825C00BAAEF1 /* Info.plist */,
 				EBDB5C5A1F36825C00BAAEF1 /* LaunchScreen.storyboard */,
 				EBDB5C5B1F36825C00BAAEF1 /* Main.storyboard */,
@@ -307,6 +316,7 @@
 		EBDB5C541F36820C00BAAEF1 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB8A91491F41755000A7D3C4 /* BaseViewController.swift */,
 				EBDB5C571F36823C00BAAEF1 /* HomeViewController.swift */,
 				EB462D411F378B3100CFE427 /* SettingsViewController.swift */,
 				EB9F29151F3FEC8700CB21AE /* LibrariesViewController.swift */,
@@ -454,6 +464,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB8A91481F4174C900A7D3C4 /* Fuji-Info.plist in Resources */,
 				EBDB5C5D1F36825C00BAAEF1 /* LaunchScreen.storyboard in Resources */,
 				EB2529141F38B17E008C2916 /* Localizable.strings in Resources */,
 				EB9F291C1F3FF0EA00CB21AE /* Languages.plist in Resources */,
@@ -490,11 +501,13 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Fuji.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Reachability.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Fuji.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -512,6 +525,7 @@
 				EBDB5C651F36903400BAAEF1 /* ContributionCell.swift in Sources */,
 				EB462D461F379B4400CFE427 /* UIColor+Extensions.swift in Sources */,
 				EB1873F21F3ECF470045891A /* Language.swift in Sources */,
+				EB8A914A1F41755000A7D3C4 /* BaseViewController.swift in Sources */,
 				EBB5E9CD1F38074600D03E55 /* Sentence.swift in Sources */,
 				EBDB5C531F3681D900BAAEF1 /* AppDelegate.swift in Sources */,
 				EB462D371F37860900CFE427 /* Date+Extensions.swift in Sources */,

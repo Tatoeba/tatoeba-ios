@@ -13,7 +13,7 @@ struct Choice {
     let name: String
 }
 
-class ChoiceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ChoiceViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Variables
     

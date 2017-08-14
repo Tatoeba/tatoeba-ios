@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FilterViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Constants
     

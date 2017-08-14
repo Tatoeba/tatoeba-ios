@@ -9,7 +9,7 @@
 import SafariServices
 import UIKit
 
-class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SettingsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Constants
     

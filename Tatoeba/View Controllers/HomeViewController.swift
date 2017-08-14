@@ -9,7 +9,7 @@
 import Reachability
 import UIKit
 
-class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
+class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Constants
     

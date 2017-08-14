@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LibrariesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class LibrariesViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Constants
     
