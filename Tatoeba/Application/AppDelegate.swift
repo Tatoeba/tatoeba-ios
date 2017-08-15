@@ -20,10 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             TatoebaUserDefaults.setDefaultValues()
         }
         
-        do {
-            try Fuji.shared.start()
-        } catch {
-            print("Fuji analytics wasn't able to start")
+        if TatoebaUserDefaults.bool(forKey: .sendAnonymousUsageData) {
+            do {
+                try Fuji.shared.start()
+            } catch {
+                print("Fuji analytics wasn't able to start")
+            }
         }
         
         return true

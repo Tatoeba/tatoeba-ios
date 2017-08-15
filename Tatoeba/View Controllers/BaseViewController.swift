@@ -16,6 +16,10 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        guard TatoebaUserDefaults.bool(forKey: .sendAnonymousUsageData) else {
+            return
+        }
+        
         let name: String
         
         if self is HomeViewController {
