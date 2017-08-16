@@ -7,6 +7,7 @@
 //
 
 import Reachability
+import StoreKit
 import UIKit
 
 class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
@@ -95,6 +96,15 @@ class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDa
         filterButton.setImage(isFilterApplied ? #imageLiteral(resourceName: "Filter Filled") : #imageLiteral(resourceName: "Filter"), for: .normal)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Prompt for a review if the user has used the app at least three times and they just searched for a sentence
+        if #available(iOS 10.3, *), TatoebaUserDefaults.integer(forKey: .appLaunches) >= 3, selectedSentence != nil {
+            SKStoreReviewController.requestReview()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sentenceController = segue.destination as? SentenceViewController {
             guard let sentence = selectedSentence else {
@@ -102,7 +112,6 @@ class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDa
             }
             
             sentenceController.sentence = sentence
-            selectedSentence = nil
         }
     }
     

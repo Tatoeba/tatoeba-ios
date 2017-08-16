@@ -7,7 +7,11 @@
 //
 
 enum TatoebaUserDefaultsKey: String {
+    // App settings
     case defaultsConfigured
+    case appLaunches
+    
+    // User settings
     case sendAnonymousUsageData
     case fromLanguage
     case toLanguage

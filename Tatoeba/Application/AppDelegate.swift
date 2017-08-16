@@ -16,10 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Set default values on first app launch
         if !TatoebaUserDefaults.bool(forKey: .defaultsConfigured) {
             TatoebaUserDefaults.setDefaultValues()
         }
         
+        // Start Fuji if the user allows anonymous tracking
         if TatoebaUserDefaults.bool(forKey: .sendAnonymousUsageData) {
             do {
                 try Fuji.shared.start()
@@ -27,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Fuji analytics wasn't able to start")
             }
         }
+        
+        // Add one to number of app launches
+        let appLaunches = TatoebaUserDefaults.integer(forKey: .appLaunches) + 1
+        TatoebaUserDefaults.set(appLaunches, forKey: .appLaunches)
         
         return true
     }
