@@ -99,10 +99,12 @@ class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDa
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        #if RELEASE
         // Prompt for a review if the user has used the app at least three times and they just searched for a sentence
         if #available(iOS 10.3, *), TatoebaUserDefaults.integer(forKey: .appLaunches) >= 3, selectedSentence != nil {
             SKStoreReviewController.requestReview()
         }
+        #endif
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
