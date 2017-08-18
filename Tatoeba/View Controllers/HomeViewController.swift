@@ -30,10 +30,6 @@ class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDa
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var offlineView: UIView!
-    @IBOutlet weak var offlineImageView: UIImageView!
-    @IBOutlet weak var offlineLabel: UILabel!
-    
     private let refreshControl = UIRefreshControl()
     
     private var contributions = [Contribution]()
@@ -84,9 +80,6 @@ class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDa
         tableView.insertSubview(refreshControl, at: 0)
         
         loadContent(refreshing: true)
-        
-        offlineImageView.tintColor = UIColor(white: 9 / 16, alpha: 1)
-        offlineLabel.textColor = UIColor(white: 9 / 16, alpha: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -189,7 +182,6 @@ class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDa
                 
                 guard let sentences = sentences else {
                     strongSelf.isRefreshing = false
-                    strongSelf.offlineView.isHidden = false
                     strongSelf.startReachability()
                     return
                 }
@@ -206,7 +198,6 @@ class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDa
                 strongSelf.tableView.reloadData()
                 
                 if refreshing {
-                    strongSelf.offlineView.isHidden = true
                     strongSelf.refreshControl.endRefreshing()
                 }
                 
@@ -226,15 +217,12 @@ class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDa
                 
                 guard let contributions = contributions else {
                     strongSelf.isRefreshing = false
-                    strongSelf.offlineView.isHidden = false
                     strongSelf.startReachability()
                     return
                 }
                 
                 strongSelf.contributions = contributions.filter({ $0.type == "sentence" })
                 strongSelf.tableView.reloadData()
-                
-                strongSelf.offlineView.isHidden = true
                 strongSelf.refreshControl.endRefreshing()
                 
                 strongSelf.isRefreshing = false
@@ -256,23 +244,12 @@ class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDa
             return
         }
         
-        reachability.whenReachable = { [weak self] reachability in
-            DispatchQueue.main.async {
-                guard let strongSelf = self else {
-                    return
-                }
-                
-                strongSelf.offlineView.isHidden = true
-            }
-        }
-        
         reachability.whenUnreachable = { [weak self] reachability in
             DispatchQueue.main.async {
                 guard let strongSelf = self else {
                     return
                 }
                 
-                strongSelf.offlineView.isHidden = false
                 strongSelf.loadContent(refreshing: true)
             }
         }

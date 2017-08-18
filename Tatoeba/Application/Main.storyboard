@@ -117,31 +117,6 @@
                                     <constraint firstAttribute="height" constant="1" id="2sd-ev-Me9"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLu-Qu-xoK">
-                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Offline" translatesAutoresizingMaskIntoConstraints="NO" id="LIO-Nm-BOo">
-                                        <rect key="frame" x="115" y="149.5" width="144" height="144"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="LIO-Nm-BOo" secondAttribute="height" multiplier="1:1" id="fNJ-UM-Jui"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your internet connection appears to be offline. Please try again later." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wf1-OV-lnl">
-                                        <rect key="frame" x="48" y="309.5" width="279" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="wf1-OV-lnl" secondAttribute="trailing" constant="48" id="5MM-Yn-6lU"/>
-                                    <constraint firstItem="LIO-Nm-BOo" firstAttribute="centerY" secondItem="TLu-Qu-xoK" secondAttribute="centerY" constant="-56" id="Eam-IY-6Ec"/>
-                                    <constraint firstItem="LIO-Nm-BOo" firstAttribute="centerX" secondItem="TLu-Qu-xoK" secondAttribute="centerX" id="Sga-RU-cUL"/>
-                                    <constraint firstItem="wf1-OV-lnl" firstAttribute="leading" secondItem="TLu-Qu-xoK" secondAttribute="leading" constant="48" id="bKz-5Y-44C"/>
-                                    <constraint firstItem="wf1-OV-lnl" firstAttribute="top" secondItem="LIO-Nm-BOo" secondAttribute="bottom" constant="16" id="bb8-hk-HcB"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="140" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="iAJ-FR-0eT">
                                 <rect key="frame" x="0.0" y="112" width="375" height="555"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -280,7 +255,7 @@
                                             <outlet property="titleLabel" destination="nix-GO-Sa6" id="KQU-Y8-Uu0"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" rowHeight="52" id="X1N-at-0qf" customClass="LoadingCell" customModule="Tatoeba" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" rowHeight="52" id="X1N-at-0qf" customClass="LoadingCell" customModule="Tatoeba" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="259.5" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X1N-at-0qf" id="jdh-nl-cfP">
@@ -288,7 +263,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UOz-lg-wtw">
-                                                    <rect key="frame" x="177" y="16" width="20" height="20"/>
+                                                    <rect key="frame" x="177.5" y="16" width="20" height="20"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <constraints>
@@ -308,17 +283,13 @@
                             <constraint firstAttribute="trailing" secondItem="iAJ-FR-0eT" secondAttribute="trailing" id="1IG-3h-doq"/>
                             <constraint firstItem="iAJ-FR-0eT" firstAttribute="leading" secondItem="xFb-d6-2W1" secondAttribute="leading" id="1MO-cS-CWG"/>
                             <constraint firstAttribute="trailing" secondItem="Pkw-ZL-aO4" secondAttribute="trailing" id="4Kc-k6-bdu"/>
-                            <constraint firstItem="TLu-Qu-xoK" firstAttribute="leading" secondItem="xFb-d6-2W1" secondAttribute="leading" id="9qo-6l-x7b"/>
-                            <constraint firstItem="TLu-Qu-xoK" firstAttribute="top" secondItem="Pkw-ZL-aO4" secondAttribute="bottom" id="Cda-xY-eGw"/>
                             <constraint firstItem="Pkw-ZL-aO4" firstAttribute="leading" secondItem="xFb-d6-2W1" secondAttribute="leading" id="QEU-tb-vBm"/>
                             <constraint firstItem="iAJ-FR-0eT" firstAttribute="top" secondItem="Pkw-ZL-aO4" secondAttribute="bottom" id="ReR-Uj-3fU"/>
-                            <constraint firstItem="EkG-Je-Kpo" firstAttribute="top" secondItem="TLu-Qu-xoK" secondAttribute="bottom" id="XJJ-2f-Uxf"/>
                             <constraint firstAttribute="trailing" secondItem="CYe-yV-Mb2" secondAttribute="trailing" id="Yy9-wC-zUb"/>
                             <constraint firstItem="CYe-yV-Mb2" firstAttribute="leading" secondItem="xFb-d6-2W1" secondAttribute="leading" id="eIt-1X-Nmx"/>
                             <constraint firstItem="CYe-yV-Mb2" firstAttribute="top" secondItem="xFb-d6-2W1" secondAttribute="top" id="tFR-fB-gyW"/>
                             <constraint firstItem="EkG-Je-Kpo" firstAttribute="top" secondItem="iAJ-FR-0eT" secondAttribute="bottom" id="wff-jA-WE7"/>
                             <constraint firstItem="Pkw-ZL-aO4" firstAttribute="top" secondItem="CYe-yV-Mb2" secondAttribute="bottom" id="xIz-PU-mMi"/>
-                            <constraint firstAttribute="trailing" secondItem="TLu-Qu-xoK" secondAttribute="trailing" id="zZN-aZ-K91"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mJz-HM-dGj"/>
@@ -327,9 +298,6 @@
                         <outlet property="logoImage" destination="FAs-yJ-UK5" id="kql-eI-3e6"/>
                         <outlet property="navigationBar" destination="CYe-yV-Mb2" id="qXB-FY-9bu"/>
                         <outlet property="navigationBarHeightConstraint" destination="7F4-94-Hf4" id="PZf-jS-IzH"/>
-                        <outlet property="offlineImageView" destination="LIO-Nm-BOo" id="oQn-S5-8vj"/>
-                        <outlet property="offlineLabel" destination="wf1-OV-lnl" id="gEG-Oz-UXF"/>
-                        <outlet property="offlineView" destination="TLu-Qu-xoK" id="veE-mM-IW5"/>
                         <outlet property="searchBar" destination="RL0-6B-JyY" id="iIS-lb-jnZ"/>
                         <outlet property="searchBarTrailingConstraint" destination="uUw-t1-5VP" id="qif-Yf-iYc"/>
                         <outlet property="settingsButton" destination="SKt-GO-PTn" id="Pdw-LU-joK"/>
@@ -1158,7 +1126,6 @@
         <image name="Close" width="24" height="24"/>
         <image name="Down" width="24" height="24"/>
         <image name="Filter" width="24" height="24"/>
-        <image name="Offline" width="144" height="144"/>
         <image name="Settings" width="24" height="24"/>
         <image name="Tatoeba" width="72" height="72"/>
         <image name="Trash" width="24" height="24"/>
