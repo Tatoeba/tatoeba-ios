@@ -35,15 +35,26 @@ for F in Localization/Source/*; do
     # If line begins with msgstr, save the string between the quotes
     elif [[ $line == msgstr* ]]; then
       linestr=$(echo $line | awk -F'"' '{print $2}')
+    # If the line begins with an apostrophe, it is an extension of the last
+    # translation that was started with a msgstr line
+    elif [[ $line == \"* ]]; then
+      linestr=$linestr$(echo $line | awk -F'"' '{print $2}')
     fi
     
-    # If both lineid and linestr are defined, print them to the .strings file
-    if [ ! -z "$lineid" ] && [ ! -z "$linestr" ]; then
+    # If this line is blank and lineid isn't blank (first entry in the file),
+    # print them to the .strings file
+    if [ -z "$line" ] && [ ! -z "$lineid" ]; then
       echo "\"$lineid\" = \"$linestr\";" >> Localization/$id.lproj/Localizable.strings
       lineid=
       linestr=
     fi
   done <"${F}"
+  
+  # Since the last line in the .po files isn't a newline, this adds the final
+  # entry to the .strings file
+  echo "\"$lineid\" = \"$linestr\";" >> Localization/$id.lproj/Localizable.strings
+  lineid=
+  linestr=
   
   echo "Done!"
   
