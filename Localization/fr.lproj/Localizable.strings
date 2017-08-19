@@ -21,6 +21,8 @@
 "Settings_Usage_Data" = "Envoyer des données d'utilisation";
 "Settings_Terms_Footer" = "Permettre à Tatoeba de rassembler des informations anonymes sur votre utilisation de l'application, pour améliorer l'application.";
 "Settings_About_Header" = "Informations";
-"Settings_Open_Source" = "Bibliothèques open source";
+"Settings_Rate" = "Évaluer Tatoeba";
+"Settings_Feedback" = "Envoyer des commentaires";
+"Settings_Open_Source" = "Licenses open source";
 "Settings_Version" = "Version";
 "Settings_Open_Source_Header" = "Open Source";

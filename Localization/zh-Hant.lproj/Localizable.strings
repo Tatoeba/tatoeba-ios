@@ -21,6 +21,8 @@
 "Settings_Usage_Data" = "傳送使用數據";
 "Settings_Terms_Footer" = "允許Tatoeba用匿名收集有關如何使用這個應用程式讓這個程式越來越好。";
 "Settings_About_Header" = "關於";
-"Settings_Open_Source" = "打開源庫";
+"Settings_Rate" = "給與Tatoeba評價";
+"Settings_Feedback" = "給與意見";
+"Settings_Open_Source" = "開源證照";
 "Settings_Version" = "版本";
 "Settings_Open_Source_Header" = "開源";
