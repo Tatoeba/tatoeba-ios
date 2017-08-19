@@ -31,7 +31,17 @@ extension UIColor {
         return UIColor(red: 0, green: 150/255, blue: 136/255, alpha: 1)
     }
     
-    /// Blue color used for the "Open source libraries" setting.
+    /// Yellow color used for the "Rate Tatoeba" setting.
+    static var rateYellow: UIColor {
+        return UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
+    }
+    
+    /// Green color used for the "Send feedback" setting.
+    static var feedbackGreen: UIColor {
+        return UIColor(red: 67/255, green: 160/255, blue: 71/255, alpha: 1)
+    }
+    
+    /// Blue color used for the "Licenses" setting.
     static var openSourceBlue: UIColor {
         return UIColor(red: 3/255, green: 155/255, blue: 229/255, alpha: 1)
     }

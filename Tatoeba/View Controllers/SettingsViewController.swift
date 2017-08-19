@@ -25,6 +25,8 @@ class SettingsViewController: BaseViewController, UITableViewDataSource, UITable
         ],
         [
             .header(TatoebaLocalizer.localize("Settings_About_Header")),
+            .cell(.rateTatoeba),
+            .cell(.sendFeedback),
             .cell(.thirdPartyNotices),
             .cell(.version)
         ]

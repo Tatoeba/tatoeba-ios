@@ -78,8 +78,14 @@ msgstr "Allow Tatoeba to collect anonymous information about how you use the app
 msgid "Settings_About_Header"
 msgstr "About"
 
+msgid "Settings_Rate"
+msgstr "Rate Tatoeba"
+
+msgid "Settings_Feedback"
+msgstr "Send Feedback"
+
 msgid "Settings_Open_Source"
-msgstr "Open source libraries"
+msgstr "Licenses"
 
 msgid "Settings_Version"
 msgstr "Version"

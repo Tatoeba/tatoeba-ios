@@ -68,6 +68,10 @@ struct SettingsCellModel: Equatable {
     
     static let termsOfUse = SettingsCellModel(color: .termsGray, icon: #imageLiteral(resourceName: "Text"), text: TatoebaLocalizer.localize("Settings_Terms"), type: .external)
     
+    static let rateTatoeba = SettingsCellModel(color: .rateYellow, icon: #imageLiteral(resourceName: "Star"), text: TatoebaLocalizer.localize("Settings_Rate"), type: .external)
+    
+    static let sendFeedback = SettingsCellModel(color: .feedbackGreen, icon: #imageLiteral(resourceName: "Message"), text: TatoebaLocalizer.localize("Settings_Feedback"), type: .external)
+    
     static let thirdPartyNotices = SettingsCellModel(color: .openSourceBlue, icon: #imageLiteral(resourceName: "Modules"), text: TatoebaLocalizer.localize("Settings_Open_Source"), type: .push)
     
     static let version = SettingsCellModel(color: .white, icon: #imageLiteral(resourceName: "Tatoeba"), text: TatoebaLocalizer.localize("Settings_Version"), type: .text("1.0"))
