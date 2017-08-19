@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Stop execution if an API key wasn't provided
+if [ -z "$1" ]; then
+  echo "You must pass your Transifex API key as an argument."
+  echo "e.g. ./scripts/download_loc your_api_key_goes_here"
+  echo ""
+  echo "API keys can be generated at https://www.transifex.com/user/settings/api/"
+  exit
+fi
+
+# Clear all existing source files, we're about to write new strings to these
+printf "Clearing existing source files... "
+rm Localization/Source/*.po
+echo "Done!"
+
+# Define all language codes that we're downloading from Transifex
+LANGUAGES=(en fr zh_TW)
+
+# Loop through language codes and download their files to the Source directory
+for id in "${LANGUAGES[@]}"
+do
+  printf "Downloading strings for $id... "
+  curl -o Localization/Source/strings_$id.po \
+       -u api:$1 \
+       -s https://www.transifex.com/api/2/project/tatoeba-ios/resource/stringspo/translation/$id/?file
+  echo "Done!"
+done
