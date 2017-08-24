@@ -1,4 +1,4 @@
 github "Alamofire/Alamofire" ~> 4.5
-github "fujicloud/FujiAnalytics" ~> 0.1
+github "fujicloud/FujiAnalytics" ~> 0.3
 github "SwiftyJSON/SwiftyJSON" ~> 3.1
 github "ashleymills/Reachability.swift" ~> 3.0
