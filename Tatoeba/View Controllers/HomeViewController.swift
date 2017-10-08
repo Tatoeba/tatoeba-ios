@@ -282,7 +282,7 @@ class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDa
     
     // MARK: - IBActions
     
-    func refreshControlPulled(_ sender: Any) {
+    @objc func refreshControlPulled(_ sender: Any) {
         loadContent(refreshing: true)
     }
     

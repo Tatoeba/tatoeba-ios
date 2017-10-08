@@ -19,7 +19,7 @@ extension String {
     /// - Returns: The width that should be given to the string.
     func width(forMaxHeight height: CGFloat, withFont font: UIFont) -> CGFloat {
         let size = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let attributes = [NSFontAttributeName: font]
+        let attributes: [NSAttributedStringKey: Any] = [.font: font]
         let boundingRect = (self as NSString).boundingRect(with: size, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: attributes, context: nil)
         return ceil(boundingRect.size.width)
     }
@@ -32,7 +32,7 @@ extension String {
     /// - Returns: The height that should be given to the string.
     func height(forMaxWidth width: CGFloat, withFont font: UIFont) -> CGFloat {
         let size = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let attributes = [NSFontAttributeName: font]
+        let attributes: [NSAttributedStringKey: Any] = [.font: font]
         let boundingRect = (self as NSString).boundingRect(with: size, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: attributes, context: nil)
         return ceil(boundingRect.size.height)
     }
