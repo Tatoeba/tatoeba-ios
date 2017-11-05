@@ -29,7 +29,7 @@ class ChoiceViewController: BaseViewController, UITableViewDataSource, UITableVi
             var letters = [String]()
             
             for value in values {
-                guard let firstCharacter = value.name.characters.first else {
+                guard let firstCharacter = value.name.first else {
                     continue
                 }
                 
