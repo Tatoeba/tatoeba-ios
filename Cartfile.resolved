@@ -1,4 +1,4 @@
-github "Alamofire/Alamofire" "4.5.1"
-github "SwiftyJSON/SwiftyJSON" "3.1.4"
-github "ashleymills/Reachability.swift" "v3.0"
+github "Alamofire/Alamofire" "4.7.2"
+github "SwiftyJSON/SwiftyJSON" "4.1.0"
+github "ashleymills/Reachability.swift" "v4.1.0"
 github "fujicloud/FujiAnalytics" "0.3"

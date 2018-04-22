@@ -161,7 +161,7 @@ class HomeViewController: BaseViewController, UISearchBarDelegate, UITableViewDa
     }
     
     private func loadContent(refreshing: Bool) {
-        guard !isRefreshing, !reachedBottom, reachability?.isReachable == true else {
+        guard !isRefreshing, !reachedBottom, reachability?.connection != .none else {
             return
         }
         
